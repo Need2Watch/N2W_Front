@@ -2,7 +2,8 @@
     border-radius: 0px;
     margin-bottom: 20px;
     cursor: pointer;
-    z-index: 3;
+    max-width: 182px;
+    max-height: 269px;
   }
   .card-cinema-card:hover {
     box-shadow: 0 0 15px 0 black, 0 0 2px 0 rgba(40, 44, 53, 0.06);
@@ -18,10 +19,10 @@
   }
 
   .card-footer {
+    border-radius: 0px;
     width: 100%;
     position: absolute;
     bottom: 0;
-    padding: 0.44rem 0.94rem;
     border-color: #203e68;
     background: linear-gradient(180deg, #1b2636 0%, #203e68 100%);
     visibility: visible;
