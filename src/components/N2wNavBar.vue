@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-toolbar color="transparent" app>
-      <v-toolbar-items>
+    <v-toolbar color="transparent" dark fixed app>
+      <v-toolbar-items class="hidden-xs-only">
         <a
           href="https://need2watch.com"
           aria-label="Need2Watch Home Page"
@@ -36,9 +36,11 @@
           ></v-autocomplete>
         </v-card-text>
         <v-spacer></v-spacer>
-        <v-avatar color="#fbc500" style="margin-top:0.5%">
-          <v-icon color="black">mdi-calendar</v-icon>
-        </v-avatar>
+        <a href="/" class="d-sm-flex align-center">
+          <v-avatar color="#fbc500" style="margin-top:0.5%">
+            <v-icon color="black">mdi-calendar</v-icon>
+          </v-avatar>
+        </a>
         <v-card color="transparent" style="padding-top: 0.5%">
           <v-list-item href="https://need2watch.com">
             <v-avatar color="grey" size="50" style="margin-right:10px">
