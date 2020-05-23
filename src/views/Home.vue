@@ -1,17 +1,17 @@
 <template>
   <div>
-    <n2w-carousel></n2w-carousel>
+    <n2w-cinema-card></n2w-cinema-card>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 
-import N2wCarousel from '../components/N2wCarousel.vue'
+import N2wCinemaCard from '../components/N2wCinemaCard.vue'
 export default {
   name: 'Home',
   components: {
-    N2wCarousel,
+    N2wCinemaCard,
   }
 };
 </script>
