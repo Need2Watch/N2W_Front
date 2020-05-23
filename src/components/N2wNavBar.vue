@@ -2,16 +2,24 @@
   <div>
     <v-navigation-drawer color="transparent" disable-resize-watcher v-model="sidebar" app>
       <v-list>
-        <v-list-item v-for="item in menuItems" :key="item.title" :to="item.path">
+        <v-list-item href="/" class="side-bar-profile">
+          <v-avatar size="50" class="nav-bar-avatar">
+            <v-img src="../assets/img/avatar.jpg"></v-img>
+          </v-avatar>
+          <v-list-item-title class="headline">My Profile</v-list-item-title>
+        </v-list-item>
+        <v-divider></v-divider>
+        <v-list-item v-for="item in sidebarItems" :key="item.title" :to="item.path">
           <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>{{ item.title }}</v-list-item-content>
         </v-list-item>
       </v-list>
+
       <template v-slot:append>
         <div class="pa-2">
-          <v-btn block>Logout</v-btn>
+          <v-btn color="#fbc500" class="black--text" block>Logout</v-btn>
         </div>
       </template>
     </v-navigation-drawer>
@@ -94,7 +102,18 @@ export default {
     return {
       sidebar: false,
       menuItems: [
-        { title: "Movies", path: "https://www.twitter.com", icon: "mdi-movie" },
+        { title: "Movies", path: "/about", icon: "mdi-movie" },
+        { title: "TV Series", path: "/home", icon: "mdi-television-classic" },
+        { title: "Top Rated", path: "/", icon: "mdi-star-outline" },
+        { title: "Contact Us", path: "/", icon: "mdi-email-outline" }
+      ],
+      sidebarItems: [
+        {
+          title: "Calendar",
+          path: "https://www.twitter.com",
+          icon: "mdi-calendar"
+        },
+        { title: "Movies", path: "/about", icon: "mdi-movie" },
         { title: "TV Series", path: "/", icon: "mdi-television-classic" },
         { title: "Top Rated", path: "/", icon: "mdi-star-outline" },
         { title: "Contact Us", path: "/", icon: "mdi-email-outline" }
