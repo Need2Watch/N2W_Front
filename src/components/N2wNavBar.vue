@@ -29,20 +29,13 @@
         <v-app-bar-nav-icon @click="sidebar = !sidebar"></v-app-bar-nav-icon>
       </span>
       <v-toolbar-items>
-        <div class="hidden-md-and-down d-md-flex align-center n2w-logo-div">
-          <a
-            href="https://need2watch.com"
-            aria-label="Need2Watch Home Page"
-            title="Need2Watch Home Page"
-            class="a-logo"
-          >
-            <v-img
-              aria-label="Need2WatchLogo"
-              src="../assets/img/logo.png"
-              to="https://stackoverflow.com/questions/55779555/vuetify-create-image-that-links-to-another-page"
-            ></v-img>
-          </a>
-        </div>
+        <router-link to="/" class="hidden-md-and-down d-md-flex align-center n2w-logo">
+          <v-img
+            aria-label="Need2WatchLogo"
+            src="../assets/img/logo.png"
+            to="https://stackoverflow.com/questions/55779555/vuetify-create-image-that-links-to-another-page"
+          ></v-img>
+        </router-link>
         <v-btn
           class="hidden-sm-and-down"
           color="transparent"
@@ -92,40 +85,40 @@
 </template>
 
 <script>
-import N2wSearchBar from "./N2wSearchBar";
+import N2wSearchBar from './N2wSearchBar';
 export default {
-  name: "N2wNavBar",
+  name: 'N2wNavBar',
   components: {
-    N2wSearchBar
+    N2wSearchBar,
   },
   data() {
     return {
       sidebar: false,
       menuItems: [
-        { title: "Movies", path: "/about", icon: "mdi-movie" },
-        { title: "TV Series", path: "/home", icon: "mdi-television-classic" },
-        { title: "Top Rated", path: "/", icon: "mdi-star-outline" },
-        { title: "Contact Us", path: "/", icon: "mdi-email-outline" }
+        { title: 'Movies', path: '/', icon: 'mdi-movie' },
+        { title: 'TV Series', path: '/', icon: 'mdi-television-classic' },
+        { title: 'Top Rated', path: '/', icon: 'mdi-star-outline' },
+        { title: 'Contact Us', path: '/contactUs', icon: 'mdi-email-outline' },
       ],
       sidebarItems: [
         {
-          title: "Calendar",
-          path: "https://www.twitter.com",
-          icon: "mdi-calendar"
+          title: 'Calendar',
+          path: 'https://www.twitter.com',
+          icon: 'mdi-calendar',
         },
-        { title: "Movies", path: "/about", icon: "mdi-movie" },
-        { title: "TV Series", path: "/", icon: "mdi-television-classic" },
-        { title: "Top Rated", path: "/", icon: "mdi-star-outline" },
-        { title: "Contact Us", path: "/", icon: "mdi-email-outline" }
+        { title: 'Movies', path: '/', icon: 'mdi-movie' },
+        { title: 'TV Series', path: '/', icon: 'mdi-television-classic' },
+        { title: 'Top Rated', path: '/', icon: 'mdi-star-outline' },
+        { title: 'Contact Us', path: '/contactUs', icon: 'mdi-email-outline' },
       ],
       items: [
-        { title: "Edit Profile", path: "/" },
-        { title: "Log Out", path: "/" }
-      ]
+        { title: 'Edit Profile', path: '/' },
+        { title: 'Log Out', path: '/' },
+      ],
     };
-  }
+  },
 };
 </script>
 <style scoped>
-@import "../assets/styles/N2wNavBar.css";
+@import '../assets/styles/N2wNavBar.css';
 </style>
