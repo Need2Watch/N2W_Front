@@ -9,6 +9,11 @@
           <v-list-item-content>{{ item.title }}</v-list-item-content>
         </v-list-item>
       </v-list>
+      <template v-slot:append>
+        <div class="pa-2">
+          <v-btn block>Logout</v-btn>
+        </div>
+      </template>
     </v-navigation-drawer>
 
     <v-toolbar color="transparent" dark fixed app>
@@ -47,7 +52,7 @@
       </v-toolbar-items>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-card-text class="hidden-sm-and-down">
+        <v-card-text>
           <v-autocomplete
             :items="items"
             :loading="isLoading"
@@ -61,22 +66,31 @@
             return-object
           ></v-autocomplete>
         </v-card-text>
-        <a
-          href="https://need2watch.com"
-          style="text-decoration:none"
-          class="d-sm-flex align-center"
-        >
-          <v-avatar color="#fbc500" style="margin-top:0.5%">
-            <v-icon color="black">mdi-calendar</v-icon>
-          </v-avatar>
+        <a href="/" style="text-decoration:none" class="d-md-flex align-center hidden-md-and-down">
+          <v-icon transparent size="40">mdi-calendar</v-icon>
         </a>
-        <v-card class="transparent d-sm-flex align-center">
-          <v-list-item href="https://need2watch.com">
+        <v-card flat class="transparent d-md-flex align-center hidden-md-and-down">
+          <v-list-item href="/">
             <v-avatar size="50" style="margin-right:10px">
               <v-img src="../assets/avatar.jpg"></v-img>
             </v-avatar>
             <v-list-item-title class="headline">Francis Molina</v-list-item-title>
           </v-list-item>
+          <v-menu bottom left offset-y>
+            <template v-slot:activator="{ on }">
+              <v-btn dark icon v-on="on">
+                <v-icon>mdi-chevron-down</v-icon>
+              </v-btn>
+            </template>
+
+            <v-list>
+              <v-list-item v-for="(item, i) in items" :key="i" @click="_">
+                <a :href="item.path" style="text-decoration: none; color: white">
+                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                </a>
+              </v-list-item>
+            </v-list>
+          </v-menu>
         </v-card>
       </v-toolbar-items>
     </v-toolbar>
@@ -90,10 +104,14 @@ export default {
     return {
       sidebar: false,
       menuItems: [
-        { title: "Movies", path: "/home", icon: "mdi-movie" },
+        { title: "Movies", path: "https://www.twitter.com", icon: "mdi-movie" },
         { title: "TV Series", path: "/", icon: "mdi-television-classic" },
         { title: "Top Rated", path: "/", icon: "mdi-star-outline" },
         { title: "Contact Us", path: "/", icon: "mdi-email-outline" }
+      ],
+      items: [
+        { title: "Edit Profile", path: "/" },
+        { title: "Log Out", path: "/" }
       ]
     };
   }
