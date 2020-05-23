@@ -49,22 +49,11 @@
       </v-toolbar-items>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-card-text>
-          <v-autocomplete
-            :items="items"
-            :loading="isLoading"
-            :search-input.sync="search"
-            hide-no-data
-            hide-selected
-            item-text="Description"
-            item-value="API"
-            placeholder="Search movie..."
-            append-icon="mdi-magnify"
-            return-object
-          ></v-autocomplete>
-        </v-card-text>
+        <n2w-search-bar></n2w-search-bar>
         <a href="/" class="decoration-none d-md-flex align-center hidden-md-and-down">
-          <v-icon transparent size="40">mdi-calendar</v-icon>
+          <v-btn icon style="background-color: #fbc500">
+            <v-icon color="black" size="40">mdi-calendar</v-icon>
+          </v-btn>
         </a>
         <v-card flat class="transparent d-md-flex align-center hidden-md-and-down">
           <v-list-item href="/">
@@ -95,8 +84,12 @@
 </template>
 
 <script>
+import N2wSearchBar from "./N2wSearchBar";
 export default {
   name: "N2wNavBar",
+  components: {
+    N2wSearchBar
+  },
   data() {
     return {
       sidebar: false,
