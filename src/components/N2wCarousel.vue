@@ -96,6 +96,57 @@ export default {
         this.currentOffset += this.paginationFactor;
       }
     },
+    mouseOver(filmName) {
+      for (var i = 0; i < this.items.length; i++) {
+        if (filmName == this.items[i].name) {
+          this.items[i].overlay = true;
+        }
+      }
+    },
+    mouseLeave(filmName) {
+      for (var i = 0; i < this.items.length; i++) {
+        if (filmName == this.items[i].name) {
+          this.items[i].overlay = false;
+        }
+      }
+    },
+    windowResize() {
+      var preSize = this.windowSize;
+      
+      if (window.matchMedia("(max-width: 554px)").matches) {
+        console.log(1)
+        this.windowSize = 1;
+        console.log("la ventana es " + this.windowSize)
+        return 0;
+      }
+      if (window.matchMedia("(max-width: 816px)").matches) {
+        console.log(2)
+        this.windowSize = 2;
+        console.log("la ventana es " + this.windowSize)
+        return 0;
+      }
+      if (window.matchMedia("(max-width: 1078px)").matches) {
+        console.log(3)
+        this.windowSize = 3;
+        console.log("la ventana es " + this.windowSize)
+        return 0;
+      }
+      if (window.matchMedia("(max-width: 1340px)").matches) {
+        console.log(4)
+        this.windowSize = 4;
+        console.log("la ventana es " + this.windowSize)
+        return 0;
+      }
+      console.log(5)
+      this.windowSize = 5;
+      console.log("la ventana es " + this.windowSize)
+
+      if(preSize < this.windowSize){
+        for(var i = 0; i < (this.windowSize - preSize); i++) {
+          this.moveCarousel(-1)
+        }
+      }
+    }
   }
 };
 </script>
