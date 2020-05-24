@@ -1,5 +1,5 @@
   .card-cinema-card {
-    border-radius: 0px;
+    border-radius: 0px !important;
     margin-bottom: 20px;
     cursor: pointer;
     max-width: 182px;
@@ -33,6 +33,8 @@
     transition: opacity 150ms linear;
     user-select: none;
     background-color: black;
+    max-width: 182px;
+    max-height: 269px;
   }
 
   .card-footer-text {

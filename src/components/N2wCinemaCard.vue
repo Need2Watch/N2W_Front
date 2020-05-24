@@ -1,5 +1,5 @@
 <template>
-  <v-card class="card-cinema-card" style="border-radius: 0;">
+  <v-card class="card-cinema-card">
       <v-img class="card-img" v-bind:src="this.image"/>
 
       <div class="card-footer">
@@ -18,13 +18,20 @@
 export default {
   name: 'N2wCinemaCard',
   template: "#v-card",
-  data() {
-    return {
-        name: "Doctor Who",
-        rating: 10,
-        image: "https://placehold.it/182x269",
-    };
-  },
+  props: {
+    name:{
+      type: String,
+      required: true
+    },
+    rating:{
+      type: Number,
+      required: true
+    },
+    image:{
+      type: String,
+      required: true
+    }
+  }
 };
 </script>
 <style scoped>

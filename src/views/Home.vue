@@ -1,6 +1,6 @@
 <template>
   <div>
-    <n2w-cinema-card></n2w-cinema-card>
+    <n2w-cinema-card name="Doctor Who" rating=9.8 image="https://placehold.it/182x269"></n2w-cinema-card>
   </div>
 </template>
 
@@ -12,6 +12,10 @@ export default {
   name: 'Home',
   components: {
     N2wCinemaCard,
-  }
+  },
+  data() {
+    return {
+    }
+  },
 };
 </script>
