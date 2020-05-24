@@ -7,19 +7,12 @@
           class="card-carousel-cards"
           :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')' }"
         >
-          <div class="card-carousel--card" :key="item.title" v-for="item in items">
-            <div
-              class="background-card"
-              @mouseover="mouseOver(item.name)"
-              @mouseleave="mouseLeave(item.name)"
-            >
-              <img v-bind:src="item.image" />
-              <div class="card-footer" v-show="item.overlay">
-                <p>{{ item.name }}</p>
-                <p--rating--star>★</p--rating--star>
-                <p--rating>{{ item.rating }}</p--rating>
-              </div>
-            </div>
+          <div class="card-wrapper" :key="item.title" v-for="item in items">
+            <n2w-cinema-card
+              v-bind:name="item.name"
+              v-bind:rating="item.rating"
+              v-bind:image="item.image"
+            ></n2w-cinema-card>
           </div>
         </div>
       </div>
@@ -28,6 +21,7 @@
   </div>
 </template>
 <script>
+import N2wCinemaCard from '../components/N2wCinemaCard.vue';
 export default {
   created() {
     this.windowResize();
@@ -37,6 +31,9 @@ export default {
     window.removeEventListener('resize', this.resizeEventHandler);
   },
   name: 'N2wCarousel',
+  components: {
+    N2wCinemaCard,
+  },
   template: '#v-carousel',
   data() {
     return {
@@ -45,6 +42,11 @@ export default {
       paginationFactor: 262,
 
       items: [
+        {
+          name: 'The Office',
+          rating: 9.8,
+          image: 'https://placehold.it/182x269',
+        },
         {
           name: 'Doctor Who',
           rating: 10,
@@ -108,20 +110,6 @@ export default {
         this.currentOffset -= this.paginationFactor;
       } else if (direction === -1 && !this.atHeadOfList) {
         this.currentOffset += this.paginationFactor;
-      }
-    },
-    mouseOver(filmName) {
-      for (var i = 0; i < this.items.length; i++) {
-        if (filmName == this.items[i].name) {
-          this.items[i].overlay = true;
-        }
-      }
-    },
-    mouseLeave(filmName) {
-      for (var i = 0; i < this.items.length; i++) {
-        if (filmName == this.items[i].name) {
-          this.items[i].overlay = false;
-        }
       }
     },
     resizeEventHandler() {
