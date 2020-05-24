@@ -11,12 +11,7 @@
         <a class="profileName">Francis Molina</a>
         <a class="profileUsername">rexuswolf</a>
       </router-link>
-      <v-list
-        max-height="500px"
-        id="event-list"
-        class="eventList overflow-y-auto"
-        color="transparent"
-      >
+      <v-list max-height="500px" id="event-list" class="eventList" color="transparent">
         <v-list-item-group v-model="item">
           <v-list-item v-for="(item, i) in events" :key="i">
             <v-list-item-content>

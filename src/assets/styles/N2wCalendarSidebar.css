@@ -45,11 +45,6 @@
 }
 
 #event-list::-webkit-scrollbar {
-    width: 3%;
+    width: 0;
     background-color: transparent;
-}
-
-#event-list::-webkit-scrollbar-thumb {
-    width: 3%;
-    background-color: #fbc500;
 }

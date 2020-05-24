@@ -1,6 +1,19 @@
 <template>
-  <div class="calendar">
-    <v-sheet tile height="54" class="d-flex">
+  <div class="calendar d-flex">
+    <v-sheet width="2500">
+      <v-calendar
+        ref="calendar"
+        v-model="value"
+        :weekdays="weekday"
+        :type="type"
+        :events="events"
+        :event-overlap-mode="mode"
+        :event-overlap-threshold="30"
+        :event-color="getEventColor"
+        @change="getEvents"
+      ></v-calendar>
+    </v-sheet>
+    <v-sheet color="rgba(27, 38, 54, 1)" tile class="d-flex flex-column align-center">
       <v-btn icon class="ma-2" @click="$refs.calendar.prev()">
         <v-icon>mdi-chevron-left</v-icon>
       </v-btn>
@@ -27,20 +40,6 @@
       <v-btn icon class="ma-2" @click="$refs.calendar.next()">
         <v-icon>mdi-chevron-right</v-icon>
       </v-btn>
-    </v-sheet>
-    <v-sheet height="600">
-      <v-calendar
-        dark
-        ref="calendar"
-        v-model="value"
-        :weekdays="weekday"
-        :type="type"
-        :events="events"
-        :event-overlap-mode="mode"
-        :event-overlap-threshold="30"
-        :event-color="getEventColor"
-        @change="getEvents"
-      ></v-calendar>
     </v-sheet>
   </div>
 </template>
