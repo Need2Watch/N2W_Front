@@ -7,7 +7,7 @@
           class="card-carousel-cards"
           :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')' }"
         >
-          <div class="card-wrapper" :key="item.title" v-for="item in items">
+          <div class="card-wrapper" :key="item.tittle" v-for="item in items">
             <n2w-cinema-card
               v-bind:name="item.name"
               v-bind:rating="item.rating"
@@ -35,61 +35,17 @@ export default {
     N2wCinemaCard,
   },
   template: '#v-carousel',
+  props: {
+    items: {
+      type: Array,
+      required: false,
+    },
+  },
   data() {
     return {
       currentOffset: 0,
       windowSize: 5,
       paginationFactor: 262,
-
-      items: [
-        {
-          name: 'The Office',
-          rating: 9.8,
-          image: 'https://placehold.it/182x269',
-        },
-        {
-          name: 'Doctor Who',
-          rating: 10,
-          image: 'https://placehold.it/182x269',
-          overlay: false,
-        },
-        {
-          name: 'The Mandalorian: The las jedi episode',
-          rating: 9.8,
-          image: 'https://placehold.it/182x269',
-          overlay: false,
-        },
-        {
-          name: '1917',
-          rating: 5.4,
-          image: 'https://placehold.it/182x269',
-          overlay: false,
-        },
-        {
-          name: 'Fight Club',
-          rating: 6.2,
-          image: 'https://placehold.it/182x269',
-          overlay: false,
-        },
-        {
-          name: 'Narcos',
-          rating: 7,
-          image: 'https://placehold.it/182x269',
-          overlay: false,
-        },
-        {
-          name: 'The Office',
-          rating: 3.5,
-          image: 'https://placehold.it/182x269',
-          overlay: false,
-        },
-        {
-          name: 'You',
-          rating: 8,
-          image: 'https://placehold.it/182x269',
-          overlay: false,
-        },
-      ],
     };
   },
   computed: {
@@ -118,19 +74,19 @@ export default {
     windowResize() {
       var preSize = this.windowSize;
 
-      if (window.matchMedia('(max-width: 554px)').matches) {
+      if (window.matchMedia('(max-width: 584px)').matches) {
         this.windowSize = 1;
         return 0;
       }
-      if (window.matchMedia('(max-width: 816px)').matches) {
+      if (window.matchMedia('(max-width: 846px)').matches) {
         this.windowSize = 2;
         return 0;
       }
-      if (window.matchMedia('(max-width: 1078px)').matches) {
+      if (window.matchMedia('(max-width: 1108px)').matches) {
         this.windowSize = 3;
         return 0;
       }
-      if (window.matchMedia('(max-width: 1340px)').matches) {
+      if (window.matchMedia('(max-width: 1370px)').matches) {
         this.windowSize = 4;
         return 0;
       }

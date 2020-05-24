@@ -12,22 +12,22 @@
   width: 1310px;
   background-color: #1b2636;
 }
-@media only screen and (max-width: 1340px) {
+@media only screen and (max-width: 1370px) {
   .card-carousel {
     width: 1048px;
   }
 }
-@media only screen and (max-width: 1078px) {
+@media only screen and (max-width: 1108px) {
   .card-carousel {
     width: 786px;
   }
 }
-@media only screen and (max-width: 816px) {
+@media only screen and (max-width: 846px) {
   .card-carousel {
     width: 524px;
   }
 }
-@media only screen and (max-width: 554px) {
+@media only screen and (max-width: 584px) {
   .card-carousel {
     width: 262px;
   }
