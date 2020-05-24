@@ -1,5 +1,5 @@
 <template>
-  <div class="calendarSideBar d-flex flex-column align-center">
+  <v-card hover raised class="calendarSideBar d-flex flex-column align-center">
     <div class="profileBanner d-flex flex-column align-center">
       <div class="profileCircle"></div>
     </div>
@@ -21,7 +21,7 @@
         </v-list-item-group>
       </v-list>
     </div>
-  </div>
+  </v-card>
 </template>
 
 <script>

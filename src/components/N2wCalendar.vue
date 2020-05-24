@@ -13,7 +13,7 @@
         @change="getEvents"
       ></v-calendar>
     </v-sheet>
-    <v-sheet color="rgba(27, 38, 54, 1)" tile class="d-flex flex-column align-center">
+    <v-sheet dark tile class="d-flex flex-column align-center">
       <v-btn icon class="ma-2" @click="$refs.calendar.prev()">
         <v-icon>mdi-chevron-left</v-icon>
       </v-btn>
