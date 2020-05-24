@@ -20,13 +20,13 @@
 
 <script>
 export default {
-  name: "N2wSearchBar",
+  name: 'N2wSearchBar',
   data: () => ({
     descriptionLimit: 60,
     entries: [],
     isLoading: false,
     model: null,
-    search: null
+    search: null,
   }),
 
   computed: {
@@ -36,7 +36,7 @@ export default {
       return Object.keys(this.model).map(key => {
         return {
           key,
-          value: this.model[key] || "n/a"
+          value: this.model[key] || 'n/a',
         };
       });
     },
@@ -44,12 +44,12 @@ export default {
       return this.entries.map(entry => {
         const Description =
           entry.Description.length > this.descriptionLimit
-            ? entry.Description.slice(0, this.descriptionLimit) + "..."
+            ? entry.Description.slice(0, this.descriptionLimit) + '...'
             : entry.Description;
 
         return Object.assign({}, entry, { Description });
       });
-    }
+    },
   },
 
   watch: {
@@ -63,7 +63,7 @@ export default {
       this.isLoading = true;
 
       // Lazily load input items
-      fetch("https://api.publicapis.org/entries")
+      fetch('https://api.publicapis.org/entries')
         .then(res => res.json())
         .then(res => {
           const { count, entries } = res;
@@ -74,7 +74,7 @@ export default {
           console.log(err);
         })
         .finally(() => (this.isLoading = false));
-    }
-  }
+    },
+  },
 };
 </script>

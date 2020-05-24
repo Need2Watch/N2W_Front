@@ -51,11 +51,14 @@
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <n2w-search-bar></n2w-search-bar>
-        <a href="/" class="decoration-none d-md-flex align-center hidden-md-and-down">
+        <router-link
+          to="/calendar"
+          class="decoration-none hidden-md-and-down d-md-flex align-center"
+        >
           <v-btn icon style="background-color: #fbc500">
             <v-icon color="black" size="40">mdi-calendar</v-icon>
           </v-btn>
-        </a>
+        </router-link>
         <v-card flat class="transparent d-md-flex align-center hidden-md-and-down">
           <v-list-item href="/">
             <v-avatar size="50" class="nav-bar-avatar">
@@ -103,7 +106,7 @@ export default {
       sidebarItems: [
         {
           title: 'Calendar',
-          path: 'https://www.twitter.com',
+          path: '/calendar',
           icon: 'mdi-calendar',
         },
         { title: 'Movies', path: '/', icon: 'mdi-movie' },
