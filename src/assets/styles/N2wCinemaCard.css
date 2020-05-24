@@ -1,65 +1,65 @@
-  .card-cinema-card {
-    border-radius: 0px !important;
-    margin-bottom: 20px;
-    cursor: pointer;
-    max-width: 182px;
-    max-height: 269px;
-  }
-  .card-cinema-card:hover {
-    box-shadow: 0 0 15px 0 black, 0 0 2px 0 rgba(40, 44, 53, 0.06);
-  }
+.card-cinema-card {
+  border-radius: 0px !important;
+  margin-bottom: 20px;
+  cursor: pointer;
+  width: 182px;
+  height: 269px;
+}
+.card-cinema-card:hover {
+  box-shadow: 0 0 15px 0 black, 0 0 2px 0 rgba(40, 44, 53, 0.06);
+}
 
-  .card-cinema-card:hover .card-img {
-    opacity: 0.3;
-  }
+.card-cinema-card:hover .card-img {
+  opacity: 0.3;
+}
 
-  .card-cinema-card:hover .card-footer {
-    visibility: visible;
-    opacity: 1;
-  }
+.card-cinema-card:hover .card-footer {
+  visibility: visible;
+  opacity: 1;
+}
 
-  .card-footer {
-    border-radius: 0px;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    border-color: #203e68;
-    background: linear-gradient(180deg, #1b2636 0%, #203e68 100%);
-    visibility: hidden;
-  }
+.card-footer {
+  border-radius: 0px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  border-color: #203e68;
+  background: linear-gradient(180deg, #1b2636 0%, #203e68 100%);
+  visibility: hidden;
+}
 
-  .card-img {
-    vertical-align: bottom;
-    transition: opacity 150ms linear;
-    user-select: none;
-    background-color: black;
-    max-width: 182px;
-    max-height: 269px;
-  }
+.card-img {
+  vertical-align: bottom;
+  transition: opacity 150ms linear;
+  user-select: none;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+}
 
-  .card-footer-text {
-    margin: 0;
-    font-size: 1.2rem;
-    font-family: "Roboto";
-    color: #f2f2f2;
-    user-select: none;
-  }
+.card-footer-text {
+  margin: 0;
+  font-size: 1.2rem;
+  font-family: 'Roboto';
+  color: #f2f2f2;
+  user-select: none;
+}
 
-  .card-name {
-    color: #f2f2f2;
-  }
+.card-name {
+  color: #f2f2f2;
+}
 
-  .card-rating-text {
-    color: #f2f2f2;
-    font-size: 0.9rem;
-    font-family: "Roboto";
-    display: inline;
-  }
+.card-rating-text {
+  color: #f2f2f2;
+  font-size: 0.9rem;
+  font-family: 'Roboto';
+  display: inline;
+}
 
-  .card-rating-star {
-    color: #fbc500;
-    margin-left: 0.3em;
-    font-family: "Roboto";
-    font-size: 1.2rem;
-    display: inline;
-  }
+.card-rating-star {
+  color: #fbc500;
+  margin-left: 0.3em;
+  font-family: 'Roboto';
+  font-size: 1.2rem;
+  display: inline;
+}

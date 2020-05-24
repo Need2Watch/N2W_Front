@@ -25,6 +25,7 @@ import N2wCinemaCard from '../components/N2wCinemaCard.vue';
 export default {
   created() {
     this.windowResize();
+    console.log(this.windowSize);
     window.addEventListener('resize', this.resizeEventHandler);
   },
   destroyed() {
@@ -38,13 +39,13 @@ export default {
   props: {
     items: {
       type: Array,
-      required: false,
+      required: true,
     },
   },
   data() {
     return {
       currentOffset: 0,
-      windowSize: 5,
+      windowSize: 6,
       paginationFactor: 262,
     };
   },
@@ -74,19 +75,19 @@ export default {
     windowResize() {
       var preSize = this.windowSize;
 
-      if (window.matchMedia('(max-width: 584px)').matches) {
+      if (window.matchMedia('(max-width: 554px)').matches) {
         this.windowSize = 1;
         return 0;
       }
-      if (window.matchMedia('(max-width: 846px)').matches) {
+      if (window.matchMedia('(max-width: 816px)').matches) {
         this.windowSize = 2;
         return 0;
       }
-      if (window.matchMedia('(max-width: 1108px)').matches) {
+      if (window.matchMedia('(max-width: 1078px)').matches) {
         this.windowSize = 3;
         return 0;
       }
-      if (window.matchMedia('(max-width: 1370px)').matches) {
+      if (window.matchMedia('(max-width: 1340px)').matches) {
         this.windowSize = 4;
         return 0;
       }
