@@ -7,17 +7,15 @@
       <div class="sidebarInfo d-flex flex-column align-center">
         <a class="profileName">Francis Molina</a>
         <a class="profileUsername">rexuswolf</a>
-        <div class="calendarEvents">
-          <v-list id="event-list" class="eventList overflow-y-auto" color="transparent">
-            <v-list-item-group v-model="item">
-              <v-list-item v-for="(item, i) in events" :key="i">
-                <v-list-item-content>
-                  <v-list-item-title v-text="item.text"></v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list-item-group>
-          </v-list>
-        </div>
+        <v-list id="event-list" class="eventList overflow-y-auto" color="transparent">
+          <v-list-item-group v-model="item">
+            <v-list-item v-for="(item, i) in events" :key="i">
+              <v-list-item-content>
+                <v-list-item-title v-text="item.text"></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-item-group>
+        </v-list>
       </div>
     </div>
   </div>

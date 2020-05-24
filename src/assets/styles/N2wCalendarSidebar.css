@@ -4,6 +4,7 @@
     margin-top: 5%;
     margin-left: 1%;
     background-color: rgba(27, 38, 54, 1);
+    box-sizing: border-box;
 }
 
 .profileCircle{
@@ -32,14 +33,12 @@
 .sidebarInfo{
     padding-top: 1em;
     width: 100%;
-}
-
-.calendarEvents{
-    width: 100%;
+    max-height: 30%;
 }
 
 .eventList{
-   max-height: 300px;
+    width: 100%;
+    max-height: 70%;
 }
 
 #event-list::-webkit-scrollbar {
