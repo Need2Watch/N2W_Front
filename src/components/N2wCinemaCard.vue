@@ -1,37 +1,37 @@
 <template>
   <v-card class="card-cinema-card">
-      <v-img class="card-img" v-bind:src="this.image"/>
+    <v-img class="card-img" v-bind:src="this.image" />
 
-      <div class="card-footer">
-        <v-card-title class="card-footer-text">
-          <p class="card-name">{{this.name}}</p>
-        </v-card-title>
+    <div class="card-footer">
+      <v-card-title class="card-footer-text">
+        <p class="card-name">{{this.name}}</p>
+      </v-card-title>
 
-        <v-card-subtitle>
-          <p class="card-rating-star">★ </p>
-          <p class="card-rating-text">{{this.rating}}</p>
-        </v-card-subtitle>
-      </div>
+      <v-card-subtitle>
+        <p class="card-rating-star">★&#x20;</p>
+        <p class="card-rating-text">{{this.rating}}</p>
+      </v-card-subtitle>
+    </div>
   </v-card>
 </template>
 <script>
 export default {
   name: 'N2wCinemaCard',
-  template: "#v-card",
+  template: '#v-card',
   props: {
-    name:{
+    name: {
       type: String,
-      required: true
+      required: true,
     },
-    rating:{
+    rating: {
       type: Number,
-      required: true
+      required: true,
     },
-    image:{
+    image: {
       type: String,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 <style scoped>
