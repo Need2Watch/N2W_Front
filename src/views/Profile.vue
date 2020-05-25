@@ -1,15 +1,20 @@
 <template>
-  <v-card color="transparent" class="d-flex profileCard" height="100%" width="100%">
+  <v-card height="100%" color="transparent" class="d-flex profileCard">
     <div class="d-flex flex-column align-center">
-      <v-avatar size="400" class="nav-bar-avatar">
+      <v-avatar size="300" class="nav-bar-avatar">
         <v-img :src="userAvatarURL"></v-img>
       </v-avatar>
-      <h1>{{userFirstName}} {{userLastName}}</h1>
-      <h2>{{userName}}</h2>
-      <h2>{{userEmail}}</h2>
-      <h2>{{userCity}} {{userCountry}}</h2>
+      <div class="d-flex flex-column align-center profileInfo">
+        <h1>{{userFirstName}} {{userLastName}}</h1>
+        <h2>{{userName}}</h2>
+        <h2>{{userEmail}}</h2>
+        <h2>{{userCity}} {{userCountry}}</h2>
+      </div>
     </div>
-    <div style="height: 100%; width: 70%" class="d-flex flex-column">
+    <div class="d-flex flex-column profileInfo">
+      <v-card-actions>
+        <v-btn rounded color="#fbc500" class="editProfileButton" fixed bottom right>Edit Profile</v-btn>
+      </v-card-actions>
       <v-card-title class="userBioHeader">Biography</v-card-title>
       <v-card-text>
         <p class="userBio">{{userBio}}</p>

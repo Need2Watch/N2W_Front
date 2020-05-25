@@ -1,5 +1,4 @@
 .userBioHeader {
-    margin-top: 1em;
     font-size: 65px;
 }
 
@@ -10,5 +9,15 @@
 }
 
 .profileCard{
-    padding: 5em;
+    padding: 10em;
+}
+
+.profileInfo{
+    padding: 1em;
+}
+
+.editProfileButton{
+    margin-right: 5em;
+    margin-bottom: 5em;
+    color: black !important;
 }
