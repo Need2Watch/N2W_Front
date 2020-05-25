@@ -1,5 +1,5 @@
 <template>
-  <v-card color="transparent">
+  <v-card flat color="transparent">
     <v-card-text>
       <v-autocomplete
         v-model="model"

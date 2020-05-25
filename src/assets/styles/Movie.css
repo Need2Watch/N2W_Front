@@ -1,0 +1,27 @@
+.movieTitle {
+    font-size: 65px;
+}
+
+.movieMainInfo{
+    margin-top: 1em;
+}
+
+.movieOverview {
+font-size: 30px;
+line-height: 36px;
+}
+
+.moviePoster{
+    border-style: solid;
+    border-width: 5px;
+    border-color: white !important;
+    border-radius: 0 !important;
+}
+
+.learnButton {
+    color: black !important;
+}
+
+.movieCard{
+    padding: 5em;
+}
