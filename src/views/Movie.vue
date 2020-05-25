@@ -1,5 +1,5 @@
 <template>
-  <v-card class="d-flex" height="100%" width="100%">
+  <v-card color="transparent" class="d-flex" height="100%" width="100%">
     <v-img height="100%" width="42%" :src="moviePosterUrl"></v-img>
     <div style="height: 100%; width: 70%" class="d-flex flex-column">
       <div class="movieMainInfo d-flex">
