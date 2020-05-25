@@ -1,9 +1,9 @@
 <template>
   <v-card color="transparent" class="d-flex movieCard" height="100%" width="100%">
-    <v-card class="moviePoster" style="overflow:hidden" height="90%" width="40%">
-      <v-img :src="moviePosterUrl"></v-img>
+    <v-card class="moviePoster" height="100%" width="50%">
+      <v-img width="100%" :src="moviePosterUrl"></v-img>
     </v-card>
-    <div style="height: 100%; width: 70%" class="d-flex flex-column">
+    <div style="height: 100%; width: 75%" class="d-flex flex-column">
       <div class="movieMainInfo d-flex">
         <v-card-title class="movieTitle">{{movieTitle}}</v-card-title>
         <div class="d-flex flex-column">
