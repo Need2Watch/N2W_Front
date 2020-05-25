@@ -1,27 +1,14 @@
-.movieTitle {
+.userBioHeader {
+    margin-top: 1em;
     font-size: 65px;
 }
 
-.movieMainInfo{
+.userBio {
     margin-top: 1em;
+    font-size: 30px;
+    line-height: 36px;
 }
 
-.movieOverview {
-font-size: 30px;
-line-height: 36px;
-}
-
-.moviePoster{
-    border-style: solid;
-    border-width: 5px;
-    border-color: white !important;
-    border-radius: 0 !important;
-}
-
-.learnButton {
-    color: black !important;
-}
-
-.movieCard{
+.profileCard{
     padding: 5em;
 }
