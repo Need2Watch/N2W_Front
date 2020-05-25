@@ -13,7 +13,15 @@
     </div>
     <div class="d-flex flex-column profileInfo">
       <v-card-actions>
-        <v-btn rounded color="#fbc500" class="editProfileButton" fixed bottom right>Edit Profile</v-btn>
+        <v-btn
+          to="/editProfile"
+          rounded
+          color="#fbc500"
+          class="editProfileButton"
+          fixed
+          bottom
+          right
+        >Edit Profile</v-btn>
       </v-card-actions>
       <v-card-title class="userBioHeader">Biography</v-card-title>
       <v-card-text>
