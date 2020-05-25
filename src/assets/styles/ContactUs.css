@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+.contactUsMainDiv {
+    background-image: url("https://images8.alphacoders.com/567/567772.jpg");
+    opacity: 0.5;
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    overflow: hidden;
+}
