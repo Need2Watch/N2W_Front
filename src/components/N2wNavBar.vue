@@ -98,7 +98,7 @@ export default {
     return {
       sidebar: false,
       menuItems: [
-        { title: 'Movies', path: '/', icon: 'mdi-movie' },
+        { title: 'Movies', path: '/movie', icon: 'mdi-movie' },
         { title: 'TV Series', path: '/', icon: 'mdi-television-classic' },
         { title: 'Top Rated', path: '/', icon: 'mdi-star-outline' },
         { title: 'Contact Us', path: '/contactUs', icon: 'mdi-email-outline' },

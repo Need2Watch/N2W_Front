@@ -4,7 +4,7 @@
     background: linear-gradient(0deg, rgba(27,38,54,1) 0%, rgba(32,62,104,1) 100%);"
   >
     <n2w-nav-bar />
-    <router-view class="fullView" />
+    <router-view />
   </v-app>
 </template>
 
@@ -20,8 +20,4 @@ export default {
 };
 </script>
 <style>
-.fullView {
-  width: 100%;
-  height: 100%;
-}
 </style>
