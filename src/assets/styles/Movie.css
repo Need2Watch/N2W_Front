@@ -1,0 +1,17 @@
+.movieTitle {
+    font-size: 65px;
+}
+
+.movieMainInfo{
+    margin-top: 0.2em;
+}
+
+.movieOverview {
+margin-top: 1em;
+font-size: 30px;
+line-height: 36px;
+}
+
+.learnButton {
+    color: black !important;
+}
