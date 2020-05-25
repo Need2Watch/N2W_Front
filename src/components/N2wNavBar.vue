@@ -64,7 +64,9 @@
             <v-avatar size="50" class="nav-bar-avatar">
               <v-img src="../assets/img/avatar.jpg"></v-img>
             </v-avatar>
-            <v-list-item-title class="headline">Francis Molina</v-list-item-title>
+            <router-link to="/profile" class="decoration-none a-white">
+              <v-list-item-title class="headline">Francis Molina</v-list-item-title>
+            </router-link>
           </v-list-item>
           <v-menu bottom left offset-y>
             <template v-slot:activator="{ on }">
