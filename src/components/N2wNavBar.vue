@@ -118,7 +118,7 @@ export default {
       ],
       items: [
         { title: 'Edit Profile', path: '/' },
-        { title: 'Log Out', path: '/' },
+        { title: 'Log Out', path: '/SignUp' },
       ],
     };
   },
