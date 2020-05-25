@@ -25,7 +25,6 @@ import N2wCinemaCard from '../components/N2wCinemaCard.vue';
 export default {
   created() {
     this.windowResize();
-    console.log(this.windowSize);
     window.addEventListener('resize', this.resizeEventHandler);
   },
   destroyed() {
