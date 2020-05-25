@@ -45,7 +45,7 @@ export default {
   data() {
     return {
       currentOffset: 0,
-      windowSize: 6,
+      windowSize: 5,
       paginationFactor: 262,
     };
   },
