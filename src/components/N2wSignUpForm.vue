@@ -1,6 +1,6 @@
 <template>
   <v-card raised height="100%" class="n2wgray formCard">
-    <form class="pa-5" action="http://127.0.0.1:5000/users" method="post">
+    <form class="pa-5" @submit.prevent="submitForm">
       <v-text-field
         v-model="firstName"
         :error-messages="firstNameErrors"
@@ -50,7 +50,7 @@
         :items="countries"
         v-model="country"
         name="country"
-        v-validate="'required'"
+        required
         item-text="countryName"
         label="Select a country"
       />
@@ -72,7 +72,7 @@
         @change="$v.checkbox.$touch()"
         @blur="$v.checkbox.$touch()"
       ></v-checkbox>
-      <v-btn class="mr-4 mt-4" type="submit" @click="submit">submit</v-btn>
+      <v-btn class="mr-4 mt-4" @click="submitForm">submit</v-btn>
       <v-btn class="mt-4" @click="clear">clear</v-btn>
     </form>
     <p class="ml-5">
@@ -87,11 +87,13 @@
 <script>
 import { validationMixin } from 'vuelidate';
 import { required, maxLength, email } from 'vuelidate/lib/validators';
+import { v4 as uuidv4 } from 'uuid';
 import countries from '../data/countries.js';
 import N2wTerms from '../components/N2wTerms';
+import axios from 'axios';
 
 export default {
-  name: 'N2wRegisterForm',
+  name: 'N2wSignUpForm',
   components: {
     N2wTerms,
   },
@@ -112,8 +114,11 @@ export default {
   },
 
   data: () => ({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
+    username: '',
+    password: '',
     country: '',
     city: '',
     select: null,
@@ -182,8 +187,26 @@ export default {
   },
 
   methods: {
-    submit() {
-      this.$v.$touch();
+    submitForm() {
+      if (!this.$v.$touch()) {
+        axios
+          .post('http://127.0.0.1:5000/users', {
+            user_id: uuidv4(),
+            username: this.username,
+            password: this.password,
+            first_name: this.firstName,
+            last_name: this.lastName,
+            email: this.email,
+            country: this.country,
+            city: this.city,
+          })
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+      }
     },
     clear() {
       this.$v.$reset();
