@@ -1,7 +1,7 @@
 <template>
   <v-dialog fullscreen v-model="dialog">
     <template v-slot:activator="{ on }">
-      <a v-on="on">Read terms and conditions</a>
+      <a class="fbcColor" v-on="on">Read terms and conditions</a>
     </template>
 
     <v-card>
