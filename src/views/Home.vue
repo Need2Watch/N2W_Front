@@ -1,9 +1,21 @@
 <template>
-  <div>
-      <vs-divider position="left" color="#">
-        For you
-      </vs-divider>
+  <div class="moviesDiv">
+
+    <vs-divider position="left-center" color="n2wwhite" class="sectionDivider">
+      For you
+    </vs-divider>
     <n2w-carousel v-bind:items="this.fromBack"></n2w-carousel>
+
+    <vs-divider position="left-center" color="n2wwhite" class="sectionDivider">
+      Awarded
+    </vs-divider>
+    <n2w-carousel v-bind:items="this.fromBack"></n2w-carousel>
+
+    <vs-divider position="left-center" color="n2wwhite" class="sectionDivider">
+      Top rated
+    </vs-divider>
+    <n2w-carousel v-bind:items="this.fromBack"></n2w-carousel>
+
   </div>
 </template>
 <script>
