@@ -36,7 +36,6 @@ export default {
         })
         .then(function(response) {
           let user = response.data;
-          this.$emit('loggedUser', this.user);
           console.log(user);
         })
         .catch(function(error) {

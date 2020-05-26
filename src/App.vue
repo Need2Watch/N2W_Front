@@ -12,18 +12,14 @@
 </template>
 
 <script>
-import N2wSignInForm from './components/N2wSignInForm';
 import N2wNavBar from './components/N2wNavBar';
 
 export default {
   name: 'App',
   components: {
     N2wNavBar,
-    N2wSignInForm,
   },
-  data: () => ({
-    fromLogin: '',
-  }),
+  data: () => ({}),
 };
 </script>
 <style>
