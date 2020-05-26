@@ -1,10 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
 
 .contactUsMainDiv {
-    background-image: url("https://images8.alphacoders.com/567/567772.jpg");
-    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://images8.alphacoders.com/567/567772.jpg);
+    background-color: rgba(27, 38, 54, 0.5);
+    background-blend-mode: color-burn;
+    background-position: center;
+    background-size: cover;
     height: 100%;
     width: 100%;
-    border: 1px solid black;
     overflow: hidden;
+}
+
+.formDiv{
+    width: 40%;
+    float:left;
+}
+
+.socialDiv {
+    float:left;
+    margin-top: 100px;
+}
+
+.socialNetwork {
+    margin:50px;
+}
+
+.socialNetworkText{
+    margin-left:10px;
+    font-family: 'Bungee', cursive;
+    font-size: xx-large;
 }

@@ -4,20 +4,20 @@
 
         <form class="" @submit.prevent="onSubmit">
             <p>
-                <input class="textInputs" type="text" id="name" v-model="name" placeholder="Name..." required>
+                <input class="textInputs" type="text" id="name" v-model="name" placeholder="Name...">
             </p>
             <p>
-                <input class="textInputs" type=text id="email" v-model="email" placeholder="Email..." required>
+                <input class="textInputs" type=text id="email" v-model="email" placeholder="Email...">
             </p>
             <p>
-                <input class="textInputs" type=text id="regarding" v-model="regarding" placeholder="Regarding..." required>
+                <input class="textInputs" type=text id="regarding" v-model="regarding" placeholder="Regarding...">
             </p>
             <p>
-                <textarea class="textInputs" type=text id="message" v-model="message" placeholder="Message...(10 character minimum)" required></textarea>
+                <textarea class="textInputs" type=text id="message" v-model="message" placeholder="Message..."></textarea>
             </p>
             <p class="terms-text">
-                <input type="checkbox" id="terms" v-model="terms" required>
-                I have read and accept the privacy policy.
+                <input type="checkbox" id="terms" v-model="terms">
+                I have read and accept the <n2w-privacy-policy></n2w-privacy-policy>.
             </p>
             <p>
                 <input type="submit" value="SEND IT!">  
@@ -26,8 +26,26 @@
     </div>
 </template>
 <script>
+import N2wPrivacyPolicy from '../components/N2wPrivacyPolicy.vue';
+import { validationMixin } from 'vuelidate';
+import { required, maxLength, minLength, email } from 'vuelidate/lib/validators';
 export default {
     name: 'N2wContactUsForm',
+    components: {
+        N2wPrivacyPolicy,
+     },
+    mixins: [validationMixin],
+    validations: {
+    name: { required, maxLength: maxLength(16) },
+    email: { required, email },
+    regarding: { required, maxLength: maxLength(32) },
+    message: { required, minLength: minLength(10) },
+    checkbox: {
+      checked(val) {
+        return val;
+      },
+    },
+  },
     data() {
         return {
             name: "",
