@@ -1,25 +1,25 @@
 <template>
-  <div class="contactUsMainDiv">
+  <div class="contactUsMainDiv" >
 
-    <div class="formDiv" style="width: 40%; float:left;">
+    <div class="formDiv">
       <N2wContactUsForm></N2wContactusForm>
     </div>
     
-    <div class="socialDiv" style="float:left; margin-top: 100px;">
-      <v-list-item style="margin:50px;">
+    <div class="socialDiv">
+      <v-list-item class="socialNetwork">
         <v-avatar size="100">
           <v-img src="../assets/img/facebook.png"></v-img>
         </v-avatar>
 
-        <v-list-item-title  style="margin-left:10px; font-family: 'Bungee', cursive; font-size: xx-large;">NEED2WATCH</v-list-item-title>
+        <v-list-item-title class="socialNetworkText">NEED2WATCH</v-list-item-title>
       </v-list-item>
       
-      <v-list-item style="margin:50px;">
+      <v-list-item class="socialNetwork">
         <v-avatar size="100">
           <v-img src="../assets/img/twitter.png"></v-img>
         </v-avatar>
 
-        <v-list-item-title style="margin-left:10px; font-family: 'Bungee', cursive; font-size: xx-large;">@NEED2WATCH</v-list-item-title>
+        <v-list-item-title class="socialNetworkText">@NEED2WATCH</v-list-item-title>
       </v-list-item>
     </div>
 
@@ -35,3 +35,6 @@ export default {
   },
 };
 </script>
+<style scoped>
+@import '../assets/styles/ContactUs.css';
+</style>

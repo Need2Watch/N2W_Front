@@ -48,3 +48,8 @@ input[type=checkbox] {
 input:required {
     box-shadow: none;
 }
+
+.privacyPolicy {
+    text-decoration: underline;
+    cursor: pointer;
+}
