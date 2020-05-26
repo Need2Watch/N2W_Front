@@ -1,7 +1,7 @@
 <template>
-  <div class="card-carousel-wrapper">
+  <div class="card-carousel-wrapper n2wgray">
     <div class="card-carousel--nav__left" @click="moveCarousel(-1)" :disabled="atHeadOfList"></div>
-    <div class="card-carousel">
+    <div class="card-carousel n2wgray">
       <div class="card-carousel--overflow-container">
         <div
           class="card-carousel-cards"

@@ -1,18 +1,21 @@
 <template>
   <v-card color="transparent" class="d-flex movieCard" height="100%" width="100%">
-    <v-card class="moviePoster" height="100%" width="50%">
+    <v-card class="white moviePoster" height="100%" width="50%">
       <v-img width="100%" :src="moviePosterUrl"></v-img>
     </v-card>
     <div style="height: 100%; width: 75%" class="d-flex flex-column">
-      <div class="movieMainInfo d-flex">
+      <div class="pl-5 movieMainInfo d-flex">
         <v-card-title class="movieTitle">{{movieTitle}}</v-card-title>
         <div class="d-flex flex-column">
-          <h2>Rating: {{movieRating}}</h2>
+          <h2>
+            Rating: {{movieRating}}
+            <v-icon class="mb-1" color="primary">star</v-icon>
+          </h2>
           <h2>Genre: {{movieGenre}}</h2>
         </div>
       </div>
       <v-card-text>
-        <p class="movieOverview">{{movieOverview}}</p>
+        <p class="pl-5 movieOverview">{{movieOverview}}</p>
       </v-card-text>
     </div>
   </v-card>

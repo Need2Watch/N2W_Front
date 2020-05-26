@@ -1,14 +1,14 @@
 <template>
   <v-card hover raised class="calendarSideBar d-flex flex-column align-center">
     <div class="profileBanner d-flex flex-column align-center">
-      <div class="profileCircle"></div>
+      <div class="primary profileCircle"></div>
     </div>
     <div class="sidebarInfo d-flex flex-column align-center">
       <router-link
         to="/profile"
         class="decoration-none hidden-md-and-down d-flex flex-column align-center"
       >
-        <a class="profileName">Francis Molina</a>
+        <a class="profileName white--text">Francis Molina</a>
         <a class="profileUsername">rexuswolf</a>
       </router-link>
       <v-list max-height="500px" id="event-list" class="eventList" color="transparent">

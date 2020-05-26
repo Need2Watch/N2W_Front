@@ -3,14 +3,12 @@
   align-items: center;
   justify-content: center;
   margin: 20px 0 40px;
-  background-color: #1b2636;
 }
 
 .card-carousel {
   display: flex;
   justify-content: center;
   width: 1310px;
-  background-color: #1b2636;
 }
 @media only screen and (max-width: 1340px) {
   .card-carousel {
