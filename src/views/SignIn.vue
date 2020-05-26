@@ -28,11 +28,11 @@ export default {
   data() {
     return {
       slides: [
-        'https://img1.looper.com/img/gallery/does-joker-have-a-post-credits-scene/intro-1568039547.jpg',
-        'https://www.tasteofcinema.com/wp-content/uploads/2018/08/leonardo_dicaprio_django.jpg',
-        'https://www.mlive.com/resizer/iO9-FHTVQ--Ucjz5tl3yG1MxksM=/1280x0/smart/advancelocal-adapter-image-uploads.s3.amazonaws.com/image.mlive.com/home/mlive-media/width2048/img/citpat/entertainment_impact/photo/web-600full-the-shawshank-redemption-screenshotjpg-5a956a60c1e90fe3.jpg',
-        'https://cdn3.upsocl.com/wp-content/uploads/2018/01/jw1.jpg',
-        'https://imgix.bustle.com/rehost/2016/9/13/2157977f-222c-42f3-9f88-f60dcbdc47c2.jpg',
+        'https://wallpaperset.com/w/full/3/c/b/42022.jpg',
+        'https://sfwallpaper.com/images/film-hd-wallpaper-4.jpg',
+        'https://wallpaperplay.com/walls/full/7/3/a/162157.jpg',
+        'https://wallpaperaccess.com/full/267457.jpg',
+        'https://i.pinimg.com/originals/7d/c2/c8/7dc2c88c47f8a97d3a739c4c3c367b24.jpg',
       ],
     };
   },

@@ -1,6 +1,6 @@
 <template>
   <v-card raised height="100%" class="n2wgray formCard">
-    <form class="pa-5" action="/" method="get">
+    <form class="pa-5" action="http://127.0.0.1:5000/users" method="post">
       <v-text-field
         v-model="firstName"
         :error-messages="firstNameErrors"
@@ -72,7 +72,7 @@
         @change="$v.checkbox.$touch()"
         @blur="$v.checkbox.$touch()"
       ></v-checkbox>
-      <v-btn class="mr-4 mt-4" @click="submit">submit</v-btn>
+      <v-btn class="mr-4 mt-4" type="submit" @click="submit">submit</v-btn>
       <v-btn class="mt-4" @click="clear">clear</v-btn>
     </form>
     <p class="ml-5">
