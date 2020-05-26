@@ -1,5 +1,5 @@
 <template>
-  <v-dialog fullscreen v-model="dialog">
+  <v-dialog width="800" scrollable v-model="dialog">
     <template v-slot:activator="{ on }">
       <a class="fbcColor" v-on="on">Read terms and conditions</a>
     </template>
