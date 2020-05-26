@@ -1,5 +1,5 @@
 <template>
-  <v-card raised height="100%" class="formCard">
+  <v-card raised height="100%" class="n2wgray formCard">
     <v-img width="50%" class="logo" src="../assets/img/logo.png"></v-img>
     <form class="pa-5">
       <v-text-field

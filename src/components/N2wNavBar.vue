@@ -24,7 +24,7 @@
       </template>
     </v-navigation-drawer>
 
-    <v-toolbar color="transparent" dark fixed app>
+    <v-toolbar color="secondary" fixed app>
       <span class="hidden-md-and-up">
         <v-app-bar-nav-icon @click="sidebar = !sidebar"></v-app-bar-nav-icon>
       </span>
@@ -75,7 +75,7 @@
               </v-btn>
             </template>
 
-            <v-list>
+            <v-list class="secondary">
               <v-list-item v-for="(item, i) in items" :key="i" @click="_">
                 <a :href="item.path" class="decoration-none white--text">
                   <v-list-item-title>{{ item.title }}</v-list-item-title>
@@ -117,8 +117,8 @@ export default {
         { title: 'Contact Us', path: '/contactUs', icon: 'mdi-email-outline' },
       ],
       items: [
-        { title: 'Edit Profile', path: '/' },
-        { title: 'Log Out', path: '/SignUp' },
+        { title: 'Edit Profile', path: '/editProfile' },
+        { title: 'Log Out', path: '/SignIn' },
       ],
     };
   },
