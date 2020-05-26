@@ -15,6 +15,7 @@
 
 <script>
 import N2wSignUpForm from '../components/N2wSignUpForm';
+
 export default {
   name: 'SignUp',
   components: {
@@ -30,11 +31,11 @@ export default {
         'deep-purple accent-4',
       ],
       slides: [
-        'https://cdn.spacetelescope.org/archives/images/wallpaper2/heic2007a.jpg',
-        'https://www.gettyimages.es/gi-resources/images/500px/983794168.jpg',
-        'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg',
-        'https://www.istockphoto.com/resources/images/PhotoFTLP/Essential-images-we-love-1055891344.jpg',
-        'https://images.unsplash.com/photo-1494548162494-384bba4ab999?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+        'https://img1.looper.com/img/gallery/does-joker-have-a-post-credits-scene/intro-1568039547.jpg',
+        'https://www.tasteofcinema.com/wp-content/uploads/2018/08/leonardo_dicaprio_django.jpg',
+        'https://www.mlive.com/resizer/iO9-FHTVQ--Ucjz5tl3yG1MxksM=/1280x0/smart/advancelocal-adapter-image-uploads.s3.amazonaws.com/image.mlive.com/home/mlive-media/width2048/img/citpat/entertainment_impact/photo/web-600full-the-shawshank-redemption-screenshotjpg-5a956a60c1e90fe3.jpg',
+        'https://cdn3.upsocl.com/wp-content/uploads/2018/01/jw1.jpg',
+        'https://imgix.bustle.com/rehost/2016/9/13/2157977f-222c-42f3-9f88-f60dcbdc47c2.jpg',
       ],
     };
   },
