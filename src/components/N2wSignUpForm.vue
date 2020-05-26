@@ -78,7 +78,7 @@
     <p class="ml-5">
       Already have an account?
       <router-link to="/signIn" class="decoration-none">
-        <a class="fbcColor">Sign In</a>
+        <a class="primary--text">Sign In</a>
       </router-link>
     </p>
   </v-card>
@@ -200,6 +200,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-@import '../assets/styles/N2wSignUpForm.css';
-</style>

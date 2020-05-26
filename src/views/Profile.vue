@@ -16,8 +16,8 @@
         <v-btn
           to="/editProfile"
           rounded
-          color="#fbc500"
-          class="editProfileButton"
+          color="primary"
+          class="secondary--text editProfileButton"
           fixed
           bottom
           right

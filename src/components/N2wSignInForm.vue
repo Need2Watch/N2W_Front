@@ -1,6 +1,6 @@
 <template>
   <v-card raised height="100%" class="formCard">
-    <v-img width="50%" style="margin-left:25%" src="../assets/img/logo.png"></v-img>
+    <v-img width="50%" class="logo" src="../assets/img/logo.png"></v-img>
     <form class="pa-5">
       <v-text-field
         v-model="username"
@@ -24,7 +24,7 @@
     <p class="ml-5">
       Want to create an account?
       <router-link to="/signUp" class="decoration-none">
-        <a class="fbcColor">Sign Up</a>
+        <a class="primary--text">Sign Up</a>
       </router-link>
     </p>
   </v-card>

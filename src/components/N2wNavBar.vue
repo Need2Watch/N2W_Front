@@ -19,7 +19,7 @@
 
       <template v-slot:append>
         <div class="pa-2">
-          <v-btn color="#fbc500" class="black--text" block>Logout</v-btn>
+          <v-btn class="primary black--text" block>Logout</v-btn>
         </div>
       </template>
     </v-navigation-drawer>
@@ -55,8 +55,8 @@
           to="/calendar"
           class="decoration-none hidden-md-and-down d-md-flex align-center"
         >
-          <v-btn icon style="background-color: #fbc500">
-            <v-icon color="black" size="40">mdi-calendar</v-icon>
+          <v-btn icon class="primary">
+            <v-icon color="secondary" size="40">mdi-calendar</v-icon>
           </v-btn>
         </router-link>
         <v-card flat class="transparent d-md-flex align-center hidden-md-and-down">
@@ -64,7 +64,7 @@
             <v-avatar size="50" class="nav-bar-avatar">
               <v-img src="../assets/img/avatar.jpg"></v-img>
             </v-avatar>
-            <router-link to="/profile" class="decoration-none a-white">
+            <router-link to="/profile" class="decoration-none white--text">
               <v-list-item-title class="headline">Francis Molina</v-list-item-title>
             </router-link>
           </v-list-item>
@@ -77,7 +77,7 @@
 
             <v-list>
               <v-list-item v-for="(item, i) in items" :key="i" @click="_">
-                <a :href="item.path" class="decoration-none a-white">
+                <a :href="item.path" class="decoration-none white--text">
                   <v-list-item-title>{{ item.title }}</v-list-item-title>
                 </a>
               </v-list-item>

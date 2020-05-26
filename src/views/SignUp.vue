@@ -39,5 +39,5 @@ export default {
 };
 </script>
 <style scoped>
-@import '../assets/styles/SignUp.css';
+@import '../assets/styles/SignPage.css';
 </style>
