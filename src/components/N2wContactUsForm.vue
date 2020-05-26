@@ -4,19 +4,19 @@
 
         <form class="" @submit.prevent="onSubmit">
             <p>
-                <input class="textInputs" type="text" id="name" v-model="name" placeholder="Name...">
+                <input class="textInputs" type="text" id="name" v-model="name" placeholder="Name..." required>
             </p>
             <p>
-                <input class="textInputs" type=text id="email" v-model="email" placeholder="Email...">
+                <input class="textInputs" type=text id="email" v-model="email" placeholder="Email..." required>
             </p>
             <p>
-                <input class="textInputs" type=text id="regarding" v-model="regarding" placeholder="Regarding...">
+                <input class="textInputs" type=text id="regarding" v-model="regarding" placeholder="Regarding..." required>
             </p>
             <p>
-                <textarea class="textInputs" type=text id="message" v-model="message" placeholder="Message..."></textarea>
+                <textarea class="textInputs" type=text id="message" v-model="message" placeholder="Message..." required></textarea>
             </p>
             <p class="terms-text">
-                <input type="checkbox" id="terms" v-model="terms">
+                <input type="checkbox" id="terms" v-model="terms" required>
                 I have read and accept the <n2w-privacy-policy></n2w-privacy-policy>.
             </p>
             <p>
@@ -27,25 +27,11 @@
 </template>
 <script>
 import N2wPrivacyPolicy from '../components/N2wPrivacyPolicy.vue';
-import { validationMixin } from 'vuelidate';
-import { required, maxLength, minLength, email } from 'vuelidate/lib/validators';
 export default {
     name: 'N2wContactUsForm',
     components: {
         N2wPrivacyPolicy,
      },
-    mixins: [validationMixin],
-    validations: {
-    name: { required, maxLength: maxLength(16) },
-    email: { required, email },
-    regarding: { required, maxLength: maxLength(32) },
-    message: { required, minLength: minLength(10) },
-    checkbox: {
-      checked(val) {
-        return val;
-      },
-    },
-  },
     data() {
         return {
             name: "",
