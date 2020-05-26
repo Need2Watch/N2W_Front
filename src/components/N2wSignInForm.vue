@@ -1,7 +1,7 @@
 <template>
   <v-card raised height="100%" class="n2wgray formCard">
     <v-img width="50%" class="logo" src="../assets/img/logo.png"></v-img>
-    <form class="pa-5">
+    <form class="pa-5" action="/" method="get">
       <v-text-field
         v-model="username"
         :counter="16"

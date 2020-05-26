@@ -1,11 +1,11 @@
 <template>
   <v-card raised height="100%" class="n2wgray formCard">
-    <form class="pa-5">
+    <form class="pa-5" action="/" method="get">
       <v-text-field
         v-model="firstName"
         :error-messages="firstNameErrors"
         :counter="16"
-        label="Name"
+        label="First Name"
         required
         @input="$v.firstName.$touch()"
         @blur="$v.firstName.$touch()"
@@ -14,7 +14,7 @@
         v-model="lastName"
         :error-messages="lastNameErrors"
         :counter="16"
-        label="LastName"
+        label="Last Name"
         required
         @input="$v.lastName.$touch()"
         @blur="$v.lastName.$touch()"
