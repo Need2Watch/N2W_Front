@@ -24,7 +24,7 @@
       </template>
     </v-navigation-drawer>
 
-    <v-toolbar color="secondary" fixed app>
+    <v-app-bar color="secondary" fixed app>
       <span class="hidden-md-and-up">
         <v-app-bar-nav-icon @click="sidebar = !sidebar"></v-app-bar-nav-icon>
       </span>
@@ -59,13 +59,9 @@
             <v-icon color="secondary" size="40">mdi-calendar</v-icon>
           </v-btn>
         </router-link>
-        <v-btn depressed v-if="!userLogged" to="/signIn" class="ml-3 secondary">SIGN IN</v-btn>
-        <v-btn depressed v-if="!userLogged" to="/signUp" class="secondary">SIGN UP</v-btn>
-        <v-card
-          v-if="userLogged"
-          flat
-          class="transparent d-md-flex align-center hidden-md-and-down"
-        >
+        <v-btn depressed to="/signIn" class="ml-3 secondary">SIGN IN</v-btn>
+        <v-btn depressed to="/signUp" class="secondary">SIGN UP</v-btn>
+        <v-card flat class="transparent d-md-flex align-center hidden-md-and-down">
           <v-list-item href="/">
             <v-avatar size="50" class="nav-bar-avatar">
               <v-img src="../assets/img/avatar.jpg"></v-img>
@@ -82,7 +78,7 @@
             </template>
 
             <v-list class="secondary">
-              <v-list-item v-for="(item, i) in items" :key="i" @click="_">
+              <v-list-item v-for="(item, i) in items" :key="i">
                 <a :href="item.path" class="decoration-none white--text">
                   <v-list-item-title>{{ item.title }}</v-list-item-title>
                 </a>
@@ -91,7 +87,7 @@
           </v-menu>
         </v-card>
       </v-toolbar-items>
-    </v-toolbar>
+    </v-app-bar>
   </div>
 </template>
 
