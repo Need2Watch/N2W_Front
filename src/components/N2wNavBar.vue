@@ -104,7 +104,7 @@ export default {
       menuItems: [
         { title: 'Movies', path: '/movie', icon: 'mdi-movie' },
         { title: 'TV Series', path: '/', icon: 'mdi-television-classic' },
-        { title: 'Top Rated', path: '/', icon: 'mdi-star-outline' },
+        { title: 'Top Rated', path: '../search', icon: 'mdi-star-outline' },
         { title: 'Contact Us', path: '/contactUs', icon: 'mdi-email-outline' },
       ],
       sidebarItems: [
