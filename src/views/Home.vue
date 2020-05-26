@@ -2,12 +2,17 @@
   <div class="moviesDiv">
 
     <vs-divider position="left-center" color="n2wwhite" class="sectionDivider">
+      Following
+    </vs-divider>
+    <n2w-carousel v-bind:items="this.fromBack"></n2w-carousel>
+
+    <vs-divider position="left-center" color="n2wwhite" class="sectionDivider">
       For you
     </vs-divider>
     <n2w-carousel v-bind:items="this.fromBack"></n2w-carousel>
 
     <vs-divider position="left-center" color="n2wwhite" class="sectionDivider">
-      Awarded
+      Popular
     </vs-divider>
     <n2w-carousel v-bind:items="this.fromBack"></n2w-carousel>
 
