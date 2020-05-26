@@ -1,5 +1,5 @@
 <template>
-  <v-card raised height="100%" width="50%">
+  <v-card raised height="100%" class="formCard">
     <form class="pa-5">
       <v-text-field
         v-model="firstName"
@@ -75,6 +75,12 @@
       <v-btn class="mr-4 mt-4" @click="submit">submit</v-btn>
       <v-btn class="mt-4" @click="clear">clear</v-btn>
     </form>
+    <p class="ml-5">
+      Already have an account?
+      <router-link to="/signIn" class="decoration-none">
+        <a class="fbcColor">Sign In</a>
+      </router-link>
+    </p>
   </v-card>
 </template>
 

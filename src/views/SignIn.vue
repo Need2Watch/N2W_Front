@@ -13,17 +13,17 @@
         </v-row>
       </v-carousel-item>
     </v-carousel>
-    <n2w-sign-up-form></n2w-sign-up-form>
+    <n2w-sign-in-form></n2w-sign-in-form>
   </div>
 </template>
 
 <script>
-import N2wSignUpForm from '../components/N2wSignUpForm';
+import N2wSignInForm from '../components/N2wSignInForm';
 
 export default {
-  name: 'SignUp',
+  name: 'SignIn',
   components: {
-    N2wSignUpForm,
+    N2wSignInForm,
   },
   data() {
     return {
@@ -39,5 +39,5 @@ export default {
 };
 </script>
 <style scoped>
-@import '../assets/styles/SignUp.css';
+@import '../assets/styles/SignIn.css';
 </style>
