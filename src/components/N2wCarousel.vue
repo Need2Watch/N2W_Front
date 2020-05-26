@@ -7,7 +7,7 @@
           class="card-carousel-cards"
           :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')' }"
         >
-          <div class="card-wrapper" :key="item.tittle" v-for="item in items">
+          <div class="card-wrapper" :key="item.title" v-for="item in items">
             <n2w-cinema-card
               v-bind:name="item.title"
               v-bind:rating="item.rating"
