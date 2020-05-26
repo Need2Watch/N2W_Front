@@ -15,6 +15,7 @@
     "vue": "^2.6.11",
     "vue-axios": "^2.1.5",
     "vue-router": "^3.2.0",
+    "vuesax": "^3.11.15",
     "vuelidate": "^0.7.5",
     "vuetify": "^2.2.11"
   },
