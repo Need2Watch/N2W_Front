@@ -16,6 +16,14 @@ export default new Vuex.Store({
       city: '',
       profilePicture: '',
     },
+    movies: [],
+    currentMovie: {
+      movie_id: '',
+      title: '',
+      poster_url: '',
+      rating: '',
+      genres: {},
+    },
   },
   getters: {},
   mutations: {
@@ -29,6 +37,14 @@ export default new Vuex.Store({
       state.loggedUser.country = payload.country;
       state.loggedUser.city = payload.city;
       state.loggedUser.profilePicture = payload.profile_picture;
+    },
+    loadMovies(state, payload) {
+      state.movies = payload;
+    },
+    loadMovie(state, payload) {
+      state.currentMovie.title = payload[0];
+      state.currentMovie.rating = payload[1];
+      state.currentMovie.poster_url = payload[2];
     },
   },
   actions: {},

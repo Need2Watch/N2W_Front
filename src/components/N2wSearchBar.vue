@@ -1,54 +1,50 @@
 <template>
   <v-card flat color="transparent">
     <v-card-text>
-      <v-autocomplete
-        v-model="model"
-        :items="items"
-        :loading="isLoading"
-        :search-input.sync="search"
-        hide-no-data
-        hide-selected
-        item-text="Description"
-        item-value="API"
+      <v-text-field
+        v-model="movieName"
+        @submit.prevent="submitSearch"
+        label="Regular"
+        single-line
         placeholder="Search movie..."
         append-icon="mdi-magnify"
-        return-object
-      ></v-autocomplete>
+        v-on:keyup.enter="submitSearch"
+      ></v-text-field>
     </v-card-text>
   </v-card>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'N2wSearchBar',
   data: () => ({
-    descriptionLimit: 60,
-    entries: [],
-    isLoading: false,
-    model: null,
-    search: null,
+    movieName: '',
   }),
 
   computed: {
-    fields() {
-      if (!this.model) return [];
-
-      return Object.keys(this.model).map(key => {
-        return {
-          key,
-          value: this.model[key] || 'n/a',
-        };
-      });
+    loggedUser() {
+      return this.$store.state.loggedUser;
     },
-    items() {
-      return this.entries.map(entry => {
-        const Description =
-          entry.Description.length > this.descriptionLimit
-            ? entry.Description.slice(0, this.descriptionLimit) + '...'
-            : entry.Description;
+  },
 
-        return Object.assign({}, entry, { Description });
-      });
+  methods: {
+    submitSearch() {
+      const previousThis = this;
+      axios
+        .post('http://127.0.0.1:5000/movies/search', {
+          title: this.movieName,
+          user_id: this.loggedUser.user_id,
+        })
+        .then(function(response) {
+          let movies = response.data;
+          previousThis.$store.commit('loadMovies', movies);
+          previousThis.$router.push('/search');
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
     },
   },
 
@@ -63,7 +59,7 @@ export default {
       this.isLoading = true;
 
       // Lazily load input items
-      fetch('https://api.publicapis.org/entries')
+      fetch('http://127.0.0.1/movies/search')
         .then(res => res.json())
         .then(res => {
           const { count, entries } = res;
