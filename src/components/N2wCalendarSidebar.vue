@@ -8,8 +8,10 @@
         to="/profile"
         class="decoration-none hidden-md-and-down d-flex flex-column align-center"
       >
-        <a class="profileName white--text">Francis Molina</a>
-        <a class="profileUsername">rexuswolf</a>
+        <a
+          class="profileName white--text"
+        >{{this.$store.state.loggedUser.firstName}} {{this.$store.state.loggedUser.lastName}}</a>
+        <a class="profileUsername">{{this.$store.state.loggedUser.username}}</a>
       </router-link>
       <v-list max-height="500px" id="event-list" class="eventList" color="transparent">
         <v-list-item-group v-model="item">

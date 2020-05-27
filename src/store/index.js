@@ -17,6 +17,9 @@ export default new Vuex.Store({
         }
     },
     getters: {
+        firstName() {
+            return this.$store.state.loggedUser.firstName;
+        }
     },
     mutations: {
         loadUser(state, payload) {

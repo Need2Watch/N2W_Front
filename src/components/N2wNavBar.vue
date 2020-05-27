@@ -19,7 +19,7 @@
 
       <template v-slot:append>
         <div class="pa-2">
-          <v-btn class="primary black--text" block>Logout</v-btn>
+          <v-btn class="primary black--text" block @click="logOut">Logout</v-btn>
         </div>
       </template>
     </v-navigation-drawer>
@@ -78,12 +78,12 @@
         >
           <v-list-item href="/">
             <v-avatar size="50" class="nav-bar-avatar">
-              <v-img src="../assets/img/avatar.jpg"></v-img>
+              <v-img :src="userAvatarURL"></v-img>
             </v-avatar>
             <router-link to="/profile" class="decoration-none white--text">
               <v-list-item-title
                 class="headline"
-              >{{this.$store.state.loggedUser.firstName}} {{this.$store.state.loggedUser.lastName}}</v-list-item-title>
+              >{{ this.$store.state.loggedUser.firstName }} {{this.$store.state.loggedUser.lastName}}</v-list-item-title>
             </router-link>
           </v-list-item>
           <v-menu bottom left offset-y>
@@ -117,11 +117,13 @@ export default {
   },
   data() {
     return {
+      userAvatarURL:
+        'https://es.gravatar.com/userimage/148655767/f61f068eaac5470225f8923c99de0778.jpg?size=400',
       sidebar: false,
       menuItems: [
         { title: 'Movies', path: '/movie', icon: 'mdi-movie' },
         { title: 'TV Series', path: '/', icon: 'mdi-television-classic' },
-        { title: 'Top Rated', path: '../search', icon: 'mdi-star-outline' },
+        { title: 'Top Rated', path: '/search', icon: 'mdi-star-outline' },
         { title: 'Contact Us', path: '/contactUs', icon: 'mdi-email-outline' },
       ],
       sidebarItems: [

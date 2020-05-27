@@ -4,7 +4,7 @@
     <form class="pa-5" @submit.prevent="submitForm">
       <v-text-field v-model="email" type="email" :counter="16" label="Email" required></v-text-field>
       <v-text-field v-model="password" type="password" :counter="16" label="Password" required></v-text-field>
-      <v-btn class="mr-4 mt-4" type="submit" @click="submitForm">sign in</v-btn>
+      <v-btn class="mr-4 mt-4" type="submit" @click="submitForm">SIGN IN</v-btn>
     </form>
     <p class="ml-5">
       Want to create an account?
