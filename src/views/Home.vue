@@ -1,12 +1,15 @@
 <template>
   <div class="moviesDiv">
     <vs-divider
-      v-if="this.loggedUser.user_id"
+      v-if="this.user.user_id && this.followingMovies"
       position="left-center"
       color="n2wwhite"
       class="sectionDivider"
     >Following</vs-divider>
-    <n2w-carousel v-if="this.loggedUser.user_id" v-bind:items="this.followingMovies"></n2w-carousel>
+    <n2w-carousel
+      v-if="this.user.user_id && this.followingMovies"
+      v-bind:items="this.followingMovies"
+    ></n2w-carousel>
 
     <vs-divider position="left-center" color="n2wwhite" class="sectionDivider">Popular</vs-divider>
     <n2w-carousel v-bind:items="this.popularMovies"></n2w-carousel>
@@ -34,13 +37,13 @@ export default {
     };
   },
   computed: mapState({
-    loggedUser: state => state.loggedUser,
+    user: state => state.loggedUser,
   }),
   methods: {
-    async getMoviesOf(movieKind) {
+    getMoviesOf(movieKind) {
       let route = 'http://127.0.0.1:5000/movies/' + movieKind;
-      if (this.loggedUser.user_id) {
-        route += '/' + this.loggedUser.user_id;
+      if (this.user.user_id) {
+        route += '/' + this.user.user_id;
       }
       return axios
         .get(route)
@@ -54,10 +57,9 @@ export default {
   },
   mounted: function() {
     let self = this;
-    this.getMoviesOf('following').then(data => (self.followingMovies = data));
-    console.debug(this.followingMovies);
+    if (this.user.user_id)
+      this.getMoviesOf('following').then(data => (self.followingMovies = data));
     this.getMoviesOf('popular').then(data => (self.popularMovies = data));
-    console.debug(this.popularMovies);
     this.getMoviesOf('top').then(data => (self.topRatedMovies = data));
   },
 };
