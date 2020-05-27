@@ -1,6 +1,6 @@
 <template>
   <v-card class="card-cinema-card">
-    <v-img class="card-img" v-bind:src="this.image" />
+    <v-img class="card-img" v-bind:src="this.filmPoster" />
 
     <div class="card-footer">
       <v-card-title class="card-footer-text">
@@ -33,6 +33,19 @@ export default {
     },
   },
   computed: {
+    filmPoster() {
+      var filmPoster = null;
+
+      if (this.image.localeCompare("") == 0) {
+        console.log(this.image.localeCompare(""));
+        filmPoster = "https://i.imgur.com/LltB3Qs.png";
+      }
+      else {
+        filmPoster = this.image;
+      }
+
+      return filmPoster;
+    },
     shortName() {
       var shortName = null;
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container class="resultText">Se han encontrado resultados</v-container>
+    <v-container class="resultText">Se han encontrado {{this.movies.length}} resultados</v-container>
     <v-container>
       <v-row no-gutters>
         <v-col class="card-wrapper" v-for="item in this.movies" :key="item.title" cols="12" sm="2">
