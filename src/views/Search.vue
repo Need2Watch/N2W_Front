@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <v-container class="resultText">Se han encontrado {{this.movies.length}} resultados</v-container>
+  <div class="d-flex flex-column align-center">
+    <h1 class="pt-12 pb-6">Se han encontrado {{this.movies.length}} resultados</h1>
     <v-container>
       <v-row no-gutters>
         <v-col

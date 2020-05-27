@@ -4,12 +4,12 @@
 
     <div class="card-footer">
       <v-card-title class="card-footer-text">
-        <p class="card-name">{{this.shortName}}</p>
+        <p class="card-name">{{this.name}}</p>
       </v-card-title>
 
       <v-card-subtitle>
-        <p class="card-rating-star">★&#x20;</p>
-        <p class="card-rating-text">{{this.rating}}</p>
+        <v-icon color="primary">star</v-icon>
+        <p class="card-rating-text ml-1">{{this.rating}}</p>
       </v-card-subtitle>
     </div>
   </v-card>
@@ -36,27 +36,14 @@ export default {
     filmPoster() {
       var filmPoster = null;
 
-      if (this.image.localeCompare("") == 0) {
-        console.log(this.image.localeCompare(""));
-        filmPoster = "https://i.imgur.com/LltB3Qs.png";
-      }
-      else {
+      if (this.image.localeCompare('') == 0) {
+        console.log(this.image.localeCompare(''));
+        filmPoster = 'https://i.imgur.com/LltB3Qs.png';
+      } else {
         filmPoster = this.image;
       }
 
       return filmPoster;
-    },
-    shortName() {
-      var shortName = null;
-
-      if (this.name.length > 16) {
-        shortName = this.name.substring(0, 30);
-        shortName = shortName + '...';
-      } else {
-        shortName = this.name;
-      }
-
-      return shortName;
     },
   },
 };
