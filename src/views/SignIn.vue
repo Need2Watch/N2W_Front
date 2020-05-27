@@ -13,7 +13,7 @@
         </v-row>
       </v-carousel-item>
     </v-carousel>
-    <n2w-sign-in-form></n2w-sign-in-form>
+    <n2w-sign-in-form style="width:30%"></n2w-sign-in-form>
   </div>
 </template>
 

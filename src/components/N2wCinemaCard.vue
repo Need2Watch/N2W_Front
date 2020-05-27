@@ -4,7 +4,7 @@
 
     <div class="card-footer">
       <v-card-title class="card-footer-text">
-        <p class="card-name">{{this.name}}</p>
+        <p class="card-name">{{this.shortName}}</p>
       </v-card-title>
 
       <v-card-subtitle>
@@ -31,6 +31,21 @@ export default {
       type: String,
       required: true,
     },
+  },
+  computed: {
+    shortName() {
+      var shortName = null;
+
+      if (this.name.length > 14){
+        shortName = this.name.substring(0, 12);
+        shortName = shortName + "..."
+      }
+      else{
+        shortName = this.name;
+      }
+
+      return shortName;
+    }
   },
 };
 </script>
