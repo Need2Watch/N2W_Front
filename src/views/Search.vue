@@ -35,13 +35,19 @@ export default {
     return {};
   },
   computed: mapState({
+    user: state => state.loggedUser,
     movies: state => state.movies,
   }),
   methods: {
     goMovie(movie_id) {
       const previousThis = this;
       axios
-        .get('http://127.0.0.1:5000/movies/' + movie_id)
+        .get(
+          'http://127.0.0.1:5000/movies/' +
+            movie_id +
+            '/' +
+            previousThis.$store.state.loggedUser.user_id,
+        )
         .then(function(response) {
           let movie = response.data;
           console.log(response.data);

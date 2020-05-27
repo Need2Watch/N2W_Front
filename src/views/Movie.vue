@@ -13,7 +13,7 @@
         </h2>
         <h2 class="d-flex">
           Genres:
-          <span :key="genre" v-for="genre in this.movie.genres">{{genre.name}}</span>
+          <span :key="item" v-for="item in this.movie.genres">{{item.name}}</span>
         </h2>
       </div>
       <p class="movieOverview">{{this.movie.overview}}</p>
@@ -26,19 +26,14 @@
         >FOLLOW</v-btn>
         <v-btn
           v-on:click="unfollowMovie"
-          width="70%"
           v-else
+          width="70%"
           class="primary secondary--text"
         >FOLLOWING</v-btn>
-        <v-btn v-on:click="watchMovie" v-if="this.movie.watched" class="ml-3 n2wblue" width="20%">
+        <v-btn v-on:click="watchMovie" v-if="!this.movie.watched" class="ml-3 n2wblue" width="20%">
           <v-icon>mdi-eye</v-icon>
         </v-btn>
-        <v-btn
-          v-on:click="unwatchMovie"
-          v-if="!this.movie.watched"
-          class="ml-3 n2wblue"
-          width="20%"
-        >
+        <v-btn v-on:click="unwatchMovie" v-else class="ml-3 n2wblue" width="20%">
           <v-icon>mdi-eye-off</v-icon>
         </v-btn>
       </div>
@@ -64,31 +59,48 @@ export default {
     followMovie() {
       const previousThis = this;
       console.log(this.loggedUser.user_id);
-      axios.post('http://127.0.0.1:5000/movies/follow', {
-        user_id: previousThis.loggedUser.user_id,
-        movie_id: previousThis.movie.movie_id,
-      });
+      console.log(this.movie.movie_id);
+      axios
+        .post('http://127.0.0.1:5000/movies/follow', {
+          user_id: previousThis.loggedUser.user_id,
+          movie_id: previousThis.movie.movie_id,
+        })
+        .then(function() {
+          previousThis.$store.commit('followMovie');
+        });
     },
     watchMovie() {
       const previousThis = this;
-      axios.post('http://127.0.0.1:5000/movies/watch', {
-        user_id: previousThis.loggedUser.user_id,
-        movie_id: previousThis.movie.movie_id,
-      });
+      axios
+        .post('http://127.0.0.1:5000/movies/watch', {
+          user_id: previousThis.loggedUser.user_id,
+          movie_id: previousThis.movie.movie_id,
+        })
+        .then(function() {
+          previousThis.$store.commit('watchMovie');
+        });
     },
     unfollowMovie() {
       const previousThis = this;
-      axios.post('http://127.0.0.1:5000/movies/follow', {
-        user_id: previousThis.loggedUser.user_id,
-        movie_id: previousThis.movie.movie_id,
-      });
+      axios
+        .post('http://127.0.0.1:5000/movies/unfollow', {
+          user_id: previousThis.loggedUser.user_id,
+          movie_id: previousThis.movie.movie_id,
+        })
+        .then(function() {
+          previousThis.$store.commit('followMovie');
+        });
     },
     unwatchMovie() {
       const previousThis = this;
-      axios.post('http://127.0.0.1:5000/movies/watch', {
-        user_id: previousThis.loggedUser.user_id,
-        movie_id: previousThis.movie.movie_id,
-      });
+      axios
+        .post('http://127.0.0.1:5000/movies/unwatch', {
+          user_id: previousThis.loggedUser.user_id,
+          movie_id: previousThis.movie.movie_id,
+        })
+        .then(function() {
+          previousThis.$store.commit('watchMovie');
+        });
     },
   },
 };
