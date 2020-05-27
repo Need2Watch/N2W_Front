@@ -17,7 +17,7 @@
         </h2>
       </div>
       <p class="movieOverview">{{this.movie.overview}}</p>
-      <div class="d-flex">
+      <div v-if="this.loggedUser.user_id" class="d-flex">
         <v-btn
           v-on:click="followMovie"
           width="70%"
