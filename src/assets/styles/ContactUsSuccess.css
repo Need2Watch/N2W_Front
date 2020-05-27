@@ -1,28 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
-
 .contactUsSuccessMainDiv {
-    width: 100%;
-    height: 100%;
-    background-image: url(https://images8.alphacoders.com/567/567772.jpg);
-    background-color: rgba(27, 38, 54, 0.5);
-    background-blend-mode: color-burn;
-    background-position: center;
-    background-size: cover;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
+  width: 100%;
+  height: 100%;
+  background-image: url(https://images8.alphacoders.com/567/567772.jpg);
+  background-color: rgba(27, 38, 54, 0.5);
+  background-blend-mode: color-burn;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .tittleSuccess {
-    font-family: 'Bungee', cursive;
-    font-size: xx-large;
-    text-align:center;
-    line-height: 200%;
+  font-size: 4rem;
+  text-align: center;
+  line-height: 200%;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .spanSuccess {
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 100%;
 }

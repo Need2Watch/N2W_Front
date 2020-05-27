@@ -1,0 +1,13 @@
+.comingSoon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comingSoonText {
+  font-weight: bold;
+  font-size: 5rem;
+  text-align: center;
+  line-height: 500%;
+  text-transform: uppercase;
+}

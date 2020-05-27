@@ -111,13 +111,14 @@ export default {
   },
   data() {
     return {
-      userAvatarURL:
-        'https://es.gravatar.com/userimage/148655767/f61f068eaac5470225f8923c99de0778.jpg?size=400',
       sidebar: false,
       menuItems: [
-        { title: 'Movies', path: '/movie', icon: 'mdi-movie' },
-        { title: 'TV Series', path: '/', icon: 'mdi-television-classic' },
-        { title: 'Top Rated', path: '/search', icon: 'mdi-star-outline' },
+        { title: 'Movies', path: '/', icon: 'mdi-movie' },
+        {
+          title: 'TV Series',
+          path: '/tvSeries',
+          icon: 'mdi-television-classic',
+        },
         { title: 'Contact Us', path: '/contactUs', icon: 'mdi-email-outline' },
       ],
       sidebarItems: [
@@ -136,7 +137,17 @@ export default {
   },
   methods: {
     logOut() {
-      let user = {};
+      let user = {
+        firstName: '',
+        lastName: '',
+        username: '',
+        email: '',
+        password: '',
+        user_id: '',
+        country: '',
+        city: '',
+        profilePicture: '',
+      };
       this.$store.commit('loadUser', user);
     },
   },
