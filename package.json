@@ -20,7 +20,8 @@
     "vuelidate": "^0.7.5",
     "vuesax": "^3.11.15",
     "vuetify": "^2.2.11",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "vuex-persist": "^2.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.3.0",
