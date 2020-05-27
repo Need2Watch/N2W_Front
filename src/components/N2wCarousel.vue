@@ -9,6 +9,7 @@
         >
           <div class="card-wrapper" :key="item.title" v-for="item in items">
             <n2w-cinema-card
+              v-bind:id="item.movie_id"
               v-bind:name="item.title"
               v-bind:rating="item.rating"
               v-bind:image="item.poster_url"

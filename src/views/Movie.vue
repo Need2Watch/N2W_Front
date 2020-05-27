@@ -17,7 +17,7 @@
         </h2>
       </div>
       <p class="movieOverview">{{this.movie.overview}}</p>
-      <div v-if="this.loggedUser.user_id" class="d-flex">
+      <div class="d-flex" v-if="this.loggedUser.user_id">
         <v-btn
           v-on:click="followMovie"
           width="70%"
@@ -58,8 +58,6 @@ export default {
   methods: {
     followMovie() {
       const previousThis = this;
-      console.log(this.loggedUser.user_id);
-      console.log(this.movie.movie_id);
       axios
         .post('http://127.0.0.1:5000/movies/follow', {
           user_id: previousThis.loggedUser.user_id,
