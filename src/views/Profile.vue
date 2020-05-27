@@ -2,7 +2,7 @@
   <v-card height="100%" color="transparent" class="d-flex profileCard">
     <div class="d-flex flex-column align-center">
       <v-avatar size="300" class="nav-bar-avatar">
-        <v-img :src="userAvatarURL"></v-img>
+        <v-img :src="this.loggedUser.profilePicture"></v-img>
       </v-avatar>
       <div class="d-flex flex-column align-center profileInfo">
         <h1>{{this.loggedUser.firstName}} {{this.loggedUser.lastName}}</h1>
@@ -50,8 +50,6 @@ export default {
   data() {
     return {
       userBio: 'This is the user biography',
-      userAvatarURL:
-        'https://es.gravatar.com/userimage/148655767/f61f068eaac5470225f8923c99de0778.jpg?size=400',
     };
   },
   computed: mapState({

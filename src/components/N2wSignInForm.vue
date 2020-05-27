@@ -4,7 +4,7 @@
     <form class="pa-5" @submit.prevent="submitForm">
       <v-text-field v-model="email" type="email" label="Email" required></v-text-field>
       <v-text-field v-model="password" type="password" label="Password" required></v-text-field>
-      <v-btn class="mr-4 mt-4" type="submit" @click="submitForm">SIGN IN</v-btn>
+      <v-btn class="mr-4 mt-4" type="submit">SIGN IN</v-btn>
     </form>
     <p class="ml-5">
       Want to create an account?
@@ -26,7 +26,7 @@ export default {
   }),
   methods: {
     submitForm() {
-      const vm = this;
+      const previousThis = this;
       axios
         .post('http://127.0.0.1:5000/auth/login', {
           email: this.email,
@@ -34,8 +34,8 @@ export default {
         })
         .then(function(response) {
           let user = response.data;
-          vm.$store.commit('loadUser', user);
-          vm.$router.push('/');
+          previousThis.$store.commit('loadUser', user);
+          previousThis.$router.push('/');
         })
         .catch(function(error) {
           console.log(error);
