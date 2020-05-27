@@ -1,5 +1,5 @@
 <template>
-  <v-card flat color="transparent">
+  <v-card min-height="300px" flat color="transparent">
     <v-card-text>
       <v-text-field
         v-model="movieName"
