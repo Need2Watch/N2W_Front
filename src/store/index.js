@@ -43,7 +43,7 @@ export default new Vuex.Store({
     },
     watchMovie(state) {
       state.currentMovie.watched = !state.currentMovie.watched;
-    }
+    },
   },
   actions: {},
 });
