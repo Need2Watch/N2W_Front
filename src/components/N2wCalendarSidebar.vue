@@ -10,8 +10,8 @@
       >
         <a
           class="profileName white--text"
-        >{{this.$store.state.loggedUser.firstName}} {{this.$store.state.loggedUser.lastName}}</a>
-        <a class="profileUsername">{{this.$store.state.loggedUser.username}}</a>
+        >{{this.loggedUser.firstName}} {{this.loggedUser.lastName}}</a>
+        <a class="profileUsername">{{this.loggedUser.username}}</a>
       </router-link>
       <v-list max-height="500px" id="event-list" class="eventList" color="transparent">
         <v-list-item-group v-model="item">
@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'N2wCalendar',
   data: () => ({
@@ -44,6 +46,9 @@ export default {
       { text: 'Mon - Sun', value: [1, 2, 3, 4, 5, 6, 0] },
       { text: 'Mon - Fri', value: [1, 2, 3, 4, 5] },
     ],
+  }),
+  computed: mapState({
+    loggedUser: state => state.loggedUser,
   }),
 };
 </script>

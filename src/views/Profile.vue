@@ -5,10 +5,10 @@
         <v-img :src="userAvatarURL"></v-img>
       </v-avatar>
       <div class="d-flex flex-column align-center profileInfo">
-        <h1>{{userFirstName}} {{userLastName}}</h1>
-        <h2>{{userUsername}}</h2>
-        <h2>{{userEmail}}</h2>
-        <h2>{{userCity}} {{userCountry}}</h2>
+        <h1>{{this.loggedUser.firstName}} {{this.loggedUser.lastName}}</h1>
+        <h2>{{this.loggedUser.username}}</h2>
+        <h2>{{this.loggedUser.email}}</h2>
+        <h2>{{this.loggedUser.city}}, {{this.loggedUser.country}}</h2>
       </div>
     </div>
     <div class="d-flex flex-column profileInfo">
@@ -31,6 +31,7 @@
   </v-card>
 </template>
 <script>
+import { mapState } from 'vuex';
 export default {
   name: 'Profile',
   props: {
@@ -48,17 +49,14 @@ export default {
   components: {},
   data() {
     return {
-      userFirstName: this.$store.state.loggedUser.firstName,
-      userLastName: this.$store.state.loggedUser.lastName,
-      userUsername: this.$store.state.loggedUser.username,
-      userEmail: this.$store.state.loggedUser.email,
-      userCountry: this.$store.state.loggedUser.country,
-      userCity: this.$store.state.loggedUser.city,
       userBio: 'This is the user biography',
       userAvatarURL:
         'https://es.gravatar.com/userimage/148655767/f61f068eaac5470225f8923c99de0778.jpg?size=400',
     };
   },
+  computed: mapState({
+    loggedUser: state => state.loggedUser,
+  }),
 };
 </script>
 <style scoped>

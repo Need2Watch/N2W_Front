@@ -60,19 +60,14 @@
           </v-btn>
         </router-link>
         <v-btn
-          v-if="!this.$store.state.loggedUser.firstName"
+          v-if="!this.loggedUser.firstName"
           depressed
           to="/signIn"
           class="ml-3 secondary"
         >SIGN IN</v-btn>
-        <v-btn
-          v-if="!this.$store.state.loggedUser.firstName"
-          depressed
-          to="/signUp"
-          class="secondary"
-        >SIGN UP</v-btn>
+        <v-btn v-if="!this.loggedUser.firstName" depressed to="/signUp" class="secondary">SIGN UP</v-btn>
         <v-card
-          v-if="this.$store.state.loggedUser.firstName"
+          v-if="this.loggedUser.firstName"
           flat
           class="transparent d-md-flex align-center hidden-md-and-down"
         >
@@ -83,7 +78,7 @@
             <router-link to="/profile" class="decoration-none white--text">
               <v-list-item-title
                 class="headline"
-              >{{ this.$store.state.loggedUser.firstName }} {{this.$store.state.loggedUser.lastName}}</v-list-item-title>
+              >{{ this.loggedUser.firstName }} {{this.loggedUser.lastName}}</v-list-item-title>
             </router-link>
           </v-list-item>
           <v-menu bottom left offset-y>
@@ -109,6 +104,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import N2wSearchBar from './N2wSearchBar';
 export default {
   name: 'N2wNavBar',
@@ -146,6 +142,9 @@ export default {
       this.$store.commit('loadUser', user);
     },
   },
+  computed: mapState({
+    loggedUser: state => state.loggedUser,
+  }),
 };
 </script>
 <style scoped>
