@@ -2,18 +2,13 @@
   <v-card height="100%" color="transparent" class="d-flex profileCard">
     <div class="d-flex flex-column align-center">
       <div class="d-flex flex-column align-center profileInfo">
-        <form>
-          <v-text-field
-            type="text"
-            :firstName="firstName"
-            v-model="firstName"
-            label="First Name"
-            requiered
-          ></v-text-field>
-          <v-text-field type="text" v-model="lastName" label="Last Name" requiered></v-text-field>
-          <v-text-field type="text" v-model="username" label="Userame" requiered></v-text-field>
-          <v-text-field type="text" v-model="city" label="City" requiered></v-text-field>
-          <v-text-field type="text" v-model="country" label="Country" requiered></v-text-field>
+        <form @submit.prevent="submitForm">
+          <v-text-field label="First Name" v-model="firstName" required></v-text-field>
+          <v-text-field label="Last Name" v-model="lastName"></v-text-field>
+          <v-text-field label="Userame" v-model="username"></v-text-field>
+          <v-text-field label="City" v-model="city"></v-text-field>
+          <v-text-field label="Country" v-model="country"></v-text-field>
+          <v-btn class="mr-4 mt-4" type="submit">Save Profile</v-btn>
         </form>
       </div>
     </div>
@@ -21,17 +16,6 @@
       <v-avatar size="300" class="nav-bar-avatar">
         <v-img :src="this.user.profilePicture"></v-img>
       </v-avatar>
-      <v-card-actions>
-        <v-btn
-          @click="submitForm"
-          rounded
-          color="primary"
-          class="secondary--text editProfileButton"
-          fixed
-          bottom
-          right
-        >Save Profile</v-btn>
-      </v-card-actions>
       <v-card-title class="userBioHeader">Biography</v-card-title>
       <v-card-text>
         <input v-bind:value="userBio" class="userBio" />
@@ -41,47 +25,55 @@
 </template>
 <script>
 import { mapState } from 'vuex';
-//import axios from 'axios';
+import axios from 'axios';
 export default {
-  name: 'Profile',
-  components: {},
-  data: () => ({
-    firstName: this.user.firstName,
-    lastName: this.user.lastName,
-    userName: this.user.username,
-    email: this.user.email,
-    country: this.user.country,
-    city: this.user.city,
-
-    userBio: 'This is the user biography',
-  }),
+  name: 'EditProfile',
+  data: function() {
+    return {
+      firstName: '',
+      lastName: '',
+      username: '',
+      email: '',
+      country: '',
+      city: '',
+      userBio: 'This is the user biography',
+    };
+  },
   computed: mapState({
     user: state => state.loggedUser,
   }),
   methods: {
     submitForm() {
-      //   const previousThis = this;
-      //   axios
-      //     .put('http://127.0.0.1:5000/users/' + this.user.user_id, {
-      //       user_id: this.user.user_id,
-      //       username: this.updatedUser.userName,
-      //       password: this.user.password,
-      //       first_name: this.updatedUser.firstName,
-      //       last_name: this.updatedUser.lastName,
-      //       email: this.user.email,
-      //       country: this.updatedUser.country,
-      //       city: this.updatedUser.city,
-      //     })
-      //     .then(function(response) {
-      //       let user = response.data;
-      //       previousThis.$store.commit('loadUser', user);
-      //       previousThis.$router.push('/profile');
-      //     })
-      //     .catch(function(error) {
-      //       console.log(error);
-      //     });
+      const previousThis = this;
+      axios
+        .put('http://127.0.0.1:5000/users/' + this.user.user_id, {
+          user_id: this.user.user_id,
+          username: this.username,
+          password: this.user.password,
+          first_name: this.firstName,
+          last_name: this.lastName,
+          email: this.user.email,
+          country: this.country,
+          city: this.city,
+        })
+        .then(function(response) {
+          let user = response.data;
+          previousThis.$store.commit('loadUser', user);
+          previousThis.$router.push('/profile');
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
       console.log(this.firstName);
     },
+  },
+  mounted: function() {
+    this.firstName = this.user.firstName;
+    this.lastName = this.user.lastName;
+    this.username = this.user.username;
+    this.email = this.user.email;
+    this.city = this.user.city;
+    this.country = this.user.country;
   },
 };
 </script>
