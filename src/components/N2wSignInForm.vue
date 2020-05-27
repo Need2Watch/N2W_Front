@@ -1,6 +1,6 @@
 <template>
   <v-card raised height="100%" class="n2wgray formCard">
-    <v-img width="50%" class="logo" src="../assets/img/logo.png"></v-img>
+    <v-img width="80%" class="logo" style="margin: 10% auto 5%;" src="../assets/img/logo-extended.png"></v-img>
     <form class="pa-5" @submit.prevent="submitForm">
       <v-text-field v-model="email" type="email" label="Email" required></v-text-field>
       <v-text-field v-model="password" type="password" label="Password" required></v-text-field>
