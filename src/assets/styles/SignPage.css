@@ -18,8 +18,9 @@
     text-decoration: none;
 }
 
-.logo{
-    margin-left: 25%;
+.logoContainer{
+    width: 80%;
+    margin: 5.5em;
 }
 
 .formCard{

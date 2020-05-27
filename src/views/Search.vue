@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <v-container class="resultText">Se han encontrado resultados</v-container>
+  <div class="d-flex flex-column align-center">
+    <h1 class="pt-12 pb-6">Se han encontrado {{this.movies.length}} resultados</h1>
     <v-container>
       <v-row no-gutters>
         <v-col
@@ -35,13 +35,19 @@ export default {
     return {};
   },
   computed: mapState({
+    user: state => state.loggedUser,
     movies: state => state.movies,
   }),
   methods: {
     goMovie(movie_id) {
       const previousThis = this;
       axios
-        .get('http://127.0.0.1:5000/movies/' + movie_id)
+        .get(
+          'http://127.0.0.1:5000/movies/' +
+            movie_id +
+            '/' +
+            previousThis.$store.state.loggedUser.user_id,
+        )
         .then(function(response) {
           let movie = response.data;
           console.log(response.data);

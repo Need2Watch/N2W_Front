@@ -43,6 +43,7 @@
   font-family: 'Roboto';
   color: #f2f2f2;
   user-select: none;
+  word-break: keep-all;
 }
 
 .card-name {
@@ -53,13 +54,5 @@
   color: #f2f2f2;
   font-size: 0.9rem;
   font-family: 'Roboto';
-  display: inline;
-}
-
-.card-rating-star {
-  color: #fbc500;
-  margin-left: 0.3em;
-  font-family: 'Roboto';
-  font-size: 1.2rem;
   display: inline;
 }

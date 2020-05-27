@@ -1,15 +1,15 @@
 <template>
   <v-card class="card-cinema-card">
-    <v-img class="card-img" v-bind:src="this.image" />
+    <v-img class="card-img" v-bind:src="this.filmPoster" />
 
     <div class="card-footer">
       <v-card-title class="card-footer-text">
-        <p class="card-name">{{this.shortName}}</p>
+        <p class="card-name">{{this.name}}</p>
       </v-card-title>
 
       <v-card-subtitle>
-        <p class="card-rating-star">★&#x20;</p>
-        <p class="card-rating-text">{{this.rating}}</p>
+        <v-icon color="primary">star</v-icon>
+        <p class="card-rating-text ml-1">{{this.rating}}</p>
       </v-card-subtitle>
     </div>
   </v-card>
@@ -33,17 +33,17 @@ export default {
     },
   },
   computed: {
-    shortName() {
-      var shortName = null;
+    filmPoster() {
+      var filmPoster = null;
 
-      if (this.name.length > 16) {
-        shortName = this.name.substring(0, 30);
-        shortName = shortName + '...';
+      if (this.image.localeCompare('') == 0) {
+        console.log(this.image.localeCompare(''));
+        filmPoster = 'https://i.imgur.com/Iw32fZR.png';
       } else {
-        shortName = this.name;
+        filmPoster = this.image;
       }
 
-      return shortName;
+      return filmPoster;
     },
   },
 };
