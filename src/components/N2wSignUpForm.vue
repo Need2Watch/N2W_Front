@@ -72,8 +72,8 @@
         @change="$v.checkbox.$touch()"
         @blur="$v.checkbox.$touch()"
       ></v-checkbox>
-      <v-btn class="mr-4 mt-4" @click="submitForm">submit</v-btn>
-      <v-btn class="mt-4" @click="clear">clear</v-btn>
+      <v-btn class="mr-4 mt-4" @click="submitForm">SUBMIT</v-btn>
+      <v-btn class="mt-4" @click="clear">CLEAR</v-btn>
     </form>
     <p class="ml-5">
       Already have an account?

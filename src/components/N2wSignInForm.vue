@@ -17,18 +17,16 @@
 
 <script>
 import axios from 'axios';
-
 export default {
   name: 'N2wSignInForm',
-
   data: () => ({
     email: '',
     password: '',
     select: null,
   }),
-
   methods: {
     submitForm() {
+      const vm = this;
       axios
         .post('http://127.0.0.1:5000/auth/login', {
           email: this.email,
@@ -36,7 +34,8 @@ export default {
         })
         .then(function(response) {
           let user = response.data;
-          console.log(user);
+          vm.$store.commit('loadUser', user);
+          vm.$router.push('/');
         })
         .catch(function(error) {
           console.log(error);

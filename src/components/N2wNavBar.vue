@@ -59,15 +59,31 @@
             <v-icon color="secondary" size="40">mdi-calendar</v-icon>
           </v-btn>
         </router-link>
-        <v-btn depressed to="/signIn" class="ml-3 secondary">SIGN IN</v-btn>
-        <v-btn depressed to="/signUp" class="secondary">SIGN UP</v-btn>
-        <v-card flat class="transparent d-md-flex align-center hidden-md-and-down">
+        <v-btn
+          v-if="!this.$store.state.loggedUser.firstName"
+          depressed
+          to="/signIn"
+          class="ml-3 secondary"
+        >SIGN IN</v-btn>
+        <v-btn
+          v-if="!this.$store.state.loggedUser.firstName"
+          depressed
+          to="/signUp"
+          class="secondary"
+        >SIGN UP</v-btn>
+        <v-card
+          v-if="this.$store.state.loggedUser.firstName"
+          flat
+          class="transparent d-md-flex align-center hidden-md-and-down"
+        >
           <v-list-item href="/">
             <v-avatar size="50" class="nav-bar-avatar">
               <v-img src="../assets/img/avatar.jpg"></v-img>
             </v-avatar>
             <router-link to="/profile" class="decoration-none white--text">
-              <v-list-item-title class="headline">Francis Molina</v-list-item-title>
+              <v-list-item-title
+                class="headline"
+              >{{this.$store.state.loggedUser.firstName}} {{this.$store.state.loggedUser.lastName}}</v-list-item-title>
             </router-link>
           </v-list-item>
           <v-menu bottom left offset-y>
@@ -78,9 +94,10 @@
             </template>
 
             <v-list class="secondary">
-              <v-list-item v-for="(item, i) in items" :key="i">
-                <a :href="item.path" class="decoration-none white--text">
-                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+              <v-list-item>
+                <a class="decoration-none white--text">
+                  <v-list-item-title>Edit Profile</v-list-item-title>
+                  <v-list-item-title @click="logOut">Logout</v-list-item-title>
                 </a>
               </v-list-item>
             </v-list>
@@ -118,11 +135,14 @@ export default {
         { title: 'Top Rated', path: '/', icon: 'mdi-star-outline' },
         { title: 'Contact Us', path: '/contactUs', icon: 'mdi-email-outline' },
       ],
-      items: [
-        { title: 'Edit Profile', path: '/editProfile' },
-        { title: 'Log Out', path: '/SignIn' },
-      ],
+      items: [{ title: 'Edit Profile', path: '/editProfile' }],
     };
+  },
+  methods: {
+    logOut() {
+      let user = {};
+      this.$store.commit('loadUser', user);
+    },
   },
 };
 </script>
