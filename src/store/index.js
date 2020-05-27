@@ -17,13 +17,7 @@ export default new Vuex.Store({
       profilePicture: '',
     },
     movies: [],
-    currentMovie: {
-      movie_id: '',
-      title: '',
-      poster_url: '',
-      rating: '',
-      genres: {},
-    },
+    currentMovie: {},
   },
   getters: {},
   mutations: {
@@ -42,10 +36,14 @@ export default new Vuex.Store({
       state.movies = payload;
     },
     loadMovie(state, payload) {
-      state.currentMovie.title = payload[0];
-      state.currentMovie.rating = payload[1];
-      state.currentMovie.poster_url = payload[2];
+      state.currentMovie = payload;
     },
+    followMovie(state) {
+      state.currentMovie.following = !state.currentMovie.following;
+    },
+    watchMovie(state) {
+      state.currentMovie.watched = !state.currentMovie.watched;
+    }
   },
   actions: {},
 });

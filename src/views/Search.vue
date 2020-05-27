@@ -3,12 +3,18 @@
     <v-container class="resultText">Se han encontrado resultados</v-container>
     <v-container>
       <v-row no-gutters>
-        <v-col class="card-wrapper" v-for="item in this.movies" :key="item.title" cols="12" sm="2">
+        <v-col
+          class="card-wrapper"
+          v-on:click="goMovie(item.movie_id)"
+          v-for="item in this.movies"
+          :key="item.title"
+          cols="12"
+          sm="2"
+        >
           <n2w-cinema-card
             v-bind:name="item.title"
             v-bind:rating="item.rating"
             v-bind:image="item.poster_url"
-            @click="goMovie(name, rating, image)"
           ></n2w-cinema-card>
         </v-col>
       </v-row>
@@ -17,6 +23,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import { mapState } from 'vuex';
 import N2wCinemaCard from '../components/N2wCinemaCard.vue';
 export default {
@@ -31,10 +38,19 @@ export default {
     movies: state => state.movies,
   }),
   methods: {
-    goMovie(movieName, rating, image) {
-      let movie = { movieName, rating, image };
-      this.$store.commit('currentMovie', movie);
-      this.$router.push('/movie');
+    goMovie(movie_id) {
+      const previousThis = this;
+      axios
+        .get('http://127.0.0.1:5000/movies/' + movie_id)
+        .then(function(response) {
+          let movie = response.data;
+          console.log(response.data);
+          previousThis.$store.commit('loadMovie', movie);
+          previousThis.$router.push('/movie');
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
     },
   },
 };
