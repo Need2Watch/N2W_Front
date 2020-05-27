@@ -74,6 +74,12 @@ const routes = [
       import(/* webpackChunkName: "about" */ '../views/Profile.vue'),
   },
   {
+    path: '/editProfile',
+    name: 'EditProfile',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/EditProfile.vue'),
+  },
+  {
     path: '/tvSeries',
     name: 'TvSeries',
     component: () =>
