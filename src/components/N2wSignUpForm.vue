@@ -67,12 +67,12 @@
       <v-checkbox
         v-model="checkbox"
         :error-messages="checkboxErrors"
-        label="Do you agree with our terms and conditions?"
+        label="I have read and accept the terms and conditions."
         required
         @change="$v.checkbox.$touch()"
         @blur="$v.checkbox.$touch()"
       ></v-checkbox>
-      <v-btn class="mr-4 mt-4" @click="submitForm">SUBMIT</v-btn>
+      <v-btn class="mr-4 mt-4" type="submit">SUBMIT</v-btn>
       <v-btn class="mt-4" @click="clear">CLEAR</v-btn>
     </form>
     <p class="ml-5">
@@ -189,6 +189,7 @@ export default {
   methods: {
     submitForm() {
       if (!this.$v.$touch()) {
+        const previousThis = this;
         axios
           .post('http://127.0.0.1:5000/users', {
             user_id: uuidv4(),
@@ -201,7 +202,9 @@ export default {
             city: this.city,
           })
           .then(function(response) {
-            console.log(response);
+            let user = response.data;
+            previousThis.$store.commit('loadUser', user);
+            previousThis.$router.push('/');
           })
           .catch(function(error) {
             console.log(error);

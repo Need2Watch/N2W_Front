@@ -14,13 +14,10 @@ export default new Vuex.Store({
       user_id: '',
       country: '',
       city: '',
+      profilePicture: '',
     },
   },
-  getters: {
-    firstName() {
-      return this.$store.state.loggedUser.firstName;
-    },
-  },
+  getters: {},
   mutations: {
     loadUser(state, payload) {
       state.loggedUser.firstName = payload.first_name;
@@ -31,6 +28,7 @@ export default new Vuex.Store({
       state.loggedUser.user_id = payload.user_id;
       state.loggedUser.country = payload.country;
       state.loggedUser.city = payload.city;
+      state.loggedUser.profilePicture = payload.profile_picture;
     },
   },
   actions: {},
