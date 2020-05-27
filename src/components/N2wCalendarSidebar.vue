@@ -1,9 +1,6 @@
 <template>
   <v-card hover raised class="calendarSideBar d-flex flex-column align-center">
-    <div class="profileBanner d-flex flex-column align-center">
-      <div class="primary profileCircle"></div>
-    </div>
-    <div class="sidebarInfo d-flex flex-column align-center">
+    <div class="mt-5 sidebarInfo d-flex flex-column align-center">
       <router-link
         to="/profile"
         class="decoration-none hidden-md-and-down d-flex flex-column align-center"
@@ -13,7 +10,7 @@
         >{{this.loggedUser.firstName}} {{this.loggedUser.lastName}}</a>
         <a class="profileUsername">{{this.loggedUser.username}}</a>
       </router-link>
-      <v-list max-height="500px" id="event-list" class="eventList" color="transparent">
+      <v-list max-height="800px" id="event-list" class="eventList" color="transparent">
         <v-list-item-group v-model="item">
           <v-list-item v-for="(item, i) in events" :key="i">
             <v-list-item-content>

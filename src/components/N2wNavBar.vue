@@ -4,7 +4,7 @@
       <v-list>
         <v-list-item href="/" class="side-bar-profile">
           <v-avatar size="50" class="nav-bar-avatar">
-            <v-img src="../assets/img/avatar.jpg"></v-img>
+            <v-img :src="this.loggedUser.profilePicture"></v-img>
           </v-avatar>
           <v-list-item-title class="headline">My Profile</v-list-item-title>
         </v-list-item>
@@ -71,15 +71,13 @@
           flat
           class="transparent d-md-flex align-center hidden-md-and-down"
         >
-          <v-list-item href="/">
+          <v-list-item to="/profile" class="decoration-none white--text">
             <v-avatar size="50" class="nav-bar-avatar">
-              <v-img :src="userAvatarURL"></v-img>
+              <v-img :src="this.loggedUser.profilePicture"></v-img>
             </v-avatar>
-            <router-link to="/profile" class="decoration-none white--text">
-              <v-list-item-title
-                class="headline"
-              >{{ this.loggedUser.firstName }} {{this.loggedUser.lastName}}</v-list-item-title>
-            </router-link>
+            <v-list-item-title
+              class="headline"
+            >{{ this.loggedUser.firstName }} {{this.loggedUser.lastName}}</v-list-item-title>
           </v-list-item>
           <v-menu bottom left offset-y>
             <template v-slot:activator="{ on }">
