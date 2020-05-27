@@ -38,7 +38,7 @@ export default {
 
       if (this.image.localeCompare("") == 0) {
         console.log(this.image.localeCompare(""));
-        filmPoster = "https://i.imgur.com/LltB3Qs.png";
+        filmPoster = "https://i.imgur.com/Iw32fZR.png";
       }
       else {
         filmPoster = this.image;
