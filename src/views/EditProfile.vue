@@ -7,7 +7,14 @@
           <v-text-field label="Last Name" v-model="lastName"></v-text-field>
           <v-text-field label="Userame" v-model="username"></v-text-field>
           <v-text-field label="City" v-model="city"></v-text-field>
-          <v-text-field label="Country" v-model="country"></v-text-field>
+          <v-select
+            :items="countries"
+            v-model="country"
+            name="country"
+            required
+            item-text="countryName"
+            label="Country"
+          />
           <v-btn class="mr-4 mt-4" type="submit">Save Profile</v-btn>
         </form>
       </div>
@@ -26,6 +33,7 @@
 <script>
 import { mapState } from 'vuex';
 import axios from 'axios';
+import countries from '../data/countries.js';
 export default {
   name: 'EditProfile',
   data: function() {
@@ -37,6 +45,7 @@ export default {
       country: '',
       city: '',
       userBio: 'This is the user biography',
+      countries: countries,
     };
   },
   computed: mapState({
