@@ -2,8 +2,8 @@
   <v-card raised height="100%" class="n2wgray formCard">
     <v-img width="50%" class="logo" src="../assets/img/logo.png"></v-img>
     <form class="pa-5" @submit.prevent="submitForm">
-      <v-text-field v-model="email" type="email" :counter="16" label="Email" required></v-text-field>
-      <v-text-field v-model="password" type="password" :counter="16" label="Password" required></v-text-field>
+      <v-text-field v-model="email" type="email" label="Email" required></v-text-field>
+      <v-text-field v-model="password" type="password" label="Password" required></v-text-field>
       <v-btn class="mr-4 mt-4" type="submit" @click="submitForm">SIGN IN</v-btn>
     </form>
     <p class="ml-5">

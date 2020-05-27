@@ -1,37 +1,37 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue';
+import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-    state: {
-        loggedUser: {
-            firstName: '',
-            lastName: '',
-            username: '',
-            email: '',
-            password: '',
-            user_id: '',
-            country: '',
-            city: '',
-        }
+  state: {
+    loggedUser: {
+      firstName: '',
+      lastName: '',
+      username: '',
+      email: '',
+      password: '',
+      user_id: '',
+      country: '',
+      city: '',
     },
-    getters: {
-        firstName() {
-            return this.$store.state.loggedUser.firstName;
-        }
+  },
+  getters: {
+    firstName() {
+      return this.$store.state.loggedUser.firstName;
     },
-    mutations: {
-        loadUser(state, payload) {
-            state.loggedUser.firstName = payload.first_name;
-            state.loggedUser.lastName = payload.last_name;
-            state.loggedUser.username = payload.username;
-            state.loggedUser.email = payload.email;
-            state.loggedUser.password = payload.password;
-            state.loggedUser.user_id = payload.user_id;
-            state.loggedUser.country = payload.country;
-            state.loggedUser.country = payload.country;
-        }
+  },
+  mutations: {
+    loadUser(state, payload) {
+      state.loggedUser.firstName = payload.first_name;
+      state.loggedUser.lastName = payload.last_name;
+      state.loggedUser.username = payload.username;
+      state.loggedUser.email = payload.email;
+      state.loggedUser.password = payload.password;
+      state.loggedUser.user_id = payload.user_id;
+      state.loggedUser.country = payload.country;
+      state.loggedUser.country = payload.country;
     },
-    actions: {}
+  },
+  actions: {},
 });
