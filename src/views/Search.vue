@@ -12,6 +12,7 @@
           sm="2"
         >
           <n2w-cinema-card
+            v-bind:id="item.movie_id"
             v-bind:name="item.title"
             v-bind:rating="item.rating"
             v-bind:image="item.poster_url"
@@ -23,7 +24,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import { mapState } from 'vuex';
 import N2wCinemaCard from '../components/N2wCinemaCard.vue';
 export default {
@@ -38,27 +38,7 @@ export default {
     user: state => state.loggedUser,
     movies: state => state.movies,
   }),
-  methods: {
-    goMovie(movie_id) {
-      const previousThis = this;
-      axios
-        .get(
-          'http://127.0.0.1:5000/movies/' +
-            movie_id +
-            '/' +
-            previousThis.$store.state.loggedUser.user_id,
-        )
-        .then(function(response) {
-          let movie = response.data;
-          console.log(response.data);
-          previousThis.$store.commit('loadMovie', movie);
-          previousThis.$router.push('/movie');
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    },
-  },
+  methods: {},
 };
 </script>
 <style scoped>

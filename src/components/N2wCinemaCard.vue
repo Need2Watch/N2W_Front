@@ -1,5 +1,5 @@
 <template>
-  <v-card class="card-cinema-card">
+  <v-card class="card-cinema-card" @click="goToMovie">
     <v-img class="card-img" v-bind:src="this.filmPoster" />
 
     <div class="card-footer">
@@ -15,10 +15,17 @@
   </v-card>
 </template>
 <script>
+import { mapState } from 'vuex';
+import axios from 'axios';
+
 export default {
   name: 'N2wCinemaCard',
   template: '#v-card',
   props: {
+    id: {
+      type: Number,
+      required: true,
+    },
     name: {
       type: String,
       required: true,
@@ -33,17 +40,34 @@ export default {
     },
   },
   computed: {
+    ...mapState({
+      user: state => state.loggedUser,
+    }),
     filmPoster() {
-      var filmPoster = null;
-
-      if (this.image.localeCompare('') == 0) {
-        console.log(this.image.localeCompare(''));
-        filmPoster = 'https://i.imgur.com/Iw32fZR.png';
-      } else {
-        filmPoster = this.image;
+      if (this.image) {
+        return this.image;
       }
-
-      return filmPoster;
+      return 'https://i.imgur.com/Iw32fZR.png';
+    },
+  },
+  methods: {
+    goToMovie() {
+      let route = 'http://127.0.0.1:5000/movies/' + this.id;
+      if (this.user.user_id) {
+        route += '/' + this.user.user_id;
+      }
+      console.debug(route);
+      const previousThis = this;
+      axios
+        .get(route)
+        .then(function(response) {
+          let movie = response.data;
+          previousThis.$store.commit('loadMovie', movie);
+          previousThis.$router.push('/movie');
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
     },
   },
 };
