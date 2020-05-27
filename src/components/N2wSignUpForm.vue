@@ -3,6 +3,7 @@
     <form class="pa-5" @submit.prevent="submitForm">
       <v-text-field
         v-model="firstName"
+        v-on:keyup.enter="submitForm"
         :error-messages="firstNameErrors"
         :counter="16"
         label="First Name"
@@ -12,6 +13,7 @@
       ></v-text-field>
       <v-text-field
         v-model="lastName"
+        v-on:keyup.enter="submitForm"
         :error-messages="lastNameErrors"
         :counter="16"
         label="Last Name"
@@ -21,6 +23,7 @@
       ></v-text-field>
       <v-text-field
         v-model="email"
+        v-on:keyup.enter="submitForm"
         :error-messages="emailErrors"
         label="E-mail"
         required
@@ -29,6 +32,7 @@
       ></v-text-field>
       <v-text-field
         v-model="username"
+        v-on:keyup.enter="submitForm"
         :error-messages="usernameErrors"
         :counter="16"
         label="Username"
@@ -39,6 +43,7 @@
       <v-text-field
         v-model="password"
         type="password"
+        v-on:keyup.enter="submitForm"
         :error-messages="passwordErrors"
         :counter="16"
         label="Password"
@@ -48,6 +53,7 @@
       ></v-text-field>
       <v-select
         :items="countries"
+        v-on:keyup.enter="submitForm"
         v-model="country"
         name="country"
         required
@@ -57,6 +63,7 @@
       <v-text-field
         v-model="city"
         type="city"
+        v-on:keyup.enter="submitForm"
         :error-messages="cityErrors"
         label="City"
         required
@@ -66,6 +73,7 @@
       <n2w-terms></n2w-terms>
       <v-checkbox
         v-model="checkbox"
+        v-on:keyup.enter="submitForm"
         :error-messages="checkboxErrors"
         label="I have read and accept the terms and conditions."
         required
@@ -188,7 +196,7 @@ export default {
 
   methods: {
     submitForm() {
-      if (!this.$v.$touch()) {
+      if (!this.$v.$touch.$dirty) {
         const previousThis = this;
         axios
           .post('http://127.0.0.1:5000/users', {

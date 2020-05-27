@@ -7,8 +7,20 @@
       src="../assets/img/logo-extended.png"
     ></v-img>
     <form class="pa-5" @submit.prevent="submitForm">
-      <v-text-field v-model="email" type="email" label="Email" required></v-text-field>
-      <v-text-field v-model="password" type="password" label="Password" required></v-text-field>
+      <v-text-field
+        v-on:keyup.enter="submitForm"
+        v-model="email"
+        type="email"
+        label="Email"
+        required
+      ></v-text-field>
+      <v-text-field
+        v-on:keyup.enter="submitForm"
+        v-model="password"
+        type="password"
+        label="Password"
+        required
+      ></v-text-field>
       <v-btn class="mr-4 mt-4" type="submit">SIGN IN</v-btn>
     </form>
     <p class="ml-5">
