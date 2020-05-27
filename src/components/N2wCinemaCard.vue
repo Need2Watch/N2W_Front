@@ -49,16 +49,15 @@ export default {
     shortName() {
       var shortName = null;
 
-      if (this.name.length > 14){
-        shortName = this.name.substring(0, 12);
-        shortName = shortName + "..."
-      }
-      else{
+      if (this.name.length > 16) {
+        shortName = this.name.substring(0, 30);
+        shortName = shortName + '...';
+      } else {
         shortName = this.name;
       }
 
       return shortName;
-    }
+    },
   },
 };
 </script>

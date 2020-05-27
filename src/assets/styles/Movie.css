@@ -2,13 +2,9 @@
     font-size: 65px;
 }
 
-.movieMainInfo{
-    margin-top: 1em;
-}
-
 .movieOverview {
-font-size: 30px;
-line-height: 36px;
+    font-size: 30px;
+    line-height: 36px;
 }
 
 .moviePoster{
