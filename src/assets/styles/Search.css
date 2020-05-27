@@ -1,8 +1,8 @@
 .card-wrapper {
-    margin: 0px 10px 0px;
+  margin: 30px 10px 0px;
 }
 
 .card-cinema-card {
-    width: auto;
-    height: 308px;
+  width: 200px;
+  height: 308px;
 }
