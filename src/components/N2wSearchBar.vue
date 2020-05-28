@@ -1,17 +1,12 @@
 <template>
-  <v-card min-height="300px" flat color="transparent">
-    <v-card-text>
-      <v-text-field
-        v-model="movieName"
-        @submit.prevent="submitSearch"
-        label="Regular"
-        single-line
-        placeholder="Search movie..."
-        append-icon="mdi-magnify"
-        v-on:keyup.enter="submitSearch"
-      ></v-text-field>
-    </v-card-text>
-  </v-card>
+  <v-text-field
+    class="mt-5 mr-3"
+    v-model="movieName"
+    @submit.prevent="submitSearch"
+    placeholder="Search movie..."
+    append-icon="mdi-magnify"
+    v-on:keyup.enter="submitSearch"
+  ></v-text-field>
 </template>
 
 <script>
