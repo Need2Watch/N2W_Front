@@ -3,6 +3,7 @@
     <p class="comingSoonText">COMING SOON!</p>
     <div class="d-flex">
       <iframe
+        class="hidden-sm-and-down"
         style="border: 1px solid rgba(0, 0, 0, 0.1);"
         width="800"
         height="450"
