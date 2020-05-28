@@ -50,7 +50,7 @@ export default {
       axios
         .put('http://127.0.0.1:5000/users/' + this.loggedUser.user_id, {
           user_id: this.loggedUser.user_id,
-          username: this.loggedUsername,
+          username: this.username,
           password: this.loggedUser.password,
           first_name: this.firstName,
           last_name: this.lastName,
