@@ -1,6 +1,10 @@
 <template>
   <v-card color="transparent" class="d-flex align-center movieCard">
-    <v-img class="moviePoster hidden-sm-and-down" :src="this.movie.poster_url"></v-img>
+    <v-img
+      v-if="this.movie.poster_url"
+      class="moviePoster hidden-sm-and-down"
+      :src="this.movie.poster_url"
+    ></v-img>
     <div class="d-flex flex-column infoContainer">
       <h1 class="movieTitle">{{this.movie.title}}</h1>
 
