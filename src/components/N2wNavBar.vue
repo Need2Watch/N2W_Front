@@ -1,12 +1,12 @@
 <template>
   <div>
-    <v-navigation-drawer color="transparent" disable-resize-watcher v-model="sidebar" app>
-      <v-list>
-        <v-list-item href="/" class="side-bar-profile">
+    <v-navigation-drawer color="secondary" disable-resize-watcher v-model="sidebar" app>
+      <v-list height="80%">
+        <v-list-item v-if="this.loggedUser.user_id" href="/profile" class="side-bar-profile">
           <v-avatar size="50" class="nav-bar-avatar">
             <v-img :src="this.loggedUser.profilePicture"></v-img>
           </v-avatar>
-          <v-list-item-title class="headline">My Profile</v-list-item-title>
+          <v-list-item-title class="headline">{{this.loggedUser.username}}</v-list-item-title>
         </v-list-item>
         <v-divider></v-divider>
         <v-list-item v-for="item in sidebarItems" :key="item.title" :to="item.path">
@@ -16,12 +16,20 @@
           <v-list-item-content>{{ item.title }}</v-list-item-content>
         </v-list-item>
       </v-list>
-
-      <template v-slot:append>
-        <div class="pa-2">
-          <v-btn class="primary black--text" block @click="logOut">Logout</v-btn>
-        </div>
-      </template>
+      <v-btn
+        v-if="this.loggedUser.user_id"
+        rounded
+        width="80%"
+        class="ml-6 mb-1 primary black--text"
+        to="/editProfile"
+      >Edit Profile</v-btn>
+      <v-btn
+        v-if="this.loggedUser.user_id"
+        rounded
+        width="80%"
+        class="ml-6 red white--text"
+        @click="logOut"
+      >Logout</v-btn>
     </v-navigation-drawer>
 
     <v-app-bar color="secondary" app>
