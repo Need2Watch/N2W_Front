@@ -81,13 +81,13 @@
                   <v-icon>mdi-chevron-down</v-icon>
                 </v-btn>
               </template>
-              <v-list class="d-flex flex-column">
-                <v-list-item class="secondary">
+              <v-list class="secondary d-flex flex-column">
+                <v-list-item>
                   <router-link to="/editProfile">
                     <v-btn class="secondary" text width="100%">Edit Profile</v-btn>
                   </router-link>
                 </v-list-item>
-                <v-list-item class="secondary">
+                <v-list-item>
                   <v-btn class="secondary" text width="100%" @click="logOut">Logout</v-btn>
                 </v-list-item>
               </v-list>
