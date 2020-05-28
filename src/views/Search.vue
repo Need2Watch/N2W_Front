@@ -5,9 +5,8 @@
       <v-row no-gutters>
         <v-col
           class="card-wrapper"
-          v-on:click="goMovie(item.movie_id)"
           v-for="item in this.movies"
-          :key="item.title"
+          :key="item.movie_id"
           cols="12"
           sm="2"
         >

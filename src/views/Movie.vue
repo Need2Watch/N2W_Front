@@ -11,7 +11,7 @@
         </h2>
         <h2 class="d-flex">
           Genres:
-          <span :key="item" v-for="item in this.movie.genres">{{item.name}}|</span>
+          <span :key="item.name" v-for="item in this.movie.genres">{{item.name}}|</span>
         </h2>
       </div>
       <p class="movieOverview">{{this.movie.overview}}</p>
