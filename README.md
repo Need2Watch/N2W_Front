@@ -1,4 +1,6 @@
-# need2watch
+# Need2Watch
+
+I'ts required to have installed Node.js for executing the application. 
 
 ## Project setup
 ```
