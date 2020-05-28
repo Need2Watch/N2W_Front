@@ -2,7 +2,7 @@
 
 *Note: It's required to have installed Node.js for executing the application.*
 
-For testing the application execute *npm install* and *npm run serve* in the root directory. The app will be opened on the localhost port 8080.
+For testing the application execute *npm install* and *npm run serve* in the root directory. The app will be opened on the localhost port 8080 by default.
 
 ## Project setup
 ```
