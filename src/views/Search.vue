@@ -43,4 +43,8 @@ export default {
 </script>
 <style scoped>
 @import '../assets/styles/Search.css';
+.containerClass {
+  width: 100%;
+  height: 100%;
+}
 </style>

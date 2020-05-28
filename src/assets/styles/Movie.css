@@ -1,16 +1,18 @@
 .movieTitle {
-    font-size: 65px;
+    font-size: 55px;
 }
 
 .movieOverview {
-    font-size: 30px;
-    line-height: 36px;
+    font-size: 15px;
+    line-height: 20px;
 }
 
 .moviePoster{
     border-style: solid;
-    border-width: 5px;
+    border-width: 4px;
     border-radius: 0 !important;
+    width: 18.4% !important;
+    max-height: 623px !important;
 }
 
 .learnButton {
@@ -18,5 +20,11 @@
 }
 
 .movieCard{
-    padding: 5em;
+    height: 100%;
+    padding: 3em;
+}
+
+
+.infoContainer{
+    width: 60% !important;
 }

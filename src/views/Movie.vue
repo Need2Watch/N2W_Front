@@ -1,9 +1,7 @@
 <template>
-  <v-card color="transparent" class="d-flex movieCard" height="100%" width="100%">
-    <v-card class="white moviePoster" height="100%" width="50%">
-      <v-img width="100%" :src="this.movie.poster_url"></v-img>
-    </v-card>
-    <div style="height: 100%; width: 75%" class="ml-12 d-flex flex-column">
+  <v-card color="transparent" class="d-flex align-center movieCard">
+    <v-img class="moviePoster" :src="this.movie.poster_url"></v-img>
+    <div class="ml-12 d-flex flex-column infoContainer">
       <h1 class="movieTitle">{{this.movie.title}}</h1>
 
       <div class="d-flex flex-column">
@@ -13,7 +11,7 @@
         </h2>
         <h2 class="d-flex">
           Genres:
-          <span :key="item" v-for="item in this.movie.genres">{{item.name}}</span>
+          <span :key="item" v-for="item in this.movie.genres">{{item.name}}|</span>
         </h2>
       </div>
       <p class="movieOverview">{{this.movie.overview}}</p>

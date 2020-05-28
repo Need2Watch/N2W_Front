@@ -5,7 +5,7 @@
       <N2wContactUsForm></N2wContactusForm>
     </div>
 
-    <div class="socialDiv">
+    <div class="hidden-sm-and-down socialDiv">
       <v-list-item class="socialNetwork">
         <v-avatar size="100">
           <v-img src="../assets/img/facebook.png"></v-img>

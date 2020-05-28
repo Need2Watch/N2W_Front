@@ -1,6 +1,6 @@
 <template>
-  <div style="width:100%;height:100%;" class="d-flex flex-row align-center">
-    <n2w-calendar-sidebar></n2w-calendar-sidebar>
+  <div class="d-flex flex-row align-center calendar">
+    <n2w-calendar-sidebar class="hidden-md-and-down"></n2w-calendar-sidebar>
     <n2w-calendar></n2w-calendar>
   </div>
 </template>
@@ -17,4 +17,8 @@ export default {
 };
 </script>
 <style scoped>
+.calendar {
+  width: 100%;
+  height: 100%;
+}
 </style>
