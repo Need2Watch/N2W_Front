@@ -6,11 +6,11 @@
       </v-avatar>
     </div>
     <div class="d-flex flex-column infoContainer">
-      <h1>Name: {{this.loggedUser.firstName}} {{this.loggedUser.lastName}}</h1>
-      <h2>Username: {{this.loggedUser.username}}</h2>
-      <h2>Email: {{this.loggedUser.email}}</h2>
-      <h2>City, Country: {{this.loggedUser.city}}, {{this.loggedUser.country}}</h2>
-      <h2>Biography</h2>
+      <h2>{{this.loggedUser.firstName}} {{this.loggedUser.lastName}}</h2>
+      <h2>@{{this.loggedUser.username}}</h2>
+      <h2>{{this.loggedUser.email}}</h2>
+      <h2>{{this.loggedUser.city}}, {{this.loggedUser.country}}</h2>
+      <h3>Biography</h3>
       <p>{{userBio}}</p>
     </div>
     <div class="d-flex">
@@ -54,7 +54,7 @@ export default {
   components: {},
   data() {
     return {
-      userBio: 'This is the user biography',
+      userBio: 'This is my biography',
     };
   },
   computed: mapState({
