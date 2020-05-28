@@ -10,7 +10,7 @@
           <v-icon class="mb-1" color="primary">star</v-icon>
         </h2>
         <h2 class="d-flex">
-          Genres:
+          <span class="addSpace">Genres:</span>
           <span :key="item" v-for="item in this.movie.genres">{{item.name}}|</span>
         </h2>
       </div>
