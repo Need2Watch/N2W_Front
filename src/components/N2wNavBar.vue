@@ -59,15 +59,10 @@
             <v-icon color="secondary" size="40">mdi-calendar</v-icon>
           </v-btn>
         </router-link>
-        <v-btn
-          v-if="!this.loggedUser.firstName"
-          depressed
-          to="/signIn"
-          class="ml-3 secondary"
-        >SIGN IN</v-btn>
-        <v-btn v-if="!this.loggedUser.firstName" depressed to="/signUp" class="secondary">SIGN UP</v-btn>
+        <v-btn v-if="!this.loggedUser.user_id" depressed to="/signIn" class="ml-3 secondary">SIGN IN</v-btn>
+        <v-btn v-if="!this.loggedUser.user_id" depressed to="/signUp" class="secondary">SIGN UP</v-btn>
         <v-card
-          v-if="this.loggedUser.firstName"
+          v-if="this.loggedUser.user_id"
           flat
           class="transparent d-md-flex align-center hidden-md-and-down"
         >
@@ -75,9 +70,7 @@
             <v-avatar size="50" class="nav-bar-avatar">
               <v-img :src="this.loggedUser.profilePicture"></v-img>
             </v-avatar>
-            <v-list-item-title
-              class="headline"
-            >{{ this.loggedUser.firstName }} {{this.loggedUser.lastName}}</v-list-item-title>
+            <v-list-item-title class="headline">{{ this.loggedUser.username }}</v-list-item-title>
           </v-list-item>
           <v-menu bottom left offset-y>
             <template v-slot:activator="{ on }">
@@ -149,6 +142,7 @@ export default {
         profilePicture: '',
       };
       this.$store.commit('loadUser', user);
+      this.$router.push('/signIn');
     },
   },
   computed: mapState({

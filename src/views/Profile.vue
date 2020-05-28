@@ -13,15 +13,26 @@
       <h2>Biography</h2>
       <p>{{userBio}}</p>
     </div>
-    <v-btn
-      to="/editProfile"
-      rounded
-      color="primary"
-      class="secondary--text editProfileButton"
-      fixed
-      bottom
-      right
-    >Edit Profile</v-btn>
+    <div class="d-flex">
+      <v-btn
+        to="/editProfile"
+        rounded
+        color="primary"
+        class="secondary--text editProfileButton"
+        fixed
+        bottom
+        right
+      >Edit Profile</v-btn>
+      <v-btn
+        rounded
+        color="red"
+        class="n2wwhite--text logOutButton"
+        fixed
+        bottom
+        right
+        @click="logOut"
+      >Log Out</v-btn>
+    </div>
   </v-card>
 </template>
 <script>
@@ -49,6 +60,23 @@ export default {
   computed: mapState({
     loggedUser: state => state.loggedUser,
   }),
+  methods: {
+    logOut() {
+      let user = {
+        firstName: '',
+        lastName: '',
+        username: '',
+        email: '',
+        password: '',
+        user_id: '',
+        country: '',
+        city: '',
+        profilePicture: '',
+      };
+      this.$store.commit('loadUser', user);
+      this.$router.push('/signIn');
+    },
+  },
 };
 </script>
 <style scoped>

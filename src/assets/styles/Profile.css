@@ -17,6 +17,10 @@
 }
 
 .editProfileButton {
+  margin-right: 12em;
+  margin-bottom: 5em;
+}
+.logOutButton {
   margin-right: 5em;
   margin-bottom: 5em;
 }
