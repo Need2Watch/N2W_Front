@@ -1,6 +1,6 @@
 # Need2Watch
 
-Note: It's required to have installed Node.js for executing the application. 
+* *Note* *: It's required to have installed Node.js for executing the application. 
 
 ## Project setup
 ```
