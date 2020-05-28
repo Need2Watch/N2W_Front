@@ -48,7 +48,7 @@
       </v-btn>
       <v-spacer />
       <n2w-search-bar></n2w-search-bar>
-      <v-btn to="/calendar" icon class="decoration-none hidden-md-and-down primary">
+      <v-btn to="/calendar" icon class="hidden-md-and-down primary">
         <v-icon color="secondary" size="40">mdi-calendar</v-icon>
       </v-btn>
       <v-btn v-if="!this.loggedUser.user_id" depressed to="/signIn" class="ml-3 secondary">SIGN IN</v-btn>

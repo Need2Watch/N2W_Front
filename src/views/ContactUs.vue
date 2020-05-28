@@ -1,10 +1,10 @@
 <template>
-  <div class="contactUsMainDiv" >
+  <div class="contactUsMainDiv d-flex justify-center align-center" >
 
     <div class="formDiv">
       <N2wContactUsForm></N2wContactusForm>
     </div>
-    
+
     <div class="socialDiv">
       <v-list-item class="socialNetwork">
         <v-avatar size="100">
@@ -13,7 +13,7 @@
 
         <v-list-item-title class="socialNetworkText">NEED2WATCH</v-list-item-title>
       </v-list-item>
-      
+
       <v-list-item class="socialNetwork">
         <v-avatar size="100">
           <v-img src="../assets/img/twitter.png"></v-img>

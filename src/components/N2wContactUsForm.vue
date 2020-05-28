@@ -1,6 +1,6 @@
 <template>
   <div class="contactUsForm">
-    <p class="tittle">GET IN TOUCH</p>
+    <p class="title">GET IN TOUCH</p>
 
     <form class @submit.prevent="onSubmit">
       <p>

@@ -1,7 +1,8 @@
 <template>
   <div class="calendar d-flex">
-    <v-sheet width="2500">
+    <v-sheet width="100%">
       <v-calendar
+        class="secondary"
         ref="calendar"
         v-model="value"
         :weekdays="weekday"
@@ -13,7 +14,7 @@
         @change="getEvents"
       ></v-calendar>
     </v-sheet>
-    <v-sheet dark tile class="d-flex flex-column align-center">
+    <v-sheet dark tile class="d-flex flex-column align-center n2wgray">
       <v-btn icon class="ma-2" @click="$refs.calendar.prev()">
         <v-icon>mdi-chevron-left</v-icon>
       </v-btn>
@@ -54,8 +55,8 @@ export default {
     modes: ['stack', 'column'],
     weekday: [0, 1, 2, 3, 4, 5, 6],
     weekdays: [
-      { text: 'Sun - Sat', value: [0, 1, 2, 3, 4, 5, 6] },
       { text: 'Mon - Sun', value: [1, 2, 3, 4, 5, 6, 0] },
+      { text: 'Sun - Sat', value: [0, 1, 2, 3, 4, 5, 6] },
       { text: 'Mon - Fri', value: [1, 2, 3, 4, 5] },
       { text: 'Mon, Wed, Fri', value: [1, 3, 5] },
     ],
@@ -70,16 +71,7 @@ export default {
       'orange',
       'grey darken-1',
     ],
-    names: [
-      'Meeting',
-      'Holiday',
-      'PTO',
-      'Travel',
-      'Event',
-      'Birthday',
-      'Conference',
-      'Party',
-    ],
+    names: ['Doctor Who', 'Blacklist', 'Arrow'],
   }),
   methods: {
     getEvents({ start, end }) {
@@ -104,7 +96,7 @@ export default {
           color: this.colors[this.rnd(0, this.colors.length - 1)],
         });
       }
-
+      this.$store.commit('scheduleEvents', events);
       this.events = events;
     },
     getEventColor(event) {

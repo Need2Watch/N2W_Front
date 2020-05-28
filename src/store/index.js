@@ -23,6 +23,7 @@ export default new Vuex.Store({
     },
     movies: [],
     currentMovie: {},
+    scheduledEvents: {},
   },
   getters: {},
   mutations: {
@@ -49,6 +50,9 @@ export default new Vuex.Store({
     watchMovie(state) {
       state.currentMovie.watched = !state.currentMovie.watched;
     },
+    scheduleEvents(state, payload) {
+      state.scheduledEvents = payload;
+    }
   },
   actions: {},
   plugins: [vuexLocal.plugin],

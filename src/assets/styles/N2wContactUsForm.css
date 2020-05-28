@@ -5,7 +5,7 @@
   margin: 50px;
 }
 
-.tittle {
+.title {
   font-size: 3rem;
   text-align: center;
   text-transform: uppercase;
@@ -15,7 +15,6 @@
 .textInputs {
   width: 80%;
   padding: 12px 20px;
-  margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
