@@ -81,7 +81,7 @@ export default {
       'orange',
       'grey darken-1',
     ],
-    names: ['Doctor Who', 'Blacklist', 'Arrow'],
+    names: ['Doctor Who', 'Blacklist', 'Arrow', 'The Office', 'Westworld'],
   }),
   methods: {
     getEvents({ start, end }) {
@@ -89,8 +89,7 @@ export default {
 
       const min = new Date(`${start.date}T00:00:00`);
       const max = new Date(`${end.date}T23:59:59`);
-      const days = (max.getTime() - min.getTime()) / 86400000;
-      const eventCount = this.rnd(days, days + 20);
+      const eventCount = 10;
 
       for (let i = 0; i < eventCount; i++) {
         const allDay = this.rnd(0, 3) === 0;
