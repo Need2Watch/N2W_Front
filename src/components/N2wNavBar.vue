@@ -117,8 +117,11 @@ export default {
           icon: 'mdi-calendar',
         },
         { title: 'Movies', path: '/', icon: 'mdi-movie' },
-        { title: 'TV Series', path: '/', icon: 'mdi-television-classic' },
-        { title: 'Top Rated', path: '/', icon: 'mdi-star-outline' },
+        {
+          title: 'TV Series',
+          path: '/tvSeries',
+          icon: 'mdi-television-classic',
+        },
         { title: 'Contact Us', path: '/contactUs', icon: 'mdi-email-outline' },
       ],
       items: [{ title: 'Edit Profile', path: '/editProfile' }],

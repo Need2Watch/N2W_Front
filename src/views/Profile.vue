@@ -1,6 +1,6 @@
 <template>
   <v-card height="100%" color="transparent" class="d-flex justify-center align-center">
-    <div class="avatarContainer">
+    <div class="avatarContainer hidden-md-and-down">
       <v-avatar size="300">
         <v-img :src="this.loggedUser.profilePicture"></v-img>
       </v-avatar>

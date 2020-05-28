@@ -32,3 +32,10 @@
 .infoContainer{
   width:30%
 }
+
+
+@media (max-width: 1200px) {
+  .infoContainer{
+      width: 80%;
+  }
+}

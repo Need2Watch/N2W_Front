@@ -24,12 +24,27 @@
   padding: 3em;
 }
 
+@media (max-width: 1200px) {
+  .genres{
+    flex-direction: column;
+  }
+}
+
 .infoContainer {
-  width: 60% !important;
+  width: 100%;
+  margin-left: 42px;
 }
 
 .addSpace:after {
   content: ' ';
   display: inline-block;
   width: 0.2em;
+}
+
+
+@media (max-width: 922px) {
+  .infoContainer{
+      width: 100%;
+      margin-left: 0px;
+  }
 }

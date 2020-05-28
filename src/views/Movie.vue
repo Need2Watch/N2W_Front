@@ -1,7 +1,7 @@
 <template>
   <v-card color="transparent" class="d-flex align-center movieCard">
-    <v-img class="moviePoster" :src="this.movie.poster_url"></v-img>
-    <div class="ml-12 d-flex flex-column infoContainer">
+    <v-img class="moviePoster hidden-sm-and-down" :src="this.movie.poster_url"></v-img>
+    <div class="d-flex flex-column infoContainer">
       <h1 class="movieTitle">{{this.movie.title}}</h1>
 
       <div class="d-flex flex-column">
@@ -9,9 +9,9 @@
           Rating: {{this.movie.rating}}
           <v-icon class="mb-1" color="primary">star</v-icon>
         </h2>
-        <h2 class="d-flex">
+        <h2 class="d-flex genres">
           <span class="addSpace">Genres:</span>
-          <span :key="item" v-for="item in this.movie.genres">{{item.name}}|</span>
+          <p :key="item" v-for="item in this.movie.genres">{{item.name}}|</p>
         </h2>
       </div>
       <p class="movieOverview">{{this.movie.overview}}</p>
