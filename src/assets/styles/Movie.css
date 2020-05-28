@@ -3,8 +3,8 @@
 }
 
 .movieOverview {
-  font-size: 15px;
-  line-height: 20px;
+  font-size: 25px;
+  line-height: 30px;
 }
 
 .moviePoster {
@@ -12,7 +12,7 @@
   border-width: 4px;
   border-radius: 0 !important;
   width: 18.4% !important;
-  max-height: 623px !important;
+  max-height: 814px !important;
 }
 
 .learnButton {
