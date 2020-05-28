@@ -1,32 +1,26 @@
 <template>
-  <v-card height="100%" color="transparent" class="d-flex profileCard">
-    <div class="d-flex flex-column align-center">
-      <div class="d-flex flex-column align-center profileInfo">
-        <form @submit.prevent="submitForm">
-          <v-text-field label="First Name" v-model="firstName" required></v-text-field>
-          <v-text-field label="Last Name" v-model="lastName"></v-text-field>
-          <v-text-field label="Userame" v-model="username"></v-text-field>
-          <v-text-field label="City" v-model="city"></v-text-field>
-          <v-select
-            :items="countries"
-            v-model="country"
-            name="country"
-            required
-            item-text="countryName"
-            label="Country"
-          />
-          <v-btn class="mr-4 mt-4" type="submit">Save Profile</v-btn>
-        </form>
-      </div>
-    </div>
-    <div class="d-flex flex-column profileInfo">
-      <v-avatar size="300" class="nav-bar-avatar">
-        <v-img :src="this.user.profilePicture"></v-img>
+  <v-card height="100%" color="transparent" class="d-flex justify-center align-center">
+    <div class="avatarContainer hidden-md-and-down">
+      <v-avatar size="300">
+        <v-img :src="this.loggedUser.profilePicture"></v-img>
       </v-avatar>
-      <v-card-title class="userBioHeader">Biography</v-card-title>
-      <v-card-text>
-        <input v-bind:value="userBio" class="userBio" />
-      </v-card-text>
+    </div>
+    <div class="infoContainer">
+      <form @submit.prevent="submitForm">
+        <v-text-field label="First Name" v-model="firstName" required></v-text-field>
+        <v-text-field label="Last Name" v-model="lastName"></v-text-field>
+        <v-text-field label="Username" v-model="username"></v-text-field>
+        <v-text-field label="City" v-model="city"></v-text-field>
+        <v-select
+          :items="countries"
+          v-model="country"
+          name="country"
+          required
+          item-text="countryName"
+          label="Country"
+        />
+        <v-btn class="mr-4 mt-4 primary secondary--text" type="submit">Save Profile</v-btn>
+      </form>
     </div>
   </v-card>
 </template>
@@ -44,24 +38,23 @@ export default {
       email: '',
       country: '',
       city: '',
-      userBio: 'This is the user biography',
       countries: countries,
     };
   },
   computed: mapState({
-    user: state => state.loggedUser,
+    loggedUser: state => state.loggedUser,
   }),
   methods: {
     submitForm() {
       const previousThis = this;
       axios
-        .put('http://127.0.0.1:5000/users/' + this.user.user_id, {
-          user_id: this.user.user_id,
-          username: this.username,
-          password: this.user.password,
+        .put('http://127.0.0.1:5000/users/' + this.loggedUser.user_id, {
+          user_id: this.loggedUser.user_id,
+          username: this.loggedUsername,
+          password: this.loggedUser.password,
           first_name: this.firstName,
           last_name: this.lastName,
-          email: this.user.email,
+          email: this.loggedUser.email,
           country: this.country,
           city: this.city,
         })
@@ -77,12 +70,12 @@ export default {
     },
   },
   mounted: function() {
-    this.firstName = this.user.firstName;
-    this.lastName = this.user.lastName;
-    this.username = this.user.username;
-    this.email = this.user.email;
-    this.city = this.user.city;
-    this.country = this.user.country;
+    this.firstName = this.loggedUser.firstName;
+    this.lastName = this.loggedUser.lastName;
+    this.username = this.loggedUser.username;
+    this.email = this.loggedUser.email;
+    this.city = this.loggedUser.city;
+    this.country = this.loggedUser.country;
   },
 };
 </script>
