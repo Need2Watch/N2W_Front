@@ -66,28 +66,33 @@
           flat
           class="transparent d-md-flex align-center hidden-md-and-down"
         >
-          <v-list-item to="/profile" class="decoration-none white--text">
-            <v-avatar size="50" class="nav-bar-avatar">
-              <v-img :src="this.loggedUser.profilePicture"></v-img>
-            </v-avatar>
-            <v-list-item-title class="headline">{{ this.loggedUser.username }}</v-list-item-title>
+          <v-list-item class="decoration-none white--text">
+            <router-link to="/profile">
+              <v-avatar size="50" class="nav-bar-avatar">
+                <v-img :src="this.loggedUser.profilePicture"></v-img>
+              </v-avatar>
+            </router-link>
+            <router-link to="/profile">
+              <v-list-item-title class="headline n2wwhite--text">{{ this.loggedUser.username }}</v-list-item-title>
+            </router-link>
+            <v-menu class="secondary" bottom left offset-y>
+              <template v-slot:activator="{ on }">
+                <v-btn dark icon v-on="on">
+                  <v-icon>mdi-chevron-down</v-icon>
+                </v-btn>
+              </template>
+              <v-list class="d-flex flex-column">
+                <v-list-item class="secondary">
+                  <router-link to="/editProfile">
+                    <v-btn class="secondary" text width="100%">Edit Profile</v-btn>
+                  </router-link>
+                </v-list-item>
+                <v-list-item class="secondary">
+                  <v-btn class="secondary" text width="100%" @click="logOut">Logout</v-btn>
+                </v-list-item>
+              </v-list>
+            </v-menu>
           </v-list-item>
-          <v-menu bottom left offset-y>
-            <template v-slot:activator="{ on }">
-              <v-btn dark icon v-on="on">
-                <v-icon>mdi-chevron-down</v-icon>
-              </v-btn>
-            </template>
-
-            <v-list class="secondary">
-              <v-list-item>
-                <a class="decoration-none white--text">
-                  <v-list-item-title>Edit Profile</v-list-item-title>
-                  <v-list-item-title @click="logOut">Logout</v-list-item-title>
-                </a>
-              </v-list-item>
-            </v-list>
-          </v-menu>
         </v-card>
       </v-toolbar-items>
     </v-app-bar>
