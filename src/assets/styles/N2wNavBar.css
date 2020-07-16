@@ -22,3 +22,7 @@
    margin-right: 3.2%;
    width: 8%;
 }
+
+.v-toolbar__content{
+  padding: 0px !important;
+}

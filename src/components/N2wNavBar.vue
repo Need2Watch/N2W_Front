@@ -1,53 +1,26 @@
 <template>
   <div>
-    <v-navigation-drawer color="secondary" disable-resize-watcher v-model="sidebar" app>
-      <v-list height="80%">
-        <v-list-item v-if="this.loggedUser.user_id" href="/profile" class="side-bar-profile">
-          <v-avatar size="50" class="nav-bar-avatar">
-            <v-img :src="this.loggedUser.profilePicture"></v-img>
-          </v-avatar>
-          <v-list-item-title class="headline">{{this.loggedUser.username}}</v-list-item-title>
-        </v-list-item>
-        <v-divider></v-divider>
-        <v-list-item v-for="item in sidebarItems" :key="item.title" :to="item.path">
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>{{ item.title }}</v-list-item-content>
-        </v-list-item>
-      </v-list>
-      <v-btn
-        v-if="this.loggedUser.user_id"
-        rounded
-        width="80%"
-        class="ml-6 mb-1 primary black--text"
-        to="/editProfile"
-      >Edit Profile</v-btn>
-      <v-btn
-        v-if="this.loggedUser.user_id"
-        rounded
-        width="80%"
-        class="ml-6 red white--text"
-        @click="logOut"
-      >Logout</v-btn>
-    </v-navigation-drawer>
+    <n2w-sidebar
+      v-if="sidebar"
+      v-bind:sidebarItems="sidebarItems"
+      v-model="sidebarOpen"
+      disable-resize-watcher
+      app
+    ></n2w-sidebar>
 
     <v-app-bar color="secondary" app>
       <span class="hidden-md-and-up">
-        <v-app-bar-nav-icon @click="sidebar = !sidebar"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon @click.close="sidebarOpen = !sidebarOpen"></v-app-bar-nav-icon>
       </span>
-      <router-link to="/" class="hidden-md-and-down d-md-flex align-center n2w-logo">
-        <v-img
-          aria-label="Need2WatchLogo"
-          src="../assets/img/logo.png"
-          to="https://stackoverflow.com/questions/55779555/vuetify-create-image-that-links-to-another-page"
-        ></v-img>
+      <router-link to="/" class="hidden-md-and-down pa-4">
+        <v-img alt="n2w_logo" width="80px" src="../assets/img/logo.png"></v-img>
       </router-link>
       <v-btn
         height="100%"
         text
+        tile
         class="hidden-sm-and-down"
-        v-for="item in menuItems"
+        v-for="item in navBarItems"
         :key="item.title"
         :to="item.path"
       >
@@ -55,45 +28,58 @@
         <span class="hidden-md-and-down">{{ item.title}}</span>
       </v-btn>
       <v-spacer />
+
       <n2w-search-bar></n2w-search-bar>
-      <v-btn to="/calendar" icon class="hidden-md-and-down primary">
-        <v-icon color="secondary" size="40">mdi-calendar</v-icon>
+
+      <v-btn to="/calendar" icon class="hidden-md-and-down primary mx-2">
+        <v-icon color="secondary" size="30">mdi-calendar</v-icon>
       </v-btn>
-      <v-btn v-if="!this.loggedUser.user_id" depressed to="/signIn" class="ml-3 secondary">SIGN IN</v-btn>
-      <v-btn v-if="!this.loggedUser.user_id" depressed to="/signUp" class="secondary">SIGN UP</v-btn>
-      <v-card
-        v-if="this.loggedUser.user_id"
-        flat
-        class="transparent d-md-flex align-center hidden-md-and-down"
-      >
-        <v-list-item class="decoration-none white--text">
-          <router-link to="/profile">
-            <v-avatar size="50" class="nav-bar-avatar">
-              <v-img :src="this.loggedUser.profilePicture"></v-img>
+      <v-btn
+        v-if="!this.loggedUser.user_id"
+        height="100%"
+        tile
+        depressed
+        to="/signIn"
+        class="n2wgray y ml-3 secondary"
+      >SIGN IN</v-btn>
+      <v-btn
+        v-if="!this.loggedUser.user_id"
+        height="100%"
+        tile
+        depressed
+        to="/signUp"
+        class="primary black--text"
+      >SIGN UP</v-btn>
+
+      <v-menu v-if="this.loggedUser.user_id" offset-y>
+        <template v-slot:activator="{ on }">
+          <v-btn
+            color="transparent"
+            tile
+            depressed
+            height="100%"
+            v-on="on"
+            class="hidden-md-and-down"
+          >
+            <v-avatar size="40" class="mr-3">
+              <v-img :src="loggedUser.profilePicture.value"></v-img>
             </v-avatar>
-          </router-link>
-          <router-link to="/profile">
-            <v-list-item-title class="headline n2wwhite--text">{{ this.loggedUser.username }}</v-list-item-title>
-          </router-link>
-          <v-menu class="secondary" bottom left offset-y>
-            <template v-slot:activator="{ on }">
-              <v-btn dark icon v-on="on">
-                <v-icon>mdi-chevron-down</v-icon>
-              </v-btn>
-            </template>
-            <v-list class="secondary d-flex flex-column">
-              <v-list-item>
-                <router-link to="/editProfile">
-                  <v-btn class="secondary" text width="100%">Edit Profile</v-btn>
-                </router-link>
-              </v-list-item>
-              <v-list-item>
-                <v-btn class="secondary" text width="100%" @click="logOut">Logout</v-btn>
-              </v-list-item>
-            </v-list>
-          </v-menu>
-        </v-list-item>
-      </v-card>
+            <v-list-item-title>{{loggedUser.username.value}}</v-list-item-title>
+            <v-icon>mdi-chevron-down</v-icon>
+          </v-btn>
+        </template>
+        <v-list class="d-flex flex-column pa-0 mt-1">
+          <v-btn
+            tile
+            color="secondary"
+            depressed
+            v-for="item in menuItems"
+            :key="item.title"
+            :to="item.path"
+          >{{item.title}}</v-btn>
+          <v-btn tile color="red" width="100%" @click="logOut">Logout</v-btn>
+        </v-list>
+      </v-menu>
     </v-app-bar>
   </div>
 </template>
@@ -101,15 +87,23 @@
 <script>
 import { mapState } from 'vuex';
 import N2wSearchBar from './N2wSearchBar';
+import N2wSidebar from './N2wSidebar';
 export default {
   name: 'N2wNavBar',
   components: {
     N2wSearchBar,
+    N2wSidebar,
+  },
+  props: {
+    sidebar: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
-      sidebar: false,
-      menuItems: [
+      sidebarOpen: false,
+      navBarItems: [
         { title: 'Movies', path: '/', icon: 'mdi-movie' },
         {
           title: 'TV Series',
@@ -117,41 +111,40 @@ export default {
           icon: 'mdi-television-classic',
         },
         { title: 'Contact Us', path: '/contactUs', icon: 'mdi-email-outline' },
+      ],
+      menuItems: [
+        { title: 'View Profile', path: '/profile' },
+        { title: 'Edit Profile', path: '/editProfile' },
       ],
       sidebarItems: [
-        {
-          title: 'Calendar',
-          path: '/calendar',
-          icon: 'mdi-calendar',
-        },
+        { title: 'My Profile', path: '/profile', icon: 'mdi-account' },
+        { title: 'Calendar', path: '/calendar', icon: 'mdi-calendar' },
         { title: 'Movies', path: '/', icon: 'mdi-movie' },
         {
           title: 'TV Series',
           path: '/tvSeries',
           icon: 'mdi-television-classic',
         },
-        { title: 'Contact Us', path: '/contactUs', icon: 'mdi-email-outline' },
+        { title: 'Collection', path: '/collection', icon: 'mdi-database' },
       ],
       items: [{ title: 'Edit Profile', path: '/editProfile' }],
+      loggedUser: {
+        firstName: { type: String, value: 'Francis' },
+        lastName: { type: String, value: 'Molina' },
+        username: { type: String, value: 'rexuswolf' },
+        email: { type: String, value: 'myemail@gmail.com' },
+        password: { type: String, value: '12345678' },
+        user_id: { type: String, value: '12345' },
+        country: { type: String, value: 'Spain' },
+        city: { type: String, value: 'Cordoba' },
+        profilePicture: {
+          type: String,
+          value: 'https://randomuser.me/api/portraits/men/85.jpg',
+        },
+      },
     };
   },
-  methods: {
-    logOut() {
-      let user = {
-        firstName: '',
-        lastName: '',
-        username: '',
-        email: '',
-        password: '',
-        user_id: '',
-        country: '',
-        city: '',
-        profilePicture: '',
-      };
-      this.$store.commit('loadUser', user);
-      this.$router.push('/signIn');
-    },
-  },
+  methods: {},
   computed: mapState({
     loggedUser: state => state.loggedUser,
   }),
