@@ -3,7 +3,7 @@
     <v-list-item class="pa-0">
       <v-list-item-content class="pa-0">
         <v-btn
-          class="ml-0 my-0"
+          class="my-0"
           v-for="item in this.sidebarItems"
           :key="item.title"
           tile
@@ -16,14 +16,6 @@
         </v-btn>
       </v-list-item-content>
     </v-list-item>
-    <v-btn
-      fixed
-      bottom
-      rounded
-      width="80%"
-      class="ml-6 mb-10 primary black--text"
-      to="/editProfile"
-    >Edit Profile</v-btn>
     <v-btn fixed bottom rounded width="80%" class="ml-6 red white--text" @click="logOut">Logout</v-btn>
   </v-navigation-drawer>
 </template>

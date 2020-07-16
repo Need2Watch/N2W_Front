@@ -1,6 +1,7 @@
 <template>
   <div>
     <n2w-sidebar
+      color="secondary"
       v-if="sidebar"
       v-bind:sidebarItems="sidebarItems"
       v-model="sidebarOpen"
@@ -144,7 +145,23 @@ export default {
       },
     };
   },
-  methods: {},
+  methods: {
+    logOut() {
+      let user = {
+        firstName: '',
+        lastName: '',
+        username: '',
+        email: '',
+        password: '',
+        user_id: '',
+        country: '',
+        city: '',
+        profilePicture: '',
+      };
+      this.$store.commit('loadUser', user);
+      this.$router.push('/signIn');
+    },
+  },
   computed: mapState({
     loggedUser: state => state.loggedUser,
   }),
