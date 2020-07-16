@@ -63,9 +63,9 @@
             class="hidden-md-and-down"
           >
             <v-avatar size="40" class="mr-3">
-              <v-img :src="loggedUser.profilePicture.value"></v-img>
+              <v-img :src="this.loggedUser.profilePicture.value"></v-img>
             </v-avatar>
-            <v-list-item-title>{{loggedUser.username.value}}</v-list-item-title>
+            <v-list-item-title>{{this.loggedUser.username.value}}</v-list-item-title>
             <v-icon>mdi-chevron-down</v-icon>
           </v-btn>
         </template>
@@ -129,20 +129,6 @@ export default {
         { title: 'Collection', path: '/collection', icon: 'mdi-database' },
       ],
       items: [{ title: 'Edit Profile', path: '/editProfile' }],
-      loggedUser: {
-        firstName: { type: String, value: 'Francis' },
-        lastName: { type: String, value: 'Molina' },
-        username: { type: String, value: 'rexuswolf' },
-        email: { type: String, value: 'myemail@gmail.com' },
-        password: { type: String, value: '12345678' },
-        user_id: { type: String, value: '12345' },
-        country: { type: String, value: 'Spain' },
-        city: { type: String, value: 'Cordoba' },
-        profilePicture: {
-          type: String,
-          value: 'https://randomuser.me/api/portraits/men/85.jpg',
-        },
-      },
     };
   },
   methods: {

@@ -32,32 +32,8 @@ export default {
   data() {
     return {
       followingMovies: [],
-      popularMovies: [
-        {
-          movie_id: '2',
-          title: 'Dunkirk',
-          poster_url:
-            'https://images-na.ssl-images-amazon.com/images/I/71nsvxFpSTL._AC_SL1200_.jpg',
-          genres: [{ name: 'War' }, { name: 'Drama' }],
-          rating: '8',
-          overview: 'A guy wears war',
-          watched: true,
-          following: false,
-        },
-      ],
-      topRatedMovies: [
-        {
-          movie_id: '2',
-          title: 'Dunkirk',
-          poster_url:
-            'https://images-na.ssl-images-amazon.com/images/I/71nsvxFpSTL._AC_SL1200_.jpg',
-          genres: [{ name: 'War' }, { name: 'Drama' }],
-          rating: '8',
-          overview: 'A guy wears war',
-          watched: true,
-          following: false,
-        },
-      ],
+      popularMovies: [],
+      topRatedMovies: [],
     };
   },
   computed: mapState({
