@@ -1,40 +1,32 @@
 <template>
-  <v-card width="80%" :color="movie.color" class="mx-auto mt-10" dark>
-    <div class="d-flex">
-      <div style="width: 30%">
-        <v-img height="425" :src="movie.poster_url">
-          <v-row align="start">
-            <v-col cols="1" class="ml-2">
-              <v-icon v-for="n in parseInt(movie.rating/2)" :key="n" color="primary">mdi-star</v-icon>
-              <v-icon v-if="ratingIsOdd" color="primary">mdi-star-half</v-icon>
-            </v-col>
-          </v-row>
-        </v-img>
-      </div>
-      <div>
-        <v-card-title class="headline" v-text="this.movie.title"></v-card-title>
+  <v-card height="100%" width="100%" class="d-inline-block mx-auto">
+    <v-col cols="10">
+      <v-card :color="movie.color" dark>
+        <div class="d-flex">
+          <div style="width: 30%">
+            <v-img height="425" :src="movie.src">
+              <v-row align="start">
+                <v-col cols="2">
+                  <v-icon v-for="n in parseInt(movie.rating/2)" :key="n" color="primary">mdi-star</v-icon>
 
-        <v-card-subtitle>
-          <span :key="item" v-for="item in this.movie.genres">{{item.name}}|</span>
-        </v-card-subtitle>
-        <v-card-text class="headline">{{this.movie.overview}}</v-card-text>
-        <v-spacer></v-spacer>
-        <v-card-actions v-if="this.loggedUser.user_id" class="movieCardActions">
-          <v-btn
-            v-on:click="followMovie"
-            v-if="!this.movie.following"
-            class="primary secondary--text"
-          >FOLLOW</v-btn>
-          <v-btn v-on:click="unfollowMovie" v-else class="primary secondary--text">FOLLOWING</v-btn>
-          <v-btn v-on:click="watchMovie" v-if="!this.movie.watched" color="n2wblue">
-            <v-icon>mdi-eye</v-icon>
-          </v-btn>
-          <v-btn v-on:click="unwatchMovie" v-else color="n2wblue">
-            <v-icon>mdi-eye-off</v-icon>
-          </v-btn>
-        </v-card-actions>
-      </div>
-    </div>
+                  <v-icon v-if="ratingHasDecimal" color="primary">mdi-star-half</v-icon>
+                </v-col>
+              </v-row>
+            </v-img>
+          </div>
+          <div>
+            <v-card-title class="headline" v-text="movie.title"></v-card-title>
+
+            <v-card-subtitle v-text="movie.artist"></v-card-subtitle>
+            <v-card-text>Movie description</v-card-text>
+            <v-card-actions>
+              <v-btn v-on:click="followMovie">FOLLOW</v-btn>
+              <v-btn v-on:click="unfollowMovie">FOLLOWING</v-btn>
+            </v-card-actions>
+          </div>
+        </div>
+      </v-card>
+    </v-col>
   </v-card>
 </template>
 <script>
@@ -46,7 +38,16 @@ export default {
   props: {},
   components: {},
   data() {
-    return {};
+    return {
+      movie: {
+        color: '#1F7087',
+        src:
+          'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/movie-poster-template-design-21a1c803fe4ff4b858de24f5c91ec57f_screen.jpg?ts=1574144362',
+        title: 'After',
+        rating: '8.5',
+        artist: 'Drama, Misterio',
+      },
+    };
   },
   computed: mapState({
     movie: state => state.currentMovie,
@@ -55,8 +56,8 @@ export default {
       let starCountArray = this.movie.rating.split(',');
       return starCountArray;
     },
-    ratingIsOdd: function() {
-      if (this.movie.rating % 2 != 0) return true;
+    ratingHasDecimal: function() {
+      if (this.movie.rating % 1 != 0) return true;
       return false;
     },
   }),
@@ -110,9 +111,4 @@ export default {
 </script>
 <style scoped>
 @import '../assets/styles/Movie.css';
-.movieCardActions {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
 </style>
