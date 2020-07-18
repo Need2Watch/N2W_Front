@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@vue/test-utils": "^1.0.3",
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "cors": "^2.8.5",
@@ -15,6 +16,7 @@
     "uuid": "^8.1.0",
     "vue": "^2.6.11",
     "vue-axios": "^2.1.5",
+    "vue-jest": "^3.0.6",
     "vue-router": "^3.2.0",
     "vue-session": "^1.0.0",
     "vuelidate": "^0.7.5",
