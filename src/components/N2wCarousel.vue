@@ -14,6 +14,7 @@
               v-bind:rating="item.rating"
               v-bind:image="item.poster_url"
             ></n2w-cinema-card>
+            <n2w-movie-card v-if="movieCardOpen"></n2w-movie-card>
           </div>
         </div>
       </div>
@@ -23,6 +24,7 @@
 </template>
 <script>
 import N2wCinemaCard from '../components/N2wCinemaCard.vue';
+import N2wMovieCard from '../components/N2wMovieCard.vue';
 export default {
   created() {
     this.windowResize();
@@ -34,6 +36,7 @@ export default {
   name: 'N2wCarousel',
   components: {
     N2wCinemaCard,
+    N2wMovieCard,
   },
   template: '#v-carousel',
   props: {
@@ -44,6 +47,7 @@ export default {
   },
   data() {
     return {
+      movieCardOpen: false,
       currentOffset: 0,
       windowSize: 5,
       paginationFactor: 262,
