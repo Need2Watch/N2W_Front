@@ -5,7 +5,7 @@
         <v-img height="425" :src="movie.poster_url">
           <v-row align="start">
             <v-col cols="1" class="ml-2">
-              <v-icon v-for="n in parseInt(movie.rating/2)" :key="n" color="primary">mdi-star</v-icon>
+              <v-icon v-for="n in starCount" :key="n" color="primary">mdi-star</v-icon>
               <v-icon v-if="ratingIsOdd" color="primary">mdi-star-half</v-icon>
             </v-col>
           </v-row>
@@ -51,7 +51,7 @@ export default {
     movie: state => state.currentMovie,
     loggedUser: state => state.loggedUser,
     starCount: function() {
-      let starCountArray = this.movie.rating.split(',');
+      let starCountArray = parseInt(this.movie.rating / 2);
       return starCountArray;
     },
     ratingIsOdd: function() {

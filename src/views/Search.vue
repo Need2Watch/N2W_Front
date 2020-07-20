@@ -1,15 +1,9 @@
 <template>
   <div class="d-flex flex-column align-center">
-    <h1 class="pt-12 pb-6">Se han encontrado {{this.movies.length}} resultados</h1>
+    <h1 class="mt-6">Se han encontrado {{this.movies.length}} resultados</h1>
     <v-container>
-      <v-row no-gutters>
-        <v-col
-          class="card-wrapper"
-          v-for="item in this.movies"
-          :key="item.movie_id"
-          cols="12"
-          sm="2"
-        >
+      <v-row no-gutters justify="center">
+        <v-col class="ma-2" v-for="item in this.movies" :key="item.movie_id" cols="12" sm="2">
           <n2w-cinema-card
             v-bind:id="item.movie_id"
             v-bind:name="item.title"
@@ -37,13 +31,5 @@ export default {
     user: state => state.loggedUser,
     movies: state => state.movies,
   }),
-  methods: {},
 };
 </script>
-<style scoped>
-@import '../assets/styles/Search.css';
-.containerClass {
-  width: 100%;
-  height: 100%;
-}
-</style>

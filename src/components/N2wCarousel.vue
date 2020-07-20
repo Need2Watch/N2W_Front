@@ -23,7 +23,6 @@
   </div>
 </template>
 <script>
-import axios from 'axios';
 import N2wCinemaCard from '../components/N2wCinemaCard.vue';
 export default {
   created() {
@@ -46,7 +45,6 @@ export default {
   },
   data() {
     return {
-      isModalVisible: false,
       currentOffset: 0,
       windowSize: 5,
       paginationFactor: 262,
@@ -69,24 +67,6 @@ export default {
     },
     closeModal() {
       this.isModalVisible = false;
-    },
-    goToMovie() {
-      let route = 'http://127.0.0.1:5000/movies/' + this.id;
-      if (this.user.user_id) {
-        route += '/' + this.user.user_id;
-      }
-      console.debug(route);
-      const previousThis = this;
-      axios
-        .get(route)
-        .then(function(response) {
-          let movie = response.data;
-          previousThis.$store.commit('loadMovie', movie);
-          previousThis.$router.push('/movie');
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
     },
     moveCarousel(direction) {
       // Find a more elegant way to express the :style. consider using props to make it truly generic

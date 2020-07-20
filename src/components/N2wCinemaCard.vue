@@ -1,17 +1,17 @@
 <template>
-  <v-card hover tile class="card-cinema-card">
+  <v-card hover tile class="card-cinema-card" @click="goToMovie">
     <v-img class="card-img" v-bind:src="this.filmPoster" />
 
-    <div class="card-footer">
-      <v-card-title class="card-footer-text">
-        <p class="card-name">{{this.name}}</p>
-      </v-card-title>
-
+    <v-container class="card-footer pa-0">
+      <v-card-title class="card-footer-text justify-center">{{this.name}}</v-card-title>
       <v-card-subtitle>
-        <v-icon color="primary">star</v-icon>
-        <p class="card-rating-text ml-1">{{this.rating}}</p>
+        <v-row class="mt-2" justify="center">
+          <v-icon v-for="n in starCount" :key="n" color="primary">mdi-star</v-icon>
+          <v-icon v-if="ratingIsOdd" color="primary">mdi-star-half</v-icon>
+          <h2>{{this.rating}}</h2>
+        </v-row>
       </v-card-subtitle>
-    </div>
+    </v-container>
   </v-card>
 </template>
 <script>
@@ -48,6 +48,14 @@ export default {
         return this.image;
       }
       return 'https://i.imgur.com/Iw32fZR.png';
+    },
+    starCount: function() {
+      let starCountArray = parseInt(this.rating / 2);
+      return starCountArray;
+    },
+    ratingIsOdd: function() {
+      if (this.rating % 2 != 0) return true;
+      return false;
     },
   },
   methods: {
