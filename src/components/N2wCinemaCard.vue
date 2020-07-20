@@ -1,5 +1,5 @@
 <template>
-  <v-card class="card-cinema-card" @click="goToMovie">
+  <v-card hover tile class="card-cinema-card">
     <v-img class="card-img" v-bind:src="this.filmPoster" />
 
     <div class="card-footer">

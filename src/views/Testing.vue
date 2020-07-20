@@ -1,42 +1,17 @@
 <template>
-  <v-card height="100%" width="100%" class="d-inline-block mx-auto">
-    <v-col cols="10">
-      <v-card :color="movie.color" dark>
-        <div class="d-flex">
-          <div style="width: 30%">
-            <v-img height="425" :src="movie.src">
-              <v-row align="start">
-                <v-col cols="2">
-                  <v-icon v-for="n in parseInt(movie.rating/2)" :key="n" color="primary">mdi-star</v-icon>
-
-                  <v-icon v-if="ratingHasDecimal" color="primary">mdi-star-half</v-icon>
-                </v-col>
-              </v-row>
-            </v-img>
-          </div>
-          <div>
-            <v-card-title class="headline" v-text="movie.title"></v-card-title>
-
-            <v-card-subtitle v-text="movie.artist"></v-card-subtitle>
-            <v-card-text>Movie description</v-card-text>
-            <v-card-actions>
-              <v-btn v-on:click="followMovie">FOLLOW</v-btn>
-              <v-btn v-on:click="unfollowMovie">FOLLOWING</v-btn>
-            </v-card-actions>
-          </div>
-        </div>
-      </v-card>
-    </v-col>
+  <v-card color="secondary" class="pt-10" height="100%">
+    <n2w-movie-card></n2w-movie-card>
   </v-card>
 </template>
 <script>
 import { mapState } from 'vuex';
 import axios from 'axios';
+import N2wMovieCard from '../components/N2wMovieCard';
 
 export default {
   name: 'Movie',
   props: {},
-  components: {},
+  components: { N2wMovieCard },
   data() {
     return {
       movie: {
@@ -110,5 +85,5 @@ export default {
 };
 </script>
 <style scoped>
-@import '../assets/styles/Movie.css';
+@import '../assets/styles/N2wMovieCard.css';
 </style>

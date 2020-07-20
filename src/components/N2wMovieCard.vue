@@ -108,10 +108,5 @@ export default {
 };
 </script>
 <style scoped>
-@import '../assets/styles/Movie.css';
-.movieCardActions {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
+@import '../assets/styles/N2wMovieCard.css';
 </style>

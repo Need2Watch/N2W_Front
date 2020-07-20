@@ -13,8 +13,8 @@
               v-bind:name="item.title"
               v-bind:rating="item.rating"
               v-bind:image="item.poster_url"
+              v-bind:overview="item.overview"
             ></n2w-cinema-card>
-            <n2w-movie-card v-if="movieCardOpen"></n2w-movie-card>
           </div>
         </div>
       </div>
@@ -23,8 +23,8 @@
   </div>
 </template>
 <script>
+import axios from 'axios';
 import N2wCinemaCard from '../components/N2wCinemaCard.vue';
-import N2wMovieCard from '../components/N2wMovieCard.vue';
 export default {
   created() {
     this.windowResize();
@@ -36,7 +36,6 @@ export default {
   name: 'N2wCarousel',
   components: {
     N2wCinemaCard,
-    N2wMovieCard,
   },
   template: '#v-carousel',
   props: {
@@ -47,7 +46,7 @@ export default {
   },
   data() {
     return {
-      movieCardOpen: false,
+      isModalVisible: false,
       currentOffset: 0,
       windowSize: 5,
       paginationFactor: 262,
@@ -65,6 +64,30 @@ export default {
     },
   },
   methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    },
+    goToMovie() {
+      let route = 'http://127.0.0.1:5000/movies/' + this.id;
+      if (this.user.user_id) {
+        route += '/' + this.user.user_id;
+      }
+      console.debug(route);
+      const previousThis = this;
+      axios
+        .get(route)
+        .then(function(response) {
+          let movie = response.data;
+          previousThis.$store.commit('loadMovie', movie);
+          previousThis.$router.push('/movie');
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    },
     moveCarousel(direction) {
       // Find a more elegant way to express the :style. consider using props to make it truly generic
       if (direction === 1 && !this.atEndOfList) {
