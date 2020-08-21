@@ -19,48 +19,11 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex';
-import N2wCarousel from '../components/N2wCarousel.vue';
-import axios from 'axios';
-
 export default {
-  name: 'Movie',
+  name: 'Home',
   props: {},
-  components: {
-    N2wCarousel,
-  },
   data() {
-    return {
-      followingMovies: [],
-      popularMovies: [],
-      topRatedMovies: [],
-    };
-  },
-  computed: mapState({
-    user: state => state.loggedUser,
-  }),
-  methods: {
-    getMoviesOf(movieKind) {
-      let route = 'http://127.0.0.1:5000/movies/' + movieKind;
-      if (this.user.user_id) {
-        route += '/' + this.user.user_id;
-      }
-      return axios
-        .get(route)
-        .then(function(response) {
-          return response.data;
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    },
-  },
-  mounted: function() {
-    let self = this;
-    if (this.user.user_id)
-      this.getMoviesOf('following').then(data => (self.followingMovies = data));
-    this.getMoviesOf('popular').then(data => (self.popularMovies = data));
-    this.getMoviesOf('top').then(data => (self.topRatedMovies = data));
+    return {};
   },
 };
 </script>

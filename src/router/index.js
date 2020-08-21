@@ -62,6 +62,12 @@ const routes = [
       import(/* webpackChunkName: "about" */ '../views/Calendar.vue'),
   },
   {
+    path: '/movies',
+    name: 'Movies',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/Movies.vue'),
+  },
+  {
     path: '/movie',
     name: 'Movie',
     component: () =>
