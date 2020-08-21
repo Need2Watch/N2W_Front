@@ -22,6 +22,8 @@
         tile
         class="hidden-sm-and-down"
         v-for="item in navBarItems"
+        @click="activeBtn = item.title"
+        :class="{activeBtn: activeBtn === item.title }"
         :key="item.title"
         :to="item.path"
       >
@@ -103,6 +105,7 @@ export default {
   },
   data() {
     return {
+      activeBtn: '',
       sidebarOpen: false,
       navBarItems: [
         { title: 'Movies', path: '/', icon: 'mdi-movie' },
@@ -149,7 +152,7 @@ export default {
     },
   },
   computed: mapState({
-    loggedUser: state => state.loggedUser,
+    loggedUser: (state) => state.loggedUser,
   }),
 };
 </script>
