@@ -55,7 +55,7 @@
       >SIGN UP</v-btn>
 
       <v-menu v-if="this.loggedUser.user_id" offset-y>
-        <template v-slot:activator="{ on }">
+        <template v-slot:activator="{ on }" v-bind:loggedUser="this.loggedUser">
           <v-btn
             color="transparent"
             tile
@@ -65,21 +65,14 @@
             class="hidden-md-and-down"
           >
             <v-avatar size="40" class="mr-3">
-              <v-img :src="this.loggedUser.profilePicture.value"></v-img>
+              <v-img :src="loggedUser.profilePicture"></v-img>
             </v-avatar>
-            <v-list-item-title>{{this.loggedUser.username.value}}</v-list-item-title>
+            <v-list-item-title>{{loggedUser.username}}</v-list-item-title>
             <v-icon>mdi-chevron-down</v-icon>
           </v-btn>
         </template>
-        <v-list class="d-flex flex-column pa-0 mt-1">
-          <v-btn
-            tile
-            color="secondary"
-            depressed
-            v-for="item in menuItems"
-            :key="item.title"
-            :to="item.path"
-          >{{item.title}}</v-btn>
+        <v-list class="pa-0">
+          <v-list-item v-for="item in menuItems" :key="item.title" :to="item.path">{{item.title}}</v-list-item>
           <v-btn tile color="red" width="100%" @click="logOut">Logout</v-btn>
         </v-list>
       </v-menu>
@@ -108,7 +101,7 @@ export default {
       activeBtn: '',
       sidebarOpen: false,
       navBarItems: [
-        { title: 'Movies', path: '/', icon: 'mdi-movie' },
+        { title: 'Movies', path: '/movies', icon: 'mdi-movie' },
         {
           title: 'TV Series',
           path: '/tvSeries',
@@ -123,7 +116,7 @@ export default {
       sidebarItems: [
         { title: 'My Profile', path: '/profile', icon: 'mdi-account' },
         { title: 'Calendar', path: '/calendar', icon: 'mdi-calendar' },
-        { title: 'Movies', path: '/', icon: 'mdi-movie' },
+        { title: 'Movies', path: '/movies', icon: 'mdi-movie' },
         {
           title: 'TV Series',
           path: '/tvSeries',
@@ -158,4 +151,8 @@ export default {
 </script>
 <style scoped>
 @import '../assets/styles/N2wNavBar.css';
+.v-menu__content {
+  right: 0px !important;
+  left: auto !important;
+}
 </style>
