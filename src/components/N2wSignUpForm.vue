@@ -1,6 +1,6 @@
 <template>
   <v-card raised height="100%" class="n2wgray formCard">
-    <form class="pa-5" @submit.prevent="submitForm">
+    <form class="pa-12" @submit.prevent="submitForm">
       <v-text-field
         v-model="firstName"
         v-on:keyup.enter="submitForm"
@@ -83,7 +83,7 @@
       <v-btn class="mr-4 mt-4" type="submit">SUBMIT</v-btn>
       <v-btn class="mt-4" @click="clear">CLEAR</v-btn>
     </form>
-    <p class="ml-5">
+    <p class="ml-12">
       Already have an account?
       <router-link to="/signIn" class="decoration-none">
         <a class="primary--text">Sign In</a>
@@ -209,12 +209,12 @@ export default {
             country: this.country,
             city: this.city,
           })
-          .then(function(response) {
+          .then(function (response) {
             let user = response.data;
             previousThis.$store.commit('loadUser', user);
             previousThis.$router.push('/');
           })
-          .catch(function(error) {
+          .catch(function (error) {
             console.log(error);
           });
       }

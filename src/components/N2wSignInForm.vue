@@ -1,12 +1,6 @@
 <template>
-  <v-card raised height="100%" class="n2wgray formCard">
-    <v-img
-      width="80%"
-      class="logo"
-      style="margin: 10% auto 5%;"
-      src="../assets/img/logo-extended.png"
-    ></v-img>
-    <form class="pa-5" @submit.prevent="submitForm">
+  <v-card raised height="100%" class="n2wgray">
+    <form class="pa-12" @submit.prevent="submitForm">
       <v-text-field
         v-on:keyup.enter="submitForm"
         v-model="email"
@@ -23,11 +17,9 @@
       ></v-text-field>
       <v-btn class="mr-4 mt-4" type="submit">SIGN IN</v-btn>
     </form>
-    <p class="ml-5">
+    <p class="ml-12">
       Want to create an account?
-      <router-link to="/signUp" class="decoration-none">
-        <a class="primary--text">Sign Up</a>
-      </router-link>
+      <router-link to="/signUp">Sign Up</router-link>
     </p>
   </v-card>
 </template>
@@ -49,12 +41,12 @@ export default {
           email: this.email,
           password: this.password,
         })
-        .then(function(response) {
+        .then(function (response) {
           let user = response.data;
           previousThis.$store.commit('loadUser', user);
           previousThis.$router.push('/');
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log(error);
         });
     },

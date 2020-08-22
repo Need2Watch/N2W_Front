@@ -1,20 +1,27 @@
 <template>
-  <div class="d-flex align-center signUpBody">
-    <v-carousel
-      class="hidden-sm-and-down"
-      cycle
-      height="100%"
-      hide-delimiter-background
-      show-arrows-on-hover
-    >
-      <v-carousel-item v-for="(slide, i) in slides" :key="i">
-        <v-row class="fill-height" align="center" justify="center">
-          <div :style="{ backgroundImage: `url(${slide})`}" class="slide"></div>
-        </v-row>
-      </v-carousel-item>
-    </v-carousel>
-    <n2w-sign-in-form></n2w-sign-in-form>
-  </div>
+  <v-container class="pa-0" fill-height fluid>
+    <v-row class="fill-height">
+      <v-col md="6" class="pa-0">
+        <v-carousel
+          class="hidden-sm-and-down"
+          cycle
+          height="100%"
+          hide-delimiter-background
+          show-arrows-on-hover
+        >
+          <v-carousel-item
+            v-for="(slide, i) in slides"
+            :key="i"
+            :style="{ backgroundImage: `url(${slide})`}"
+            class="slide"
+          ></v-carousel-item>
+        </v-carousel>
+      </v-col>
+      <v-col md="6" sm="12" class="pa-0">
+        <n2w-sign-in-form></n2w-sign-in-form>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -38,6 +45,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-@import '../assets/styles/SignPage.css';
-</style>
