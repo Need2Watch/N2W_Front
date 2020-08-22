@@ -2,7 +2,7 @@
   <div class="root fill-height">
     <v-container fill-height fluid>
       <v-row justify="center">
-        <v-col class="d-flex flex-column align-center" sm="10" md="8">
+        <v-col class="d-flex flex-column align-center" md="8" sm="6">
           <v-img max-width="70%" src="../assets/img/logo-extended.png"></v-img>
           <p
             class="d-flex flex-column align-center title font-weight-black n2wwhite--text"

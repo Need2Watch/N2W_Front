@@ -1,56 +1,28 @@
 <template>
-  <v-card height="100%" color="transparent" class="d-flex justify-center align-center">
-    <div class="avatarContainer hidden-md-and-down">
-      <v-avatar size="300">
-        <v-img :src="this.loggedUser.profilePicture"></v-img>
-      </v-avatar>
-    </div>
-    <div class="d-flex flex-column infoContainer">
-      <h2>{{this.loggedUser.firstName}} {{this.loggedUser.lastName}}</h2>
-      <h2>@{{this.loggedUser.username}}</h2>
-      <h2>{{this.loggedUser.email}}</h2>
-      <h2>{{this.loggedUser.city}}, {{this.loggedUser.country}}</h2>
-      <h3>Biography</h3>
-      <p>{{userBio}}</p>
-    </div>
-    <div class="d-flex">
-      <v-btn
-        to="/editProfile"
-        rounded
-        color="primary"
-        class="secondary--text editProfileButton"
-        fixed
-        bottom
-        right
-      >Edit Profile</v-btn>
-      <v-btn
-        rounded
-        color="red"
-        class="n2wwhite--text logOutButton"
-        fixed
-        bottom
-        right
-        @click="logOut"
-      >Log Out</v-btn>
-    </div>
-  </v-card>
+  <v-container fill-height fluid>
+    <v-row align="center">
+      <v-col md="6" sm="12" class="d-flex justify-center">
+        <v-avatar size="300">
+          <v-img :src="this.loggedUser.profilePicture"></v-img>
+        </v-avatar>
+      </v-col>
+      <v-col md="4" sm="12" class="text-md-left text-sm-center">
+        <h2>{{this.loggedUser.firstName}} {{this.loggedUser.lastName}}</h2>
+        <h2>@{{this.loggedUser.username}}</h2>
+        <h2>{{this.loggedUser.email}}</h2>
+        <h2>{{this.loggedUser.city}}, {{this.loggedUser.country}}</h2>
+        <h3>Biography</h3>
+        <p>{{userBio}}</p>
+        <v-btn to="/editProfile" rounded color="primary" class="secondary--text mr-2">Edit Profile</v-btn>
+        <v-btn rounded color="red" class="n2wwhite--text" @click="logOut">Log Out</v-btn>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 <script>
 import { mapState } from 'vuex';
 export default {
   name: 'Profile',
-  props: {
-    /*
-      userFirstName: String,
-      userLastName: String,
-      userName: String,
-      userEmail: String,
-      userCountry: String,
-      userCity: String,
-      userBio: String,
-      userAvatarURL: String,
-    */
-  },
   components: {},
   data() {
     return {
@@ -58,7 +30,7 @@ export default {
     };
   },
   computed: mapState({
-    loggedUser: state => state.loggedUser,
+    loggedUser: (state) => state.loggedUser,
   }),
   methods: {
     logOut() {
@@ -79,6 +51,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-@import '../assets/styles/Profile.css';
-</style>
