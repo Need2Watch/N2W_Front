@@ -1,13 +1,14 @@
 <template>
   <v-container fill-height fluid>
     <v-row justify="center">
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title>Single-line item</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
+      <v-col cols="6">
+        <p class="n2wblue--text font-weight-black">Episodes</p>
+      </v-col>
+      <v-col cols="3">
+        <p>Mark season seen</p>
+      </v-col>
+      <v-col cols="3">ojito</v-col>
     </v-row>
-    <v-row justify="center"></v-row>
   </v-container>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <v-card raised height="100%" class="n2wgray formCard">
+  <v-card raised height="100%" class="n2wgray">
     <form class="pa-12" @submit.prevent="submitForm">
       <v-text-field
         v-model="firstName"
@@ -85,9 +85,7 @@
     </form>
     <p class="ml-12">
       Already have an account?
-      <router-link to="/signIn" class="decoration-none">
-        <a class="primary--text">Sign In</a>
-      </router-link>
+      <router-link to="/signIn">Sign In</router-link>
     </p>
   </v-card>
 </template>

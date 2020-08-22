@@ -1,5 +1,5 @@
-import { action } from '@storybook/addon-actions';
 import N2wEpisodesList from './N2wEpisodesList';
+
 export default {
   title: 'N2wEpisodesList',
   // Our exports that end in "Data" are not stories.
