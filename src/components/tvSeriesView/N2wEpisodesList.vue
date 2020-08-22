@@ -1,10 +1,13 @@
 <template>
   <v-container fill-height fluid>
-    <v-list-item>
-      <v-list-item-content>
-        <v-list-item-title>Single-line item</v-list-item-title>
-      </v-list-item-content>
-    </v-list-item>
+    <v-row justify="center">
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title>Single-line item</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+    </v-row>
+    <v-row justify="center"></v-row>
   </v-container>
 </template>
 
@@ -16,5 +19,4 @@ export default {
 };
 </script>
 <style scoped>
-@import '../assets/styles/N2wCalendar.css';
 </style>
