@@ -1,11 +1,9 @@
 <template>
-  <div class="contactUsSuccessMainDiv">
-    <div class="spanSuccess">
-      <p class="tittleSuccess">YOU'VE CONTACTED US SUCCESSFULLY!</p>
-      <p class="tittleSuccess">WE'LL SEND A SUPERHERO TO YOU SOON</p>
-      <p class="tittleSuccess">THANKS FOR USING NEED2WATCH!</p>
-    </div>
-  </div>
+  <v-container fill-height fluid class="contactUsSuccessMainDiv">
+    <p
+      class="text-h1"
+    >YOU'VE CONTACTED US SUCCESSFULLY! WE'LL SEND A SUPERHERO TO YOU SOON THANKS FOR USING NEED2WATCH!</p>
+  </v-container>
 </template>
 
 <script>
@@ -14,5 +12,11 @@ export default {
 };
 </script>
 <style scoped>
-@import '../assets/styles/ContactUsSuccess.css';
+.contactUsSuccessMainDiv {
+  background-image: url(https://images8.alphacoders.com/567/567772.jpg);
+  background-color: rgba(27, 38, 54, 0.5);
+  background-blend-mode: color-burn;
+  background-position: center;
+  background-size: cover;
+}
 </style>

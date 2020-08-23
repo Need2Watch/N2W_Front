@@ -1,5 +1,5 @@
 <template>
-  <v-app id="app" class="app">
+  <v-app id="app">
     <n2w-nav-bar sidebar />
     <v-content>
       <router-view />
@@ -19,11 +19,5 @@ export default {
 };
 </script>
 <style>
-.app {
-  background: linear-gradient(
-    0deg,
-    rgba(27, 38, 54, 1) 0%,
-    rgba(32, 62, 104, 1) 100%
-  ) !important;
-}
+@import './assets/styles/N2w.css';
 </style>

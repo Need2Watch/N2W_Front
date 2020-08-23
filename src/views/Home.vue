@@ -1,5 +1,5 @@
 <template>
-  <div class="root fill-height">
+  <div class="home fill-height">
     <v-container fill-height fluid>
       <v-row justify="center">
         <v-col class="d-flex flex-column align-center" md="8" sm="6">
@@ -60,5 +60,11 @@ export default {
 };
 </script>
 <style scoped>
-@import '../assets/styles/N2w.css';
+.home {
+  background: linear-gradient(rgba(19, 19, 19, 0.5), rgba(41, 41, 41, 0.5)),
+    url('https://images.hdqwalls.com/wallpapers/deadpool-2-movie-cinema-01.jpg');
+
+  background-size: cover;
+  background-position: center;
+}
 </style>

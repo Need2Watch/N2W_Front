@@ -150,7 +150,11 @@ export default {
 };
 </script>
 <style scoped>
-@import '../assets/styles/N2wNavBar.css';
+.activeBtn {
+  padding-top: 3px !important;
+  border-bottom: solid 3px #fbc500 !important;
+}
+
 .v-menu__content {
   right: 0px !important;
   left: auto !important;
