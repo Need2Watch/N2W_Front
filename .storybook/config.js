@@ -10,10 +10,4 @@ addDecorator(withKnobs);
 addDecorator(withTemplate);
 addDecorator(withVuetify);
 
-function loadStories() {
-  const req = require.context('./stories', true, /\.stories\.js$/);
-
-  req.keys().forEach(filename => req(filename));
-}
-
-configure(loadStories, module);
+configure(require.context('../src', true, /\.stories\.js$/), module);
