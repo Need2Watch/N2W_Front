@@ -1,14 +1,8 @@
 <template>
   <v-container class="pa-0" fill-height fluid>
     <v-row class="fill-height">
-      <v-col md="6" class="pa-0">
-        <v-carousel
-          class="hidden-sm-and-down"
-          cycle
-          height="100%"
-          hide-delimiter-background
-          show-arrows-on-hover
-        >
+      <v-col md="6" class="pa-0 hidden-sm-and-down">
+        <v-carousel cycle height="100%" hide-delimiter-background show-arrows-on-hover>
           <v-carousel-item
             v-for="(slide, i) in slides"
             :key="i"
@@ -17,7 +11,7 @@
           ></v-carousel-item>
         </v-carousel>
       </v-col>
-      <v-col md="6" sm="12" class="pa-0">
+      <v-col md="6" xs="12" class="pa-0">
         <n2w-sign-in-form></n2w-sign-in-form>
       </v-col>
     </v-row>
@@ -45,3 +39,6 @@ export default {
   },
 };
 </script>
+<style scoped>
+@import '../assets/styles/N2w.css';
+</style>

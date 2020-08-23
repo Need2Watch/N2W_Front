@@ -60,5 +60,5 @@ export default {
 };
 </script>
 <style scoped>
-@import '../assets/styles/Home.css';
+@import '../assets/styles/N2w.css';
 </style>
