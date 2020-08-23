@@ -1,23 +1,19 @@
 <template>
-  <v-container class="blue" fluid>
-    <v-row>
-      <v-col cols="12" class="d-flex flex-column align-center">
-        <p class="font-weight-black">Seasons</p>
+  <v-container class="secondary" fill-height>
+    <v-row class="fill-height">
+      <v-col>
+        <p class="text-h5 text-center">Seasons</p>
+        <v-list color="transparent">
+          <v-list-item
+            v-for="season in Number(this.seasons)"
+            :key="season"
+            @click="updateSelectedSeason"
+          >
+            <v-list-item-content>Season {{ season }}</v-list-item-content>
+          </v-list-item>
+        </v-list>
       </v-col>
     </v-row>
-    <v-col cols="12" class="d-flex flex-column align-center">
-      <v-list color="transparent">
-        <v-list-item
-          v-for="season in Number(this.seasons)"
-          :key="season"
-          @click="updateSelectedSeason"
-        >
-          <v-list-item-content>
-            <v-list-item-title>Season {{ season }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-col>
   </v-container>
 </template>
 

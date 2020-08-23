@@ -1,9 +1,13 @@
 <template>
-  <div>
-    <p class="font-weight-bold">{{this.title}}</p>
-    <p>Season {{this.season}}, Episode {{this.episode}}</p>
-    <p>{{this.description}}</p>
-  </div>
+  <v-container class="secondary" fill-height>
+    <v-row class="fill-height">
+      <v-col>
+        <v-card-title>{{this.title}}</v-card-title>
+        <v-card-subtitle>Season {{this.season}}, Episode {{this.episode}}</v-card-subtitle>
+        <v-card-text>{{this.description}}</v-card-text>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>

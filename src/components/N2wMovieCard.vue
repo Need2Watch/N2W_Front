@@ -1,8 +1,8 @@
 <template>
-  <v-card v-bind="$attrs" outlined width="80%" class="mx-auto">
+  <v-card color="secondary" v-bind="$attrs" outlined class="mx-auto">
     <div class="d-flex">
       <div style="width: 30%" class="hidden-sm-and-down">
-        <v-img height="425" :src="movie.poster_url">
+        <v-img height="525" :src="movie.poster_url">
           <v-row align="start">
             <v-col cols="1" class="ml-2">
               <v-icon v-for="n in starCount" :key="n" color="primary">mdi-star</v-icon>
