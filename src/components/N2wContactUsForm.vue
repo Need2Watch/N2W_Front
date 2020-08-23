@@ -1,21 +1,54 @@
 <template>
-  <v-form @submit.prevent="onSubmit">
-    <v-text-field label="First Name" v-model="name"></v-text-field>
-    <v-text-field label="Last Name" v-model="email"></v-text-field>
-    <v-text-field label="Username" v-model="regarding"></v-text-field>
-    <v-text-area label="City" v-model="message"></v-text-area>
-    <v-btn class="mr-2 primary secondary--text" type="submit">SEND IT!</v-btn>
+  <form @submit.prevent="submitForm">
+    <v-text-field
+      v-model="name"
+      v-on:keyup.enter="submitForm"
+      :error-messages="firstNameErrors"
+      :counter="16"
+      label="Name"
+      required
+      @input="$v.name.$touch()"
+      @blur="$v.name.$touch()"
+    ></v-text-field>
+    <v-text-field
+      label="Email"
+      v-model="email"
+      required
+      v-on:keyup.enter="submitForm"
+      :error-messages="emailErrors"
+      @change="$v.email.$touch()"
+      @blur="$v.email.$touch()"
+    ></v-text-field>
+    <v-text-field
+      label="Regarding"
+      v-model="regarding"
+      required
+      v-on:keyup.enter="submitForm"
+      :error-messages="regardingErrors"
+      @change="$v.regarding.$touch()"
+      @blur="$v.regarding.$touch()"
+    ></v-text-field>
+    <v-text-field
+      label="Message"
+      v-model="message"
+      v-on:keyup.enter="submitForm"
+      :error-messages="messageErrors"
+      @change="$v.message.$touch()"
+      @blur="$v.message.$touch()"
+    ></v-text-field>
     <v-checkbox
       v-model="checkbox"
       v-on:keyup.enter="submitForm"
       :error-messages="checkboxErrors"
-      label="I have read and accept the terms and conditions."
+      label="I have read and accept the privacy policy."
       required
+      class="mb-2"
       @change="$v.checkbox.$touch()"
       @blur="$v.checkbox.$touch()"
-    ></v-checkbox>Read the
+    ></v-checkbox>
+    <v-btn class="mr-4 primary secondary--text" type="submit">SEND IT!</v-btn>Read the
     <n2w-privacy-policy />
-  </v-form>
+  </form>
 </template>
 <script>
 import { validationMixin } from 'vuelidate';
@@ -28,20 +61,17 @@ export default {
   },
   mixins: [validationMixin],
   validations: {
-    firstName: { required, maxLength: maxLength(16) },
-    lastName: { required, maxLength: maxLength(16) },
+    name: { required, maxLength: maxLength(16) },
     email: { required, email },
-    username: { required, maxLength: maxLength(16) },
-    password: { required, maxLength: maxLength(16) },
-    city: { required, name },
-    select: { required },
+    regarding: { required, maxLength: maxLength(128) },
+    message: { required },
     checkbox: {
       checked(val) {
         return val;
       },
     },
   },
-  data() {
+  data: () => {
     return {
       name: '',
       email: '',
@@ -57,42 +87,12 @@ export default {
       !this.$v.checkbox.checked && errors.push('You must agree to continue!');
       return errors;
     },
-    selectErrors() {
+    nameErrors() {
       const errors = [];
-      if (!this.$v.select.$dirty) return errors;
-      !this.$v.select.required && errors.push('Item is required');
-      return errors;
-    },
-    firstNameErrors() {
-      const errors = [];
-      if (!this.$v.firstName.$dirty) return errors;
-      !this.$v.firstName.maxLength &&
-        errors.push('First Name must be at most 16 characters long');
-      !this.$v.firstName.required && errors.push('First Name is required.');
-      return errors;
-    },
-    lastNameErrors() {
-      const errors = [];
-      if (!this.$v.lastName.$dirty) return errors;
-      !this.$v.lastName.maxLength &&
-        errors.push('Last Name must be at most 16 characters long');
-      !this.$v.lastName.required && errors.push('Last Name is required.');
-      return errors;
-    },
-    usernameErrors() {
-      const errors = [];
-      if (!this.$v.username.$dirty) return errors;
-      !this.$v.username.maxLength &&
-        errors.push('Username must be at most 16 characters long');
-      !this.$v.username.required && errors.push('Username is required.');
-      return errors;
-    },
-    passwordErrors() {
-      const errors = [];
-      if (!this.$v.password.$dirty) return errors;
-      !this.$v.password.maxLength &&
-        errors.push('Password must be at most 16 characters long');
-      !this.$v.password.required && errors.push('Password is required.');
+      if (!this.$v.name.$dirty) return errors;
+      !this.$v.name.maxLength &&
+        errors.push('Name must be at most 16 characters long');
+      !this.$v.name.required && errors.push('Name is required.');
       return errors;
     },
     emailErrors() {
@@ -102,26 +102,30 @@ export default {
       !this.$v.email.required && errors.push('E-mail is required');
       return errors;
     },
-    cityErrors() {
+    regardingErrors() {
       const errors = [];
-      if (!this.$v.city.$dirty) return errors;
-      !this.$v.city.required && errors.push('City is required');
+      if (!this.$v.regarding.$dirty) return errors;
+      !this.$v.regarding.maxLength &&
+        errors.push('Regarding field must be at most 16 characters long');
+      !this.$v.regarding.required && errors.push('Regarding field is required');
+      return errors;
+    },
+    messageErrors() {
+      const errors = [];
+      if (!this.$v.message.$dirty) return errors;
+      !this.$v.message.maxLength &&
+        errors.push(
+          'Message field must be less than 128 characters long and not empty',
+        );
+      !this.$v.message.required && errors.push('Message field is required');
       return errors;
     },
   },
   methods: {
-    onSubmit() {
-      let contactMessage = {
-        name: this.name,
-        email: this.email,
-        regarding: this.regarding,
-        message: this.message,
-      };
-      console.log(contactMessage); //Enviar el contactMessage
-      this.$emit('contact-us-message-submitted', contactMessage); //Llama a la pag de success
-    },
-    contactSuccess() {
-      this.$router.push('/contactUsSuccess');
+    submitForm() {
+      if (!this.$v.$invalid) {
+        this.$router.push('/contactUsSuccess');
+      }
     },
   },
 };

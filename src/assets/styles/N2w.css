@@ -1,9 +1,13 @@
-.root {
-  background: linear-gradient(rgba(19, 19, 19, 0.5), rgba(41, 41, 41, 0.5)),
-    url('https://images.hdqwalls.com/wallpapers/deadpool-2-movie-cinema-01.jpg');
+#app {
+  background: linear-gradient(
+    0deg,
+    rgba(27, 38, 54, 1) 0%,
+    rgba(32, 62, 104, 1) 100%
+  ) !important;
+}
 
-  background-size: cover;
-  background-position: center;
+.v-toolbar__content {
+  padding: 0px !important;
 }
 
 .slide {

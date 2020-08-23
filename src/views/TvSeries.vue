@@ -10,6 +10,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-@import '../assets/styles/TvSeries.css';
-</style>

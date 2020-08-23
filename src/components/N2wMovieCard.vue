@@ -48,13 +48,13 @@ export default {
     return {};
   },
   computed: mapState({
-    movie: state => state.currentMovie,
-    loggedUser: state => state.loggedUser,
-    starCount: function() {
+    movie: (state) => state.currentMovie,
+    loggedUser: (state) => state.loggedUser,
+    starCount: function () {
       let starCountArray = parseInt(this.movie.rating / 2);
       return starCountArray;
     },
-    ratingIsOdd: function() {
+    ratingIsOdd: function () {
       if (this.movie.rating % 2 != 0) return true;
       return false;
     },
@@ -67,7 +67,7 @@ export default {
           user_id: previousThis.loggedUser.user_id,
           movie_id: previousThis.movie.movie_id,
         })
-        .then(function() {
+        .then(function () {
           previousThis.$store.commit('followMovie');
         });
     },
@@ -78,7 +78,7 @@ export default {
           user_id: previousThis.loggedUser.user_id,
           movie_id: previousThis.movie.movie_id,
         })
-        .then(function() {
+        .then(function () {
           previousThis.$store.commit('watchMovie');
         });
     },
@@ -89,7 +89,7 @@ export default {
           user_id: previousThis.loggedUser.user_id,
           movie_id: previousThis.movie.movie_id,
         })
-        .then(function() {
+        .then(function () {
           previousThis.$store.commit('followMovie');
         });
     },
@@ -100,7 +100,7 @@ export default {
           user_id: previousThis.loggedUser.user_id,
           movie_id: previousThis.movie.movie_id,
         })
-        .then(function() {
+        .then(function () {
           previousThis.$store.commit('watchMovie');
         });
     },
@@ -108,5 +108,9 @@ export default {
 };
 </script>
 <style scoped>
-@import '../assets/styles/N2wMovieCard.css';
+.movieCardActions {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
 </style>

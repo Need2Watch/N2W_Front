@@ -1,19 +1,29 @@
 <template>
-  <div class="d-flex flex-row align-center calendar">
-    <n2w-calendar-sidebar class="hidden-md-and-down"></n2w-calendar-sidebar>
-    <n2w-calendar></n2w-calendar>
-  </div>
+  <v-container fill-height fluid class="pa-0">
+    <v-row class="fill-height">
+      <v-col cols="3" class="pa-0">
+        <n2w-calendar-events-list class="fill-height n2wgray hidden-md-and-down" />
+      </v-col>
+      <v-col cols="9" class="pa-0">
+        <n2w-calendar></n2w-calendar>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-import N2wCalendarSidebar from '../components/N2wCalendarSidebar';
+import N2wCalendarEventsList from '../components/N2wCalendarEventsList';
 import N2wCalendar from '../components/N2wCalendar';
 export default {
   name: 'Calendar',
   components: {
-    N2wCalendarSidebar,
+    N2wCalendarEventsList,
     N2wCalendar,
   },
+  data: () => ({
+    type: 'month',
+    types: ['month', 'week', 'day', '4day'],
+  }),
 };
 </script>
 <style scoped>

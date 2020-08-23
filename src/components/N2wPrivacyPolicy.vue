@@ -1,15 +1,12 @@
 <template>
   <v-dialog width="800" scrollable v-model="dialog">
     <template v-slot:activator="{ on }">
-      <span class="privacyPolicy" v-on="on">privacy policy</span>
+      <a v-on="on">privacy policy</a>
     </template>
 
     <v-card>
-      <v-card-title primary-title>Terms and Conditions for Need2Watch</v-card-title>
-
+      <v-card-title primary-title>Privacy Policy of Need2Watch</v-card-title>
       <v-card-text>
-        <h1>Privacy Policy of Need2Watch</h1>
-
         <p>Need2Watch operates the www.need2watch.com website, which provides the SERVICE.</p>
 
         <p>This page is used to inform website visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service, the N2W website.</p>
@@ -18,7 +15,9 @@
 
         <p>
           The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at www.need2watch.com, unless otherwise defined in this Privacy Policy. Our Privacy Policy was created with the help of the
-          <a href="https://www.privacypolicytemplate.net">Privacy Policy Template</a> and the
+          <a
+            href="https://www.privacypolicytemplate.net"
+          >Privacy Policy Template</a> and the
           <a href="https://www.disclaimergenerator.org/">Disclaimer Generator</a>.
         </p>
 
@@ -38,7 +37,9 @@
 
         <p>
           For more general information on cookies, please read
-          <a href="https://www.cookieconsent.com/what-are-cookies/">"What Are Cookies"</a>.
+          <a
+            href="https://www.cookieconsent.com/what-are-cookies/"
+          >"What Are Cookies"</a>.
         </p>
 
         <h2>Service Providers</h2>
@@ -93,48 +94,3 @@ export default {
   }),
 };
 </script>
-<style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
-
-.textInputs {
-  width: 80%;
-  padding: 12px 20px;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  color: black;
-  background-color: white;
-}
-
-input[type='submit'] {
-  width: 80%;
-  font-family: 'Bungee', cursive;
-  color: #1b2636;
-  font-size: x-large;
-  font-weight: bolder;
-  background-color: #fbc500;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type='submit']:hover {
-  background-color: #facb1c;
-}
-
-input[type='checkbox'] {
-  cursor: pointer;
-}
-
-input:required {
-  box-shadow: none;
-}
-
-.privacyPolicy {
-  text-decoration: underline;
-  cursor: pointer;
-}
-</style>
