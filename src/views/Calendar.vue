@@ -1,7 +1,7 @@
 <template>
   <v-container fill-height fluid class="pa-0">
     <v-row class="fill-height">
-      <v-col cols="3" class="pa-0">
+      <v-col md="3" cols="12" class="d-none d-md-flex pa-0">
         <n2w-calendar-events-list class="fill-height n2wgray" />
       </v-col>
       <v-col md="9" cols="12" class="pa-0">
