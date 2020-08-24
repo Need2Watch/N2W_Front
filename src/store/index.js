@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import VuexPersistence from 'vuex-persist';
 import loggedUser from './modules/loggedUser';
+import movies from './modules/movies';
 
 Vue.use(Vuex);
 
@@ -12,17 +13,14 @@ const vuexLocal = new VuexPersistence({
 export default new Vuex.Store({
   modules: {
     loggedUser,
+    movies,
   },
   state: {
-    movies: [],
     currentMovie: {},
     scheduledEvents: {},
   },
   getters: {},
   mutations: {
-    loadMovies(state, payload) {
-      state.movies = payload;
-    },
     loadMovie(state, payload) {
       state.currentMovie = payload;
     },
@@ -36,6 +34,5 @@ export default new Vuex.Store({
       state.scheduledEvents = payload;
     },
   },
-  actions: {},
   plugins: [vuexLocal.plugin],
 });

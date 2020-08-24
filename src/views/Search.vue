@@ -24,9 +24,6 @@ export default {
   components: {
     N2wCinemaCard,
   },
-  data() {
-    return {};
-  },
   computed: mapState({
     user: (state) => state.loggedUser,
     movies: (state) => state.movies,

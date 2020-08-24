@@ -34,7 +34,7 @@ export default {
         })
         .then(function (response) {
           let movies = response.data;
-          previousThis.$store.commit('loadMovies', movies);
+          previousThis.$store.dispatch('movies/loadMovies', movies);
           previousThis.$router.push('/search');
         })
         .catch(function (error) {
