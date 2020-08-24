@@ -5,10 +5,7 @@
     </v-col>
     <v-col cols="10">
       <v-row align="center" class="overflow-hidden">
-        <div
-          class="d-flex card-carousel-cards"
-          :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')', }"
-        >
+        <div class="d-flex" :style="cardStyle">
           <div class="my-5 mx-10" :key="item.title" v-for="item in items">
             <n2w-cinema-card
               v-bind:id="item.movie_id"
@@ -48,6 +45,12 @@ export default {
     };
   },
   computed: {
+    cardStyle() {
+      return {
+        transform: 'translateX(' + this.currentOffset + 'px)',
+        transition: 'transform 150ms ease-out',
+      };
+    },
     atEndOfList() {
       return (
         this.currentOffset <=
@@ -69,8 +72,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-.card-carousel-cards {
-  transition: transform 150ms ease-out;
-}
-</style>
