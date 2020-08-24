@@ -2,9 +2,9 @@
   <v-container fill-height fluid class="pa-0">
     <v-row class="fill-height">
       <v-col cols="3" class="pa-0">
-        <n2w-calendar-events-list class="fill-height n2wgray hidden-md-and-down" />
+        <n2w-calendar-events-list class="fill-height n2wgray" />
       </v-col>
-      <v-col cols="9" class="pa-0">
+      <v-col md="9" cols="12" class="pa-0">
         <n2w-calendar></n2w-calendar>
       </v-col>
     </v-row>
@@ -20,10 +20,6 @@ export default {
     N2wCalendarEventsList,
     N2wCalendar,
   },
-  data: () => ({
-    type: 'month',
-    types: ['month', 'week', 'day', '4day'],
-  }),
 };
 </script>
 <style scoped>

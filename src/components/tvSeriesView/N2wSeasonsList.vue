@@ -26,7 +26,6 @@ export default {
       required: true,
     },
   },
-  data() {},
   methods: {
     updateSelectedSeason() {
       console.log('holitaa');

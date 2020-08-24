@@ -15,7 +15,7 @@
         <v-card-title class="headline" v-text="this.movie.title"></v-card-title>
 
         <v-card-subtitle>
-          <span :key="item" v-for="item in this.movie.genres">{{item.name}}|</span>
+          <span :key="index" v-for="(item, index) in this.movie.genres">{{item.name}}|</span>
         </v-card-subtitle>
         <v-card-text class="headline mb-10">{{this.movie.overview}}</v-card-text>
         <v-card-actions v-if="this.loggedUser.user_id" class="movieCardActions">

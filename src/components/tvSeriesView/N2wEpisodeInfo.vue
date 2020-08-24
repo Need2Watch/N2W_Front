@@ -31,7 +31,6 @@ export default {
       required: true,
     },
   },
-  data: () => ({}),
   methods: {},
 };
 </script>

@@ -5,13 +5,13 @@
         <n2w-movie-card />
       </v-col>
       <v-col class="pb-0 pt-1 pr-0" md="3" cols="4">
-        <n2w-seasons-list seasons="3" />
+        <n2w-seasons-list :seasons="6" />
       </v-col>
       <v-col class="pb-0 pa-1" md="6" cols="8">
         <n2w-episode-list />
       </v-col>
       <v-col class="pb-0 pt-1 pl-0" md="3" cols="12">
-        <n2w-episode-info title="Rose" season="1" episode="1" description="HEY" />
+        <n2w-episode-info title="Rose" :season="1" :episode="1" description="HEY" />
       </v-col>
     </v-row>
   </v-container>

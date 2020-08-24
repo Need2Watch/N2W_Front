@@ -3,7 +3,7 @@
     <v-text-field
       v-model="name"
       v-on:keyup.enter="submitForm"
-      :error-messages="firstNameErrors"
+      :error-messages="nameErrors"
       :counter="16"
       label="Name"
       required
