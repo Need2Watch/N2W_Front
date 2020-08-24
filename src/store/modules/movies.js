@@ -1,5 +1,5 @@
 const state = {
-  movies: [],
+  movies: '',
 };
 
 const actions = {
@@ -10,7 +10,7 @@ const actions = {
 
 const mutations = {
   LOAD_MOVIES(state, payload) {
-    state.movies = payload;
+    this.state.movies = payload;
   },
 };
 

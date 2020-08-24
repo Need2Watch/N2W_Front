@@ -19,7 +19,6 @@ export default new Vuex.Store({
     currentMovie: {},
     scheduledEvents: {},
   },
-  getters: {},
   mutations: {
     loadMovie(state, payload) {
       state.currentMovie = payload;
