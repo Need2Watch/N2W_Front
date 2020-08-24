@@ -14,7 +14,7 @@
         <v-app-bar-nav-icon @click.close="sidebarOpen = !sidebarOpen"></v-app-bar-nav-icon>
       </span>
       <router-link to="/" class="hidden-md-and-down pa-4">
-        <v-img alt="n2w_logo" width="80px" src="../assets/img/logo.png"></v-img>
+        <v-img alt="n2w_logo" width="80px" src="../../assets/img/logo.png"></v-img>
       </router-link>
       <v-btn
         height="100%"

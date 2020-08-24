@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import N2wCalendarEventsList from '../components/N2wCalendarEventsList';
-import N2wCalendar from '../components/N2wCalendar';
+import N2wCalendarEventsList from '../components/calendarView/N2wCalendarEventsList';
+import N2wCalendar from '../components/calendarView/N2wCalendar';
 export default {
   name: 'Calendar',
   components: {

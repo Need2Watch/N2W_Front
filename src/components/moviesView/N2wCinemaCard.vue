@@ -41,7 +41,7 @@ export default {
   },
   computed: {
     ...mapState({
-      user: state => state.loggedUser,
+      user: (state) => state.loggedUser,
     }),
     filmPoster() {
       if (this.image) {
@@ -49,11 +49,11 @@ export default {
       }
       return 'https://i.imgur.com/Iw32fZR.png';
     },
-    starCount: function() {
+    starCount: function () {
       let starCountArray = parseInt(this.rating / 2);
       return starCountArray;
     },
-    ratingIsOdd: function() {
+    ratingIsOdd: function () {
       if (this.rating % 2 != 0) return true;
       return false;
     },
@@ -68,12 +68,12 @@ export default {
       const previousThis = this;
       axios
         .get(route)
-        .then(function(response) {
+        .then(function (response) {
           let movie = response.data;
           previousThis.$store.commit('loadMovie', movie);
           previousThis.$router.push('/movie');
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log(error);
         });
     },
@@ -81,5 +81,5 @@ export default {
 };
 </script>
 <style scoped>
-@import '../assets/styles/N2wCinemaCard.css';
+@import '../../assets/styles/N2wCinemaCard.css';
 </style>

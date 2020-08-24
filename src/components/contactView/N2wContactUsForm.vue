@@ -53,7 +53,7 @@
 <script>
 import { validationMixin } from 'vuelidate';
 import { required, maxLength, email } from 'vuelidate/lib/validators';
-import N2wPrivacyPolicy from '../components/N2wPrivacyPolicy.vue';
+import N2wPrivacyPolicy from './N2wPrivacyPolicy.vue';
 export default {
   name: 'N2wContactUsForm',
   components: {

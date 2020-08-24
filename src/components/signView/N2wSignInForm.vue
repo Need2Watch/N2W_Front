@@ -1,7 +1,7 @@
 <template>
   <v-card raised height="100%" class="n2wgray">
     <v-row align="center" justify="center" class="pt-6">
-      <v-img max-width="80%" src="../assets/img/logo-extended.png"></v-img>
+      <v-img max-width="80%" src="../../assets/img/logo-extended.png"></v-img>
     </v-row>
     <form class="pa-12" @submit.prevent="submitForm">
       <v-text-field

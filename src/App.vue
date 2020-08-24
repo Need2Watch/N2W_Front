@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import N2wNavBar from './components/N2wNavBar';
+import N2wNavBar from './components/mainView/N2wNavBar';
 
 export default {
   name: 'App',

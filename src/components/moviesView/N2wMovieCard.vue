@@ -1,17 +1,17 @@
 <template>
   <v-card color="secondary" v-bind="$attrs" outlined class="mx-auto">
-    <div class="d-flex">
-      <div style="width: 30%" class="hidden-sm-and-down">
-        <v-img height="525" :src="movie.poster_url">
+    <v-row>
+      <v-col md="3" sm="4" cols="12" class="pt-0 pb-0">
+        <v-img :src="movie.poster_url">
           <v-row align="start">
-            <v-col cols="1" class="ml-2">
+            <v-col cols="1" class="ml-4">
               <v-icon v-for="n in starCount" :key="n" color="primary">mdi-star</v-icon>
               <v-icon v-if="ratingIsOdd" color="primary">mdi-star-half</v-icon>
             </v-col>
           </v-row>
         </v-img>
-      </div>
-      <div>
+      </v-col>
+      <v-col md="9" sm="8" cols="12">
         <v-card-title class="headline" v-text="this.movie.title"></v-card-title>
 
         <v-card-subtitle>
@@ -32,8 +32,8 @@
             <v-icon>mdi-eye-off</v-icon>
           </v-btn>
         </v-card-actions>
-      </div>
-    </div>
+      </v-col>
+    </v-row>
   </v-card>
 </template>
 <script>

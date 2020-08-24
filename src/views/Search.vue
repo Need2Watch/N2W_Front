@@ -18,7 +18,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import N2wCinemaCard from '../components/N2wCinemaCard.vue';
+import N2wCinemaCard from '../components/moviesView/N2wCinemaCard.vue';
 export default {
   name: 'Search',
   components: {
@@ -28,8 +28,8 @@ export default {
     return {};
   },
   computed: mapState({
-    user: state => state.loggedUser,
-    movies: state => state.movies,
+    user: (state) => state.loggedUser,
+    movies: (state) => state.movies,
   }),
 };
 </script>

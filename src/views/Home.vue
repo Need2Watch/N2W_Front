@@ -2,13 +2,13 @@
   <div class="home fill-height">
     <v-container fill-height fluid>
       <v-row justify="center">
-        <v-col class="d-flex flex-column align-center" md="8" sm="6">
+        <v-col class="d-flex flex-column align-center" md="8" cols="12">
           <v-img max-width="70%" src="../assets/img/logo-extended.png"></v-img>
           <p
             class="d-flex flex-column align-center title font-weight-black n2wwhite--text"
           >Control your movie night schedule</p>
         </v-col>
-        <v-col align-self="center" class="d-flex flex-column align-center" sm="12" md="6">
+        <v-col align-self="center" class="d-flex flex-column align-center" md="6" cols="12">
           <p>Join Need2Watch now. Your favourite platform for managing your TV Series and films. In N2W you'll receive our best recomendations based on your taste. Start managing your series scheduling their episodes, follow your friends and discover new content. Everything is easier with Need2Watch, we'll make your life easier so...come on and join us! It's free!</p>
           <v-btn
             color="primary"
@@ -19,12 +19,7 @@
         </v-col>
         <v-col align-self="center" cols="6">
           <v-card>
-            <v-carousel
-              class="hidden-sm-and-down"
-              cycle
-              hide-delimiter-background
-              show-arrows-on-hover
-            >
+            <v-carousel cycle hide-delimiter-background show-arrows-on-hover>
               <v-carousel-item
                 v-for="(slide, i) in slides"
                 :key="i"
