@@ -47,7 +47,7 @@ export default {
           color: this.colors[this.rnd(0, this.colors.length - 1)],
         });
       }
-      this.$store.commit('scheduleEvents', events);
+      this.$store.dispatch('scheduledEvents/scheduleEvents', events);
       this.events = events;
     },
     getEventColor(event) {
