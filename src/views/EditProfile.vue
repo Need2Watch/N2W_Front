@@ -62,7 +62,7 @@ export default {
         })
         .then(function (response) {
           let user = response.data;
-          previousThis.$store.commit('loadUser', user);
+          previousThis.$store.dispatch('loggedUser/loadUser', user);
           previousThis.$router.push('/profile');
         })
         .catch(function (error) {

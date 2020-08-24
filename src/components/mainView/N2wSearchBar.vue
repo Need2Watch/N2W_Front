@@ -32,12 +32,12 @@ export default {
           title: this.movieName,
           user_id: this.loggedUser.user_id,
         })
-        .then(function(response) {
+        .then(function (response) {
           let movies = response.data;
           previousThis.$store.commit('loadMovies', movies);
           previousThis.$router.push('/search');
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log(error);
         });
     },
@@ -55,13 +55,13 @@ export default {
 
       // Lazily load input items
       fetch('http://127.0.0.1/movies/search')
-        .then(res => res.json())
-        .then(res => {
+        .then((res) => res.json())
+        .then((res) => {
           const { count, entries } = res;
           this.count = count;
           this.entries = entries;
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
         })
         .finally(() => (this.isLoading = false));

@@ -49,7 +49,7 @@ export default {
         city: '',
         profilePicture: '',
       };
-      this.$store.commit('loadUser', user);
+      this.$store.dispatch('loggedUser/loadUser', user);
       this.$router.push('/signIn');
     },
   },
