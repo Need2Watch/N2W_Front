@@ -19,5 +19,22 @@ export default {
 };
 </script>
 <style>
-@import './assets/styles/N2w.css';
+#app {
+  background: linear-gradient(
+    0deg,
+    rgba(27, 38, 54, 1) 0%,
+    rgba(32, 62, 104, 1) 100%
+  ) !important;
+}
+
+.v-toolbar__content {
+  padding: 0px !important;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
 </style>

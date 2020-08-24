@@ -39,6 +39,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-@import '../assets/styles/N2w.css';
-</style>
