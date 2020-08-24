@@ -1,10 +1,10 @@
 <template>
   <v-row align="center" justify="center">
     <v-icon size="60" @click="moveCarousel(-1)" :disabled="atHeadOfList">mdi-chevron-left</v-icon>
-    <v-col lg="10" md="9" sm="8" cols="6">
+    <v-col lg="10" md="9" cols="8">
       <v-row align="center" class="overflow-hidden">
         <div class="d-flex" :style="cardStyle">
-          <div class="my-5 mx-10" :key="item.title" v-for="item in items">
+          <div class="my-5 mx-10 mx-lg-11" :key="item.title" v-for="item in items">
             <n2w-cinema-card
               v-bind:id="item.movie_id"
               v-bind:name="item.title"
