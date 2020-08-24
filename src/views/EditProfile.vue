@@ -50,8 +50,8 @@ export default {
     submitForm() {
       const previousThis = this;
       axios
-        .put('http://127.0.0.1:5000/users/' + this.loggedUser.user_id, {
-          user_id: this.loggedUser.user_id,
+        .put('http://127.0.0.1:5000/users/' + this.loggedUser.userId, {
+          user_id: this.loggedUser.userId,
           username: this.username,
           password: this.loggedUser.password,
           first_name: this.firstName,
@@ -62,7 +62,7 @@ export default {
         })
         .then(function (response) {
           let user = response.data;
-          previousThis.$store.commit('loadUser', user);
+          previousThis.$store.dispatch('loggedUser/loadUser', user);
           previousThis.$router.push('/profile');
         })
         .catch(function (error) {

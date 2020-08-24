@@ -32,7 +32,7 @@ export default {
       const previousThis = this;
       axios
         .post('http://127.0.0.1:5000/movies/follow', {
-          user_id: previousThis.loggedUser.user_id,
+          user_id: previousThis.loggedUser.userId,
           movie_id: previousThis.movie.movie_id,
         })
         .then(function () {
@@ -43,7 +43,7 @@ export default {
       const previousThis = this;
       axios
         .post('http://127.0.0.1:5000/movies/watch', {
-          user_id: previousThis.loggedUser.user_id,
+          user_id: previousThis.loggedUser.userId,
           movie_id: previousThis.movie.movie_id,
         })
         .then(function () {
@@ -54,7 +54,7 @@ export default {
       const previousThis = this;
       axios
         .post('http://127.0.0.1:5000/movies/unfollow', {
-          user_id: previousThis.loggedUser.user_id,
+          user_id: previousThis.loggedUser.userId,
           movie_id: previousThis.movie.movie_id,
         })
         .then(function () {
@@ -65,7 +65,7 @@ export default {
       const previousThis = this;
       axios
         .post('http://127.0.0.1:5000/movies/unwatch', {
-          user_id: previousThis.loggedUser.user_id,
+          user_id: previousThis.loggedUser.userId,
           movie_id: previousThis.movie.movie_id,
         })
         .then(function () {

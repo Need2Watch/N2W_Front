@@ -1,13 +1,13 @@
 <template>
   <div>
     <vs-divider
-      v-if="this.user.user_id && this.followingMovies"
+      v-if="this.user.userId && this.followingMovies"
       position="left-center"
       color="n2wwhite"
       class="text-h3 font-weight-bold"
     >Following</vs-divider>
     <n2w-carousel
-      v-if="this.user.user_id && this.followingMovies"
+      v-if="this.user.userId && this.followingMovies"
       v-bind:items="this.followingMovies"
     ></n2w-carousel>
 
@@ -42,8 +42,8 @@ export default {
   methods: {
     getMoviesOf(movieKind) {
       let route = 'http://127.0.0.1:5000/movies/' + movieKind;
-      if (this.user.user_id) {
-        route += '/' + this.user.user_id;
+      if (this.user.userId) {
+        route += '/' + this.user.userId;
       }
       return axios
         .get(route)
@@ -57,7 +57,7 @@ export default {
   },
   mounted: function () {
     let self = this;
-    if (this.user.user_id)
+    if (this.user.userId)
       this.getMoviesOf('following').then(
         (data) => (self.followingMovies = data),
       );

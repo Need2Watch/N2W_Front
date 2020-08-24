@@ -38,7 +38,7 @@
         <v-icon color="secondary" size="30">mdi-calendar</v-icon>
       </v-btn>
       <v-btn
-        v-if="!this.loggedUser.user_id"
+        v-if="!this.loggedUser.userId"
         height="100%"
         tile
         depressed
@@ -46,7 +46,7 @@
         class="n2wgray y ml-3 secondary"
       >SIGN IN</v-btn>
       <v-btn
-        v-if="!this.loggedUser.user_id"
+        v-if="!this.loggedUser.userId"
         height="100%"
         tile
         depressed
@@ -54,7 +54,7 @@
         class="primary black--text"
       >SIGN UP</v-btn>
 
-      <v-menu v-if="this.loggedUser.user_id" offset-y>
+      <v-menu v-if="this.loggedUser.userId" offset-y>
         <template v-slot:activator="{ on }" v-bind:loggedUser="this.loggedUser">
           <v-btn
             color="transparent"
@@ -135,12 +135,12 @@ export default {
         username: '',
         email: '',
         password: '',
-        user_id: '',
+        userId: '',
         country: '',
         city: '',
         profilePicture: '',
       };
-      this.$store.commit('loadUser', user);
+      this.$store.dispatch('loggedUser/loadUser', user);
       this.$router.push('/signIn');
     },
   },

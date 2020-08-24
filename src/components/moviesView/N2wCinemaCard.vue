@@ -70,7 +70,7 @@ export default {
         .get(route)
         .then(function (response) {
           let movie = response.data;
-          previousThis.$store.commit('loadMovie', movie);
+          previousThis.$store.dispatch('currentMovie/loadMovie', movie);
           previousThis.$router.push('/movie');
         })
         .catch(function (error) {
