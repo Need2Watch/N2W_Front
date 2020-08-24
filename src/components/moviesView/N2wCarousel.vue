@@ -1,10 +1,17 @@
 <template>
-  <v-row align="center" justify="center">
-    <v-icon size="60" @click="moveCarousel(-1)" :disabled="atHeadOfList">mdi-chevron-left</v-icon>
+  <v-row align="center">
+    <v-col class="pa-0 text-center">
+      <v-icon size="60" @click="moveCarousel(-1)" :disabled="atHeadOfList">mdi-chevron-left</v-icon>
+    </v-col>
     <v-col lg="10" md="9" cols="8">
-      <v-row align="center" class="overflow-hidden">
-        <div class="d-flex" :style="cardStyle">
-          <div class="my-5 mx-10 mx-lg-11" :key="item.title" v-for="item in items">
+      <v-row class="overflow-hidden">
+        <v-col class="d-flex pa-0">
+          <v-row
+            class="pa-0 my-5 mx-10 mx-lg-11"
+            :key="item.title"
+            v-for="item in items"
+            :style="cardStyle"
+          >
             <n2w-cinema-card
               v-bind:id="item.movie_id"
               v-bind:name="item.title"
@@ -12,11 +19,13 @@
               v-bind:image="item.poster_url"
               v-bind:overview="item.overview"
             ></n2w-cinema-card>
-          </div>
-        </div>
+          </v-row>
+        </v-col>
       </v-row>
     </v-col>
-    <v-icon size="60" @click="moveCarousel(1)" :disabled="atEndOfList">mdi-chevron-right</v-icon>
+    <v-col class="pa-0">
+      <v-icon size="60" @click="moveCarousel(1)" :disabled="atEndOfList">mdi-chevron-right</v-icon>
+    </v-col>
   </v-row>
 </template>
 <script>
