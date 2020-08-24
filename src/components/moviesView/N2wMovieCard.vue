@@ -18,7 +18,7 @@
           <span :key="index" v-for="(item, index) in this.movie.genres">{{item.name}}|</span>
         </v-card-subtitle>
         <v-card-text class="headline mb-10">{{this.movie.overview}}</v-card-text>
-        <v-card-actions v-if="this.loggedUser.user_id" class="movieCardActions">
+        <v-card-actions v-if="this.loggedUser.userId" class="movieCardActions">
           <v-btn
             v-on:click="followMovie"
             v-if="!this.movie.following"
@@ -64,7 +64,7 @@ export default {
       const previousThis = this;
       axios
         .post('http://127.0.0.1:5000/movies/follow', {
-          user_id: previousThis.loggedUser.user_id,
+          user_id: previousThis.loggedUser.userId,
           movie_id: previousThis.movie.movie_id,
         })
         .then(function () {
@@ -75,7 +75,7 @@ export default {
       const previousThis = this;
       axios
         .post('http://127.0.0.1:5000/movies/watch', {
-          user_id: previousThis.loggedUser.user_id,
+          user_id: previousThis.loggedUser.userId,
           movie_id: previousThis.movie.movie_id,
         })
         .then(function () {
@@ -86,7 +86,7 @@ export default {
       const previousThis = this;
       axios
         .post('http://127.0.0.1:5000/movies/unfollow', {
-          user_id: previousThis.loggedUser.user_id,
+          user_id: previousThis.loggedUser.userId,
           movie_id: previousThis.movie.movie_id,
         })
         .then(function () {
@@ -97,7 +97,7 @@ export default {
       const previousThis = this;
       axios
         .post('http://127.0.0.1:5000/movies/unwatch', {
-          user_id: previousThis.loggedUser.user_id,
+          user_id: previousThis.loggedUser.userId,
           movie_id: previousThis.movie.movie_id,
         })
         .then(function () {

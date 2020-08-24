@@ -50,8 +50,8 @@ export default {
     submitForm() {
       const previousThis = this;
       axios
-        .put('http://127.0.0.1:5000/users/' + this.loggedUser.user_id, {
-          user_id: this.loggedUser.user_id,
+        .put('http://127.0.0.1:5000/users/' + this.loggedUser.userId, {
+          user_id: this.loggedUser.userId,
           username: this.username,
           password: this.loggedUser.password,
           first_name: this.firstName,

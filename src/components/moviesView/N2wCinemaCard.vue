@@ -61,8 +61,8 @@ export default {
   methods: {
     goToMovie() {
       let route = 'http://127.0.0.1:5000/movies/' + this.id;
-      if (this.user.user_id) {
-        route += '/' + this.user.user_id;
+      if (this.user.userId) {
+        route += '/' + this.user.userId;
       }
       console.debug(route);
       const previousThis = this;

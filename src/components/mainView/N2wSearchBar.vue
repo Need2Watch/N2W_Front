@@ -30,7 +30,7 @@ export default {
       axios
         .post('http://127.0.0.1:5000/movies/search', {
           title: this.movieName,
-          user_id: this.loggedUser.user_id,
+          user_id: this.loggedUser.userId,
         })
         .then(function (response) {
           let movies = response.data;

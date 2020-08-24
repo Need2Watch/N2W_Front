@@ -4,7 +4,7 @@ const state = {
   username: '',
   email: '',
   password: '',
-  user_id: '',
+  userId: '',
   country: '',
   city: '',
   profilePicture: '',
@@ -23,7 +23,7 @@ const mutations = {
     state.username = payload.username;
     state.email = payload.email;
     state.password = payload.password;
-    state.user_id = payload.user_id;
+    state.userId = payload.user_id;
     state.country = payload.country;
     state.city = payload.city;
     state.profilePicture = payload.profile_picture;

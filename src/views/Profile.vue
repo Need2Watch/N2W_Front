@@ -40,7 +40,7 @@ export default {
         username: '',
         email: '',
         password: '',
-        user_id: '',
+        userId: '',
         country: '',
         city: '',
         profilePicture: '',
