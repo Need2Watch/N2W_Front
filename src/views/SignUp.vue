@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import N2wSignUpForm from '../components/N2wSignUpForm';
+import N2wSignUpForm from '../components/signView/N2wSignUpForm';
 
 export default {
   name: 'SignUp',

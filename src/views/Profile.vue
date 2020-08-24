@@ -6,7 +6,7 @@
           <v-img :src="this.loggedUser.profilePicture"></v-img>
         </v-avatar>
       </v-col>
-      <v-col md="4" sm="12" class="text-md-left text-sm-center">
+      <v-col md="4" sm="12" class="text-md-left text-center">
         <h2>{{this.loggedUser.firstName}} {{this.loggedUser.lastName}}</h2>
         <h2>@{{this.loggedUser.username}}</h2>
         <h2>{{this.loggedUser.email}}</h2>

@@ -1,11 +1,11 @@
 <template>
-  <v-container class="blue" fluid>
-    <v-row>
-      <v-col cols="6">
+  <v-container class="secondary" fill-height fluid>
+    <v-row align="center">
+      <v-col>
         <p class="font-weight-black">Episodes</p>
       </v-col>
       <v-spacer />
-      <v-col cols="3">
+      <v-col>
         <v-btn text>
           <v-icon left>mdi-eye</v-icon>Mark season as seen
         </v-btn>

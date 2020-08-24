@@ -1,16 +1,16 @@
 <template>
   <v-container fill-height fluid>
     <v-row align="center">
-      <v-col md="6" class="d-flex flex-column align-center">
+      <v-col md="6" cols="12" class="d-flex flex-column align-center">
         <p class="text-h3">GET IN TOUCH!</p>
         <n2w-contact-us-form />
       </v-col>
-      <v-col md="6" class="d-flex flex-column">
-        <v-btn height="100" class="text-h2" text>
-          <v-icon size="80" class="mr-8" left>mdi-facebook</v-icon>Need2Watch
+      <v-col md="6" cols="12" class="d-flex flex-column">
+        <v-btn height="100%" class="text-sm-h2 text-h4" text>
+          <v-icon size="100%" class="mr-sm-8 mr-4" left>mdi-facebook</v-icon>Need2Watch
         </v-btn>
-        <v-btn height="100" text class="text-h2">
-          <v-icon size="80" class="mr-8" left>mdi-twitter</v-icon>Need2Watch
+        <v-btn height="100%" text class="text-sm-h2 text-h4">
+          <v-icon size="100%" class="mr-sm-8 mr-4" left>mdi-twitter</v-icon>Need2Watch
         </v-btn>
       </v-col>
     </v-row>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import N2wContactUsForm from '../components/N2wContactUsForm.vue';
+import N2wContactUsForm from '../components/contactView/N2wContactUsForm.vue';
 export default {
   name: 'ContactUs',
   components: {

@@ -11,7 +11,7 @@
           ></v-carousel-item>
         </v-carousel>
       </v-col>
-      <v-col md="6" xs="12" class="pa-0">
+      <v-col md="6" cols="12" class="pa-0">
         <n2w-sign-in-form></n2w-sign-in-form>
       </v-col>
     </v-row>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import N2wSignInForm from '../components/N2wSignInForm';
+import N2wSignInForm from '../components/signView/N2wSignInForm';
 
 export default {
   name: 'SignIn',

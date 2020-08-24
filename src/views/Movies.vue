@@ -20,7 +20,7 @@
 </template>
 <script>
 import { mapState } from 'vuex';
-import N2wCarousel from '../components/N2wCarousel.vue';
+import N2wCarousel from '../components/moviesView/N2wCarousel.vue';
 import axios from 'axios';
 
 export default {

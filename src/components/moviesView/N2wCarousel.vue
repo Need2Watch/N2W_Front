@@ -23,7 +23,7 @@
   </div>
 </template>
 <script>
-import N2wCinemaCard from '../components/N2wCinemaCard.vue';
+import N2wCinemaCard from './N2wCinemaCard.vue';
 export default {
   created() {
     this.windowResize();
@@ -110,5 +110,5 @@ export default {
 };
 </script>
 <style scoped>
-@import '../assets/styles/N2wCarousel.css';
+@import '../../assets/styles/N2wCarousel.css';
 </style>

@@ -1,12 +1,12 @@
 <template>
   <v-container fill-height fluid>
     <v-row align="center">
-      <v-col md="6" sm="12" class="d-flex justify-center">
+      <v-col md="6" cols="12" class="d-flex justify-center">
         <v-avatar size="300">
           <v-img :src="this.loggedUser.profilePicture"></v-img>
         </v-avatar>
       </v-col>
-      <v-col md="4" sm="12">
+      <v-col md="4" cols="12">
         <v-form @submit.prevent="submitForm">
           <v-text-field label="First Name" v-model="firstName" required></v-text-field>
           <v-text-field label="Last Name" v-model="lastName"></v-text-field>
@@ -68,7 +68,6 @@ export default {
         .catch(function (error) {
           console.log(error);
         });
-      console.log(this.firstName);
     },
   },
   mounted: function () {

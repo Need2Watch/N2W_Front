@@ -6,6 +6,7 @@
           class="my-0"
           v-for="item in this.sidebarItems"
           :key="item.title"
+          :to="item.path"
           tile
           color="transparent"
           depressed
@@ -29,7 +30,7 @@ export default {
       default: false,
     },
     sidebarItems: {
-      type: Object,
+      type: Array,
     },
   },
   data() {

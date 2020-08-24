@@ -1,14 +1,14 @@
 <template>
   <v-app id="app">
     <n2w-nav-bar sidebar />
-    <v-content>
+    <v-main>
       <router-view />
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
 <script>
-import N2wNavBar from './components/N2wNavBar';
+import N2wNavBar from './components/mainView/N2wNavBar';
 
 export default {
   name: 'App',

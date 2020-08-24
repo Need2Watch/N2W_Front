@@ -6,7 +6,7 @@
 <script>
 import { mapState } from 'vuex';
 import axios from 'axios';
-import N2wMovieCard from '../components/N2wMovieCard';
+import N2wMovieCard from '../components/moviesView/N2wMovieCard';
 
 export default {
   name: 'Movie',
@@ -16,13 +16,13 @@ export default {
     return {};
   },
   computed: mapState({
-    movie: state => state.currentMovie,
-    loggedUser: state => state.loggedUser,
-    starCount: function() {
+    movie: (state) => state.currentMovie,
+    loggedUser: (state) => state.loggedUser,
+    starCount: function () {
       let starCountArray = this.movie.rating.split(',');
       return starCountArray;
     },
-    ratingIsOdd: function() {
+    ratingIsOdd: function () {
       if (this.movie.rating % 2 != 0) return true;
       return false;
     },
@@ -35,7 +35,7 @@ export default {
           user_id: previousThis.loggedUser.user_id,
           movie_id: previousThis.movie.movie_id,
         })
-        .then(function() {
+        .then(function () {
           previousThis.$store.commit('followMovie');
         });
     },
@@ -46,7 +46,7 @@ export default {
           user_id: previousThis.loggedUser.user_id,
           movie_id: previousThis.movie.movie_id,
         })
-        .then(function() {
+        .then(function () {
           previousThis.$store.commit('watchMovie');
         });
     },
@@ -57,7 +57,7 @@ export default {
           user_id: previousThis.loggedUser.user_id,
           movie_id: previousThis.movie.movie_id,
         })
-        .then(function() {
+        .then(function () {
           previousThis.$store.commit('followMovie');
         });
     },
@@ -68,7 +68,7 @@ export default {
           user_id: previousThis.loggedUser.user_id,
           movie_id: previousThis.movie.movie_id,
         })
-        .then(function() {
+        .then(function () {
           previousThis.$store.commit('watchMovie');
         });
     },
