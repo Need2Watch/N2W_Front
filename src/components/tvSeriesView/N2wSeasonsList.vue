@@ -9,9 +9,7 @@
             :key="season"
             @click="updateSelectedSeason(season)"
           >
-            <v-list-item-content class="d-flex justify-center"
-              >Season {{ season }}</v-list-item-content
-            >
+            <v-list-item-content class="d-flex justify-center">Season {{ season }}</v-list-item-content>
           </v-list-item>
         </v-list>
       </v-col>
@@ -30,7 +28,7 @@ export default {
   },
   methods: {
     updateSelectedSeason(season) {
-      this.$emit('clickedSeason', season);
+      this.$emit('clicked', season);
     },
   },
 };
