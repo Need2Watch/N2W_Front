@@ -3,14 +3,14 @@ const state = {
 };
 
 const actions = {
-  scheduleEvents({ commit }, payload) {
+  scheduleEvents({ commit }: any, payload: Object) {
     commit('SCHEDULE_EVENTS', payload);
   },
 };
 
 const mutations = {
-  SCHEDULE_EVENTS(state, payload) {
-    this.state.scheduledEvents = payload;
+  SCHEDULE_EVENTS(state: any, payload: Object) {
+    state.scheduledEvents = payload;
   },
 };
 

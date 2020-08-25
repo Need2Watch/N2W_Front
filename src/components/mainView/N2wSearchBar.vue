@@ -9,63 +9,33 @@
   ></v-text-field>
 </template>
 
-<script>
+<script lang="ts">
 import axios from 'axios';
+import { Component, Vue } from 'vue-property-decorator';
 
-export default {
-  name: 'N2wSearchBar',
-  data: () => ({
-    movieName: '',
-  }),
+@Component
+export default class N2wSearchBar extends Vue {
+  movieName: string = '';
 
-  computed: {
-    loggedUser() {
-      return this.$store.state.loggedUser;
-    },
-  },
+  get loggedUser() {
+    return this.$store.state.loggedUser;
+  }
 
-  methods: {
-    submitSearch() {
-      const previousThis = this;
-      axios
-        .post('http://127.0.0.1:5000/movies/search', {
-          title: this.movieName,
-          user_id: this.loggedUser.userId,
-        })
-        .then(function (response) {
-          let movies = response.data;
-          previousThis.$store.dispatch('movies/loadMovies', movies);
-          previousThis.$router.push('/search');
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    },
-  },
-
-  watch: {
-    search() {
-      // Items have already been loaded
-      if (this.items.length > 0) return;
-
-      // Items have already been requested
-      if (this.isLoading) return;
-
-      this.isLoading = true;
-
-      // Lazily load input items
-      fetch('http://127.0.0.1/movies/search')
-        .then((res) => res.json())
-        .then((res) => {
-          const { count, entries } = res;
-          this.count = count;
-          this.entries = entries;
-        })
-        .catch((err) => {
-          console.log(err);
-        })
-        .finally(() => (this.isLoading = false));
-    },
-  },
-};
+  submitSearch() {
+    const previousThis = this;
+    axios
+      .post('http://127.0.0.1:5000/movies/search', {
+        title: this.movieName,
+        user_id: this.loggedUser.userId,
+      })
+      .then(function (response) {
+        let movies = response.data;
+        previousThis.$store.dispatch('movies/loadMovies', movies);
+        previousThis.$router.push('/search');
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+}
 </script>

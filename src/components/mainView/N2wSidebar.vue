@@ -21,37 +21,31 @@
   </v-navigation-drawer>
 </template>
 
-<script>
-export default {
-  name: 'N2wSidebar',
-  props: {
-    value: {
-      type: Boolean,
-      default: false,
-    },
-    sidebarItems: {
-      type: Array,
-    },
-  },
-  data() {
-    return {};
-  },
-  methods: {
-    logOut() {
-      let user = {
-        firstName: '',
-        lastName: '',
-        username: '',
-        email: '',
-        password: '',
-        userId: '',
-        country: '',
-        city: '',
-        profilePicture: '',
-      };
-      this.$store.dispatch('loggedUser/loadUser', user);
-      this.$router.push('/signIn');
-    },
-  },
-};
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+@Component
+export default class N2wSidebar extends Vue {
+  @Prop({ default: false })
+  value: boolean = false;
+
+  @Prop()
+  sidebarItems: Array<Object> = [];
+
+  logOut() {
+    let user = {
+      firstName: '',
+      lastName: '',
+      username: '',
+      email: '',
+      password: '',
+      userId: '',
+      country: '',
+      city: '',
+      profilePicture: '',
+    };
+    this.$store.dispatch('loggedUser/loadUser', user);
+    this.$router.push('/signIn');
+  }
+}
 </script>

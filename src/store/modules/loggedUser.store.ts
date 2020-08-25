@@ -1,3 +1,5 @@
+import { LoggedUserState, User } from '../types';
+
 const state = {
   firstName: '',
   lastName: '',
@@ -11,13 +13,13 @@ const state = {
 };
 
 const actions = {
-  loadUser({ commit }, payload) {
+  loadUser({ commit }: any, payload: User) {
     commit('LOAD_USER', payload);
   },
 };
 
 const mutations = {
-  LOAD_USER(state, payload) {
+  LOAD_USER(state: LoggedUserState, payload: User) {
     state.firstName = payload.first_name;
     state.lastName = payload.last_name;
     state.username = payload.username;
