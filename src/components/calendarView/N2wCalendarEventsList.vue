@@ -12,14 +12,12 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-
 export default {
   name: 'N2wCalendar',
-  data: () => ({}),
-  computed: mapState({
-    loggedUser: (state) => state.loggedUser,
-    scheduledEvents: (state) => state.scheduledEvents,
-  }),
+  computed: {
+    scheduledEvents() {
+      return this.$store.getters['scheduledEvents/scheduledEvents'];
+    },
+  },
 };
 </script>

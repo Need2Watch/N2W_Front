@@ -27,7 +27,6 @@
   </v-container>
 </template>
 <script>
-import { mapState } from 'vuex';
 import axios from 'axios';
 import countries from '../data/countries.js';
 export default {
@@ -43,9 +42,11 @@ export default {
       countries: countries,
     };
   },
-  computed: mapState({
-    loggedUser: (state) => state.loggedUser,
-  }),
+  computed: {
+    loggedUser() {
+      return this.$store.getters['loggedUser/loggedUser'];
+    },
+  },
   methods: {
     submitForm() {
       const previousThis = this;

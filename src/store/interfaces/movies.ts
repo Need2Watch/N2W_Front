@@ -21,5 +21,5 @@ export interface Movie {
 }
 
 export interface MoviesState {
-  movies: Array<CurrentMovieState>;
+  movies: Array<Movie>;
 }

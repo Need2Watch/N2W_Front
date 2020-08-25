@@ -15,7 +15,6 @@
   </v-card>
 </template>
 <script>
-import { mapState } from 'vuex';
 import axios from 'axios';
 
 export default {
@@ -40,9 +39,9 @@ export default {
     },
   },
   computed: {
-    ...mapState({
-      user: (state) => state.loggedUser,
-    }),
+    user() {
+      return this.$store.getters['loggedUser/loggedUser'];
+    },
     filmPoster() {
       if (this.image) {
         return this.image;
@@ -61,8 +60,8 @@ export default {
   methods: {
     goToMovie() {
       let route = 'http://127.0.0.1:5000/movies/' + this.id;
-      if (this.user.user_id) {
-        route += '/' + this.user.user_id;
+      if (this.user.userId) {
+        route += '/' + this.user.userId;
       }
       console.debug(route);
       const previousThis = this;

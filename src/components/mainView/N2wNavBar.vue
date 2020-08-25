@@ -81,7 +81,6 @@
 </template>
 
 <script lang="ts">
-import { mapState } from 'vuex';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import N2wSearchBar from './N2wSearchBar.vue';
 import N2wSidebar from './N2wSidebar.vue';
@@ -89,9 +88,9 @@ import N2wSidebar from './N2wSidebar.vue';
 @Component({
   components: { N2wSearchBar, N2wSidebar },
   computed: {
-    ...mapState('loggedUser', {
-      loggedUser: (state) => state,
-    }),
+    loggedUser() {
+      return this.$store.getters['loggedUser/loggedUser'];
+    },
   },
 })
 export default class N2wNavBar extends Vue {

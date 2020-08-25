@@ -24,7 +24,7 @@ const actions = {
 };
 
 const getters = {
-  currentMovie(): CurrentMovieState {
+  currentMovie(state: CurrentMovieState): CurrentMovieState {
     return state;
   },
 };

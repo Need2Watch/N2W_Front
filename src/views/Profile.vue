@@ -20,7 +20,6 @@
   </v-container>
 </template>
 <script>
-import { mapState } from 'vuex';
 export default {
   name: 'Profile',
   components: {},
@@ -29,9 +28,11 @@ export default {
       userBio: 'This is my biography',
     };
   },
-  computed: mapState({
-    loggedUser: (state) => state.loggedUser,
-  }),
+  computed: {
+    loggedUser() {
+      return this.$store.getters['loggedUser/loggedUser'];
+    },
+  },
   methods: {
     logOut() {
       let user = {

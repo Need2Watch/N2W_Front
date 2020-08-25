@@ -1,7 +1,7 @@
 <template>
   <div>
     <n2w-carousel
-      v-if="this.user.user_id && this.followingMovies"
+      v-if="this.loggedUser.userId && this.followingMovies"
       v-bind:items="this.followingMovies"
     ></n2w-carousel>
 
@@ -11,7 +11,6 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex';
 import N2wCarousel from '../components/moviesView/N2wCarousel.vue';
 import axios from 'axios';
 
@@ -28,14 +27,16 @@ export default {
       topRatedMovies: [],
     };
   },
-  computed: mapState({
-    user: (state) => state.loggedUser,
-  }),
+  computed: {
+    loggedUser() {
+      return this.$store.getters['loggedUser/loggedUser'];
+    },
+  },
   methods: {
     getMoviesOf(movieKind) {
       let route = 'http://127.0.0.1:5000/movies/' + movieKind;
-      if (this.user.user_id) {
-        route += '/' + this.user.user_id;
+      if (this.loggedUser.userId) {
+        route += '/' + this.loggedUser.userId;
       }
       return axios
         .get(route)
@@ -49,7 +50,7 @@ export default {
   },
   mounted: function () {
     let self = this;
-    if (this.user.user_id)
+    if (this.loggedUser.userId)
       this.getMoviesOf('following').then(
         (data) => (self.followingMovies = data),
       );

@@ -14,13 +14,13 @@ const actions = {
 };
 
 const getters = {
-  scheduledEvents(): ScheduledEventsState {
+  scheduledEvents(state: ScheduledEventsState): ScheduledEventsState {
     return state;
   },
 };
 
 const mutations = {
-  SCHEDULE_EVENTS(state: ScheduledEventsState, payload: Array<ScheduledEvent>) {
+  SCHEDULE_EVENTS(payload: Array<ScheduledEvent>) {
     state.scheduledEvents = payload;
   },
 };

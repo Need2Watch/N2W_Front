@@ -19,7 +19,7 @@ const actions = {
 };
 
 const getters = {
-  loggedUSer(): LoggedUserState {
+  loggedUser(state: LoggedUserState): LoggedUserState {
     return state;
   },
 };

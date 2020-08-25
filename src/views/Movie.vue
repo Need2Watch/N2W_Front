@@ -4,7 +4,6 @@
   </v-card>
 </template>
 <script lang="ts">
-import { mapState } from 'vuex';
 import axios from 'axios';
 import N2wMovieCard from '../components/moviesView/N2wMovieCard.vue';
 import { Component, Vue } from 'vue-property-decorator';
@@ -14,16 +13,21 @@ import { Component, Vue } from 'vue-property-decorator';
     N2wMovieCard,
   },
   computed: {
-    ...mapState({
-      starCount: function () {
-        let starCountArray = this.movie.rating.split(',');
-        return starCountArray;
-      },
-      ratingIsOdd: function () {
-        if (this.movie.rating % 2 != 0) return true;
-        return false;
-      },
-    }),
+    movie() {
+      return this.$store.getters['currentMovie/currentMovie'];
+    },
+    loggedUser() {
+      return this.$store.getters['loggedUser/loggedUser'];
+    },
+    starCount() {
+      let movie = this.$store.getters['currentMovie/currentMovie'];
+      return movie.rating.split(',');
+    },
+    ratingIsOdd() {
+      let movie = this.$store.getters['currentMovie/currentMovie'];
+      if (movie.rating % 2 != 0) return true;
+      return false;
+    },
   },
 })
 export default class Movie extends Vue {
