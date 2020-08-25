@@ -21,19 +21,3 @@ export interface LoggedUserState {
   city: string;
   profilePicture: string;
 }
-
-export interface MoviesState {
-  movies: Array<Movie>;
-}
-
-export interface Movie {
-  following: boolean;
-  watched: boolean;
-}
-
-export interface CurrentMovieState {
-  currentMovie: {
-    following: boolean;
-    watched: boolean;
-  };
-}

@@ -1,6 +1,6 @@
-import { LoggedUserState, User } from '../types';
+import { LoggedUserState, User } from '../interfaces/loggedUser';
 
-const state = {
+const state: LoggedUserState = {
   firstName: '',
   lastName: '',
   username: '',
@@ -13,8 +13,14 @@ const state = {
 };
 
 const actions = {
-  loadUser({ commit }: any, payload: User) {
-    commit('LOAD_USER', payload);
+  loadUser(context: any, payload: User) {
+    context.commit('LOAD_USER', payload);
+  },
+};
+
+const getters = {
+  loggedUSer(): LoggedUserState {
+    return state;
   },
 };
 
@@ -37,4 +43,5 @@ export default {
   actions,
   state,
   mutations,
+  getters,
 };

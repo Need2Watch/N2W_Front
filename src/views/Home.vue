@@ -37,10 +37,9 @@
     </v-footer>
   </div>
 </template>
-<script>
+<script lang="ts">
 export default {
   name: 'Home',
-  props: {},
   data() {
     return {
       slides: [

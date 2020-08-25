@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import VuexPersistence from 'vuex-persist';
-import loggedUser from './modules/loggedUser.store';
-import movies from './modules/movies.store';
-import currentMovie from './modules/currentMovie.store';
-import scheduledEvents from './modules/scheduledEvents.store';
+import loggedUser from './modules/loggedUserModule.store';
+import movies from './modules/moviesModule.store';
+import currentMovie from './modules/currentMovieModule.store';
+import scheduledEvents from './modules/scheduledEventsModule.store';
 
 Vue.use(Vuex);
 
