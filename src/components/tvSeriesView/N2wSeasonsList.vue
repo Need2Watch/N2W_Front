@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     updateSelectedSeason(season) {
-      this.$emit('clicked', season);
+      this.$emit('clickedSeason', season);
     },
   },
 };

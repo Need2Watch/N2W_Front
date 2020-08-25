@@ -6,12 +6,16 @@ export default {
   excludeStories: /.*Data$/,
 };
 
-const N2wEpisodesListTemplate = `<N2wEpisodesList />`;
+export const episodes = [
+  { title: 'Rose', seen: true },
+  { title: 'The End of the world', seen: true },
+  { title: 'The Unquiet Dead', seen: true },
+  { title: 'Aliens on London', seen: true },
+  { title: 'World War Three', seen: false },
+  { title: 'Dalek', seen: false },
+  { title: 'The Long Game', seen: false },
+];
 
-// default task state
-export const Default = () => ({
-  components: { N2wEpisodesList },
-  template: N2wEpisodesListTemplate,
-  props: {},
-  methods: {},
-});
+export const Default = () => (
+  <N2wEpisodesList episodes={episodes}></N2wEpisodesList>
+);
