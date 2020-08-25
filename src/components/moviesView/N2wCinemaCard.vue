@@ -16,6 +16,7 @@
 </template>
 <script>
 import axios from 'axios';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'N2wCinemaCard',
@@ -39,9 +40,9 @@ export default {
     },
   },
   computed: {
-    user() {
-      return this.$store.getters['loggedUser/loggedUser'];
-    },
+    ...mapGetters({
+      loggedUser: 'loggedUser/loggedUser',
+    }),
     filmPoster() {
       if (this.image) {
         return this.image;
@@ -60,8 +61,8 @@ export default {
   methods: {
     goToMovie() {
       let route = 'http://127.0.0.1:5000/movies/' + this.id;
-      if (this.user.userId) {
-        route += '/' + this.user.userId;
+      if (this.loggedUser.userId) {
+        route += '/' + this.loggedUser.userId;
       }
       console.debug(route);
       const previousThis = this;

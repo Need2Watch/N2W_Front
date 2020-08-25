@@ -84,13 +84,12 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import N2wSearchBar from './N2wSearchBar.vue';
 import N2wSidebar from './N2wSidebar.vue';
+import { mapGetters } from 'vuex';
 
 @Component({
   components: { N2wSearchBar, N2wSidebar },
   computed: {
-    loggedUser() {
-      return this.$store.getters['loggedUser/loggedUser'];
-    },
+    ...mapGetters({ loggedUser: 'loggedUser/loggedUser' }),
   },
 })
 export default class N2wNavBar extends Vue {

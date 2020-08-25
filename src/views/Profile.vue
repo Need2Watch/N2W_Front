@@ -20,6 +20,7 @@
   </v-container>
 </template>
 <script>
+import { mapGetters } from 'vuex';
 export default {
   name: 'Profile',
   components: {},
@@ -29,9 +30,7 @@ export default {
     };
   },
   computed: {
-    loggedUser() {
-      return this.$store.getters['loggedUser/loggedUser'];
-    },
+    ...mapGetters({ loggedUser: 'loggedUser/loggedUser' }),
   },
   methods: {
     logOut() {

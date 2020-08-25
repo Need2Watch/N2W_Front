@@ -29,6 +29,7 @@
 <script>
 import axios from 'axios';
 import countries from '../data/countries.js';
+import { mapGetters } from 'vuex';
 export default {
   name: 'EditProfile',
   data: function () {
@@ -43,9 +44,7 @@ export default {
     };
   },
   computed: {
-    loggedUser() {
-      return this.$store.getters['loggedUser/loggedUser'];
-    },
+    ...mapGetters({ loggedUser: 'loggedUser/loggedUser' }),
   },
   methods: {
     submitForm() {

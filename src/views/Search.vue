@@ -18,6 +18,7 @@
 
 <script>
 import N2wCinemaCard from '../components/moviesView/N2wCinemaCard.vue';
+import { mapGetters } from 'vuex';
 export default {
   name: 'Search',
   components: {
@@ -25,12 +26,10 @@ export default {
   },
 
   computed: {
-    loggedUser() {
-      return this.$store.getters['loggedUser/loggedUser'];
-    },
-    movieList() {
-      return this.$store.getters['movies/movies'];
-    },
+    ...mapGetters({
+      movieList: 'movies/movies',
+      loggedUser: 'loggedUser/loggedUser',
+    }),
   },
 };
 </script>

@@ -7,18 +7,17 @@
 import axios from 'axios';
 import N2wMovieCard from '../components/moviesView/N2wMovieCard.vue';
 import { Component, Vue } from 'vue-property-decorator';
+import { mapGetters } from 'vuex';
 
 @Component({
   components: {
     N2wMovieCard,
   },
   computed: {
-    movie() {
-      return this.$store.getters['currentMovie/currentMovie'];
-    },
-    loggedUser() {
-      return this.$store.getters['loggedUser/loggedUser'];
-    },
+    ...mapGetters({
+      loggedUser: 'loggedUser/loggedUser',
+      movie: 'currentMovie/currentMovie',
+    }),
     starCount() {
       let movie = this.$store.getters['currentMovie/currentMovie'];
       return movie.rating.split(',');

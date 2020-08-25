@@ -13,6 +13,7 @@
 <script>
 import N2wCarousel from '../components/moviesView/N2wCarousel.vue';
 import axios from 'axios';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'Movie',
@@ -28,9 +29,7 @@ export default {
     };
   },
   computed: {
-    loggedUser() {
-      return this.$store.getters['loggedUser/loggedUser'];
-    },
+    ...mapGetters({ loggedUser: 'loggedUser/loggedUser' }),
   },
   methods: {
     getMoviesOf(movieKind) {

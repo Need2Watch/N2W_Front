@@ -38,6 +38,7 @@
 </template>
 <script>
 import axios from 'axios';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'N2wMovieCard',
@@ -47,12 +48,10 @@ export default {
     return {};
   },
   computed: {
-    movie() {
-      return this.$store.getters['currentMovie/currentMovie'];
-    },
-    loggedUser() {
-      return this.$store.getters['loggedUser/loggedUser'];
-    },
+    ...mapGetters({
+      loggedUser: 'loggedUser/loggedUser',
+      movie: 'currentMovie/currentMovie',
+    }),
     starCount() {
       let starCountArray = parseInt(this.movie.rating / 2);
       return starCountArray;
