@@ -11,14 +11,18 @@ describe('N2wCinemaCard.vue', () => {
     wrapper = mount(N2wCinemaCard, {
       localVue,
       vuetify,
-      propsData: { id: 5, name: 'cardName', rating: 0, image: 'imageUrl' },
+      propsData: { id: 5, name: 'cardName', rating: 7, image: 'imageUrl' },
     });
   });
   it('should render the card name and rating', () => {
     let cardName: string = 'cardName';
-    let cardRating: string = '0';
+    let cardRating: string = '7';
     expect(wrapper.find('[data-testid="card"]').exists()).toBe(true);
     expect(wrapper.text()).toMatch(cardName);
     expect(wrapper.text()).toMatch(cardRating);
+  });
+  it('returns true if rating is odd', () => {
+    expect(wrapper.vm.ratingIsOdd).toBe(true);
+    expect(wrapper.vm.starCount).toBe(3);
   });
 });

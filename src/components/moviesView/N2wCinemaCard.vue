@@ -20,7 +20,6 @@ import { mapGetters } from 'vuex';
 
 export default {
   name: 'N2wCinemaCard',
-  template: '#v-card',
   props: {
     id: {
       type: Number,
