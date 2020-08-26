@@ -20,7 +20,7 @@ describe('N2wSignUpForm.vue', () => {
       stubs: { RouterLink: RouterLinkStub },
     });
   });
-  it('should render the SearchBar', () => {
+  it('should render the Sign Up form', () => {
     expect(wrapper.find('[data-testid="sign-up-form"]').exists()).toBe(true);
   });
 });

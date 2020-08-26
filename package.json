@@ -9,7 +9,8 @@
     "lint": "vue-cli-service lint",
     "build-storybook": "build-storybook",
     "serve:storybook": "start-storybook -p 6006",
-    "storybook": "start-storybook -p 6006 public"
+    "storybook": "start-storybook -p 6006 public",
+    "test": "jest"
   },
   "dependencies": {
     "@vue/test-utils": "^1.0.3",
@@ -107,5 +108,21 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "jest": {
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue-preprocessor",
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    },
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    },
+    "mapCoverage": true
+  }
 }

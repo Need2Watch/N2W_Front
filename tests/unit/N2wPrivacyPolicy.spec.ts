@@ -13,7 +13,7 @@ describe('N2wPrivacyPolicy.vue', () => {
       vuetify,
     });
   });
-  it('should render the terms dialog', () => {
+  it('should render the privacy dialog', () => {
     expect(wrapper.find('[data-testid="privacy-dialog"]').exists()).toBe(true);
   });
 });

@@ -22,7 +22,7 @@ describe('N2wCarousel.vue', () => {
       },
     });
   });
-  it('should render the carousel', () => {
+  it('should render the Carousel', () => {
     const carouselItems = [
       {
         following: false,

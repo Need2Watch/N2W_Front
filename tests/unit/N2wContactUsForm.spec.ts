@@ -3,8 +3,8 @@ import Vuetify from 'vuetify';
 import Vuex from 'vuex';
 import Router from 'vue-router';
 import store from '../../src/store/index';
-import N2wSignInForm from '@/components/signView/N2wSignInForm.vue';
-describe('N2wSignInForm.vue', () => {
+import N2wContactUsForm from '@/components/contactView/N2wContactUsForm.vue';
+describe('N2wContactUsForm.vue', () => {
   let localVue;
   let vuetify;
   let wrapper: any;
@@ -13,14 +13,14 @@ describe('N2wSignInForm.vue', () => {
     localVue.use(Vuex);
     localVue.use(Router);
     vuetify = new Vuetify();
-    wrapper = mount(N2wSignInForm, {
+    wrapper = mount(N2wContactUsForm, {
       localVue,
       vuetify,
       store,
       stubs: { RouterLink: RouterLinkStub },
     });
   });
-  it('should render the Sign In form', () => {
-    expect(wrapper.find('[data-testid="sign-in-form"]').exists()).toBe(true);
+  it('should render the Contact form', () => {
+    expect(wrapper.find('[data-testid="contact-form"]').exists()).toBe(true);
   });
 });
