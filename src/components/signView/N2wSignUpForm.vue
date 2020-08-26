@@ -1,6 +1,6 @@
 <template>
   <v-card raised height="100%" class="n2wgray">
-    <form class="pa-12" @submit.prevent="submitForm">
+    <form data-testid="sign-up-form" class="pa-12" @submit.prevent="submitForm">
       <v-text-field
         v-model="firstName"
         v-on:keyup.enter="submitForm"
