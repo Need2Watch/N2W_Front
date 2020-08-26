@@ -1,9 +1,9 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import Vuetify from 'vuetify';
 import Vuex from 'vuex';
-import store from '../../src/store/index';
+import store from '@/store/index';
 import N2wCarousel from '@/components/moviesView/N2wCarousel.vue';
-import { Movie } from '../../src/store/interfaces/movies';
+import { Movie } from '@/store/interfaces/movies';
 describe('N2wCarousel.vue', () => {
   let localVue;
   let vuetify;

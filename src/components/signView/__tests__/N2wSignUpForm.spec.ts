@@ -2,7 +2,7 @@ import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils';
 import Vuetify from 'vuetify';
 import Vuex from 'vuex';
 import Router from 'vue-router';
-import store from '../../src/store/index';
+import store from '@/store/index';
 import N2wSignUpForm from '@/components/signView/N2wSignUpForm.vue';
 describe('N2wSignUpForm.vue', () => {
   let localVue;

@@ -1,7 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import Vuetify from 'vuetify';
 import Vuex from 'vuex';
-import store from '../../src/store/index';
+import store from '@/store/index';
 import N2wMovieCard from '@/components/moviesView/N2wMovieCard.vue';
 describe('N2wMovieCard.vue', () => {
   let localVue;

@@ -2,7 +2,7 @@ import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils';
 import Vuetify from 'vuetify';
 import Vuex from 'vuex';
 import Router from 'vue-router';
-import store from '../../src/store/index';
+import store from '@/store/index';
 import N2wCalendarEventsList from '@/components/calendarView/N2wCalendarEventsList.vue';
 describe('N2wCalendarEventsList.vue', () => {
   let localVue;

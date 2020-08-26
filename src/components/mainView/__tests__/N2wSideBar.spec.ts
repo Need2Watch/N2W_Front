@@ -1,7 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import Vuetify from 'vuetify';
 import Vuex from 'vuex';
-import store from '../../src/store/index';
+import store from '@/store/index';
 import N2wSideBar from '@/components/mainView/N2wSideBar.vue';
 describe('N2wSideBar.vue', () => {
   let localVue;
