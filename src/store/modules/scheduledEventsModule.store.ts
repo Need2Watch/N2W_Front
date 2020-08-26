@@ -2,13 +2,17 @@ import {
   ScheduledEventsState,
   ScheduledEvent,
 } from '../interfaces/scheduledEvents';
+import { ActionContext } from 'vuex';
 
 const state: ScheduledEventsState = {
   scheduledEvents: [],
 };
 
 const actions = {
-  scheduleEvents(context: any, payload: Array<ScheduledEvent>) {
+  scheduleEvents(
+    context: ActionContext<ScheduledEventsState, ScheduledEventsState>,
+    payload: Array<ScheduledEvent>,
+  ) {
     context.commit('SCHEDULE_EVENTS', payload);
   },
 };

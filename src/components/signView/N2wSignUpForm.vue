@@ -94,7 +94,7 @@
 import { validationMixin } from 'vuelidate';
 import { required, maxLength, email } from 'vuelidate/lib/validators';
 import { v4 as uuidv4 } from 'uuid';
-import countries from '../../data/countries.js';
+import countries from '../../data/countries.ts';
 import N2wTerms from './N2wTerms';
 import axios from 'axios';
 

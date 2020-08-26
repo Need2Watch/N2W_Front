@@ -28,7 +28,7 @@
 </template>
 <script>
 import axios from 'axios';
-import countries from '../data/countries.js';
+import countries from '../data/countries.ts';
 import { mapGetters } from 'vuex';
 export default {
   name: 'EditProfile',
