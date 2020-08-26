@@ -1,22 +1,11 @@
 import { MoviesState, Movie } from '../interfaces/movies';
 
 const state: MoviesState = {
-  movies: [
-    {
-      following: false,
-      genres: [],
-      movie_id: 0,
-      overview: '',
-      poster_url: '',
-      rating: 0,
-      title: '',
-      watched: false,
-    },
-  ],
+  movies: [],
 };
 
 const actions = {
-  loadMovies(context: any, payload: any) {
+  loadMovies(context: any, payload: Array<Movie>) {
     context.commit('LOAD_MOVIES', payload);
   },
 };
