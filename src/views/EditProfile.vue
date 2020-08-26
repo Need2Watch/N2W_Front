@@ -27,9 +27,9 @@
   </v-container>
 </template>
 <script>
-import { mapState } from 'vuex';
 import axios from 'axios';
 import countries from '../data/countries.js';
+import { mapGetters } from 'vuex';
 export default {
   name: 'EditProfile',
   data: function () {
@@ -43,9 +43,9 @@ export default {
       countries: countries,
     };
   },
-  computed: mapState({
-    loggedUser: (state) => state.loggedUser,
-  }),
+  computed: {
+    ...mapGetters({ loggedUser: 'loggedUser/loggedUser' }),
+  },
   methods: {
     submitForm() {
       const previousThis = this;

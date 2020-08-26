@@ -1,4 +1,6 @@
-const state = {
+import { LoggedUserState, User } from '../interfaces/loggedUser';
+
+const state: LoggedUserState = {
   firstName: '',
   lastName: '',
   username: '',
@@ -11,13 +13,19 @@ const state = {
 };
 
 const actions = {
-  loadUser({ commit }, payload) {
-    commit('LOAD_USER', payload);
+  loadUser(context: any, payload: User) {
+    context.commit('LOAD_USER', payload);
+  },
+};
+
+const getters = {
+  loggedUser(state: LoggedUserState): LoggedUserState {
+    return state;
   },
 };
 
 const mutations = {
-  LOAD_USER(state, payload) {
+  LOAD_USER(state: LoggedUserState, payload: User) {
     state.firstName = payload.first_name;
     state.lastName = payload.last_name;
     state.username = payload.username;
@@ -35,4 +43,5 @@ export default {
   actions,
   state,
   mutations,
+  getters,
 };

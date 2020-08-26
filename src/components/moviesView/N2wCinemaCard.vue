@@ -15,8 +15,8 @@
   </v-card>
 </template>
 <script>
-import { mapState } from 'vuex';
 import axios from 'axios';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'N2wCinemaCard',
@@ -40,8 +40,8 @@ export default {
     },
   },
   computed: {
-    ...mapState({
-      user: (state) => state.loggedUser,
+    ...mapGetters({
+      loggedUser: 'loggedUser/loggedUser',
     }),
     filmPoster() {
       if (this.image) {
@@ -61,8 +61,8 @@ export default {
   methods: {
     goToMovie() {
       let route = 'http://127.0.0.1:5000/movies/' + this.id;
-      if (this.user.user_id) {
-        route += '/' + this.user.user_id;
+      if (this.loggedUser.userId) {
+        route += '/' + this.loggedUser.userId;
       }
       console.debug(route);
       const previousThis = this;

@@ -7,16 +7,15 @@
   </v-app>
 </template>
 
-<script>
-import N2wNavBar from './components/mainView/N2wNavBar';
+<script lang="ts">
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import N2wNavBar from './components/mainView/N2wNavBar.vue';
 
-export default {
-  name: 'App',
-  components: {
-    N2wNavBar,
-  },
-  data: () => ({}),
-};
+@Component({
+  components: { N2wNavBar },
+})
+export default class App extends Vue {}
 </script>
 <style>
 #app {

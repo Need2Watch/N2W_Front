@@ -37,8 +37,8 @@
   </v-card>
 </template>
 <script>
-import { mapState } from 'vuex';
 import axios from 'axios';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'N2wMovieCard',
@@ -47,18 +47,21 @@ export default {
   data() {
     return {};
   },
-  computed: mapState({
-    movie: (state) => state.currentMovie,
-    loggedUser: (state) => state.loggedUser,
-    starCount: function () {
+  computed: {
+    ...mapGetters({
+      loggedUser: 'loggedUser/loggedUser',
+      movie: 'currentMovie/currentMovie',
+    }),
+    starCount() {
       let starCountArray = parseInt(this.movie.rating / 2);
       return starCountArray;
     },
-    ratingIsOdd: function () {
+    ratingIsOdd() {
       if (this.movie.rating % 2 != 0) return true;
       return false;
     },
-  }),
+  },
+
   methods: {
     followMovie() {
       const previousThis = this;
@@ -68,7 +71,7 @@ export default {
           movie_id: previousThis.movie.movie_id,
         })
         .then(function () {
-          previousThis.$store.commit('followMovie');
+          previousThis.$store.dispatch('currentMovie/followMovie');
         });
     },
     watchMovie() {
@@ -79,7 +82,7 @@ export default {
           movie_id: previousThis.movie.movie_id,
         })
         .then(function () {
-          previousThis.$store.commit('watchMovie');
+          previousThis.$store.dispatch('currentMovie/watchMovie');
         });
     },
     unfollowMovie() {
@@ -90,7 +93,7 @@ export default {
           movie_id: previousThis.movie.movie_id,
         })
         .then(function () {
-          previousThis.$store.commit('followMovie');
+          previousThis.$store.dispatch('currentMovie/followMovie');
         });
     },
     unwatchMovie() {
@@ -101,7 +104,7 @@ export default {
           movie_id: previousThis.movie.movie_id,
         })
         .then(function () {
-          previousThis.$store.commit('watchMovie');
+          previousThis.$store.dispatch('currentMovie/watchMovie');
         });
     },
   },

@@ -80,22 +80,22 @@
   </div>
 </template>
 
-<script>
-import { mapState } from 'vuex';
-import N2wSearchBar from './N2wSearchBar';
-import N2wSidebar from './N2wSidebar';
-export default {
-  name: 'N2wNavBar',
-  components: {
-    N2wSearchBar,
-    N2wSidebar,
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import N2wSearchBar from './N2wSearchBar.vue';
+import N2wSidebar from './N2wSidebar.vue';
+import { mapGetters } from 'vuex';
+
+@Component({
+  components: { N2wSearchBar, N2wSidebar },
+  computed: {
+    ...mapGetters({ loggedUser: 'loggedUser/loggedUser' }),
   },
-  props: {
-    sidebar: {
-      type: Boolean,
-      default: false,
-    },
-  },
+})
+export default class N2wNavBar extends Vue {
+  @Prop({ default: false })
+  sidebar: boolean = false;
+
   data() {
     return {
       activeBtn: '',
@@ -126,28 +126,23 @@ export default {
       ],
       items: [{ title: 'Edit Profile', path: '/editProfile' }],
     };
-  },
-  methods: {
-    logOut() {
-      let user = {
-        firstName: '',
-        lastName: '',
-        username: '',
-        email: '',
-        password: '',
-        userId: '',
-        country: '',
-        city: '',
-        profilePicture: '',
-      };
-      this.$store.dispatch('loggedUser/loadUser', user);
-      this.$router.push('/signIn');
-    },
-  },
-  computed: mapState({
-    loggedUser: (state) => state.loggedUser,
-  }),
-};
+  }
+  logOut() {
+    let user = {
+      firstName: '',
+      lastName: '',
+      username: '',
+      email: '',
+      password: '',
+      userId: '',
+      country: '',
+      city: '',
+      profilePicture: '',
+    };
+    this.$store.dispatch('loggedUser/loadUser', user);
+    this.$router.push('/signIn');
+  }
+}
 </script>
 <style scoped>
 .activeBtn {
