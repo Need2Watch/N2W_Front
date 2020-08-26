@@ -11,7 +11,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["vuetify", "node"],
+    "types": ["vuetify", "node", "jest"],
     "paths": {
       "@/*": ["src/*"]
     },
@@ -22,7 +22,8 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx",
+    "src/tests/unit/setup.ts"
   ],
   "exclude": ["node_modules"]
 }

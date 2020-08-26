@@ -1,5 +1,10 @@
 <template>
-  <v-navigation-drawer v-bind="$attrs" v-bind:value="value" v-on:input="$emit('input', $event)">
+  <v-navigation-drawer
+    data-testid="sidebar"
+    v-bind="$attrs"
+    v-bind:value="this.newValue"
+    v-on:input="$emit('input', $event)"
+  >
     <v-list-item class="pa-0">
       <v-list-item-content class="pa-0">
         <v-btn
@@ -25,12 +30,12 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
-export default class N2wSidebar extends Vue {
+export default class N2wSideBar extends Vue {
   @Prop({ default: false })
   value: boolean = false;
 
   @Prop()
-  sidebarItems: Array<Object> = [];
+  sidebarItems: Array<Object> = this.$props.sidebarItems;
 
   logOut() {
     let user = {

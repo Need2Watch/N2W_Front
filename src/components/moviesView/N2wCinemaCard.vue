@@ -1,5 +1,5 @@
 <template>
-  <v-card hover tile class="card-cinema-card" @click="goToMovie">
+  <v-card data-testid="card" hover tile class="card-cinema-card" @click="goToMovie">
     <v-img class="card-img" v-bind:src="this.filmPoster" />
 
     <v-container class="card-footer pa-0">
@@ -20,7 +20,6 @@ import { mapGetters } from 'vuex';
 
 export default {
   name: 'N2wCinemaCard',
-  template: '#v-card',
   props: {
     id: {
       type: Number,

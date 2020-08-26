@@ -1,5 +1,5 @@
 <template>
-  <v-row align="center">
+  <v-row data-testid="carousel" align="center">
     <v-col class="pa-0 text-center">
       <v-icon size="60" @click="moveCarousel(-1)" :disabled="atHeadOfList">mdi-chevron-left</v-icon>
     </v-col>

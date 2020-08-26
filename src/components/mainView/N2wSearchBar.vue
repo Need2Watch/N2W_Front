@@ -1,5 +1,6 @@
 <template>
   <v-text-field
+    data-testid="searchbar"
     class="mt-5 mr-3"
     v-model="movieName"
     @submit.prevent="submitSearch"

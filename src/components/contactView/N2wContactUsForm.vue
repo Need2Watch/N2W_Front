@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="submitForm">
+  <form data-testid="contact-form" @submit.prevent="submitForm">
     <v-text-field
       v-model="name"
       v-on:keyup.enter="submitForm"

@@ -1,5 +1,5 @@
 <template>
-  <v-dialog width="800" scrollable v-model="dialog">
+  <v-dialog data-testid="terms-dialog" width="800" scrollable v-model="dialog">
     <template v-slot:activator="{ on }">
       <a class="primary--text" v-on="on">Read terms and conditions</a>
     </template>
