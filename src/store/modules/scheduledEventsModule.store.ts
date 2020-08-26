@@ -20,8 +20,8 @@ const getters = {
 };
 
 const mutations = {
-  SCHEDULE_EVENTS(payload: Array<ScheduledEvent>) {
-    state.scheduledEvents = payload;
+  SCHEDULE_EVENTS(state: ScheduledEventsState, payload: Array<ScheduledEvent>) {
+    this.state.scheduledEvents = payload;
   },
 };
 

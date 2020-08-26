@@ -1,7 +1,18 @@
-import { MoviesState } from '../interfaces/movies';
+import { MoviesState, Movie } from '../interfaces/movies';
 
 const state: MoviesState = {
-  movies: [],
+  movies: [
+    {
+      following: false,
+      genres: [],
+      movie_id: 0,
+      overview: '',
+      poster_url: '',
+      rating: 0,
+      title: '',
+      watched: false,
+    },
+  ],
 };
 
 const actions = {
@@ -17,7 +28,7 @@ const getters = {
 };
 
 const mutations = {
-  LOAD_MOVIES(state: MoviesState, payload: any) {
+  LOAD_MOVIES(state: MoviesState, payload: Array<Movie>) {
     this.state.movies = payload;
   },
 };

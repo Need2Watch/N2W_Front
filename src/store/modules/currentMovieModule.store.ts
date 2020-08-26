@@ -41,10 +41,10 @@ const mutations = {
     state.watched = payload.watched;
   },
 
-  FOLLOW_MOVIES(state: Movie) {
+  FOLLOW_MOVIES(state: CurrentMovieState) {
     state.following = !state.following;
   },
-  WATCH_MOVIES(state: Movie) {
+  WATCH_MOVIES(state: CurrentMovieState) {
     state.watched = !state.watched;
   },
 };
