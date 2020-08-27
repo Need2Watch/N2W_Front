@@ -1,5 +1,5 @@
 <template>
-  <v-card color="secondary" v-bind="$attrs" outlined class="mx-auto">
+  <v-card data-testid="card" color="secondary" v-bind="$attrs" outlined class="mx-auto">
     <v-row>
       <v-col md="3" sm="4" cols="12" class="pt-0 pb-0">
         <v-img :src="movie.poster_url">
@@ -42,11 +42,6 @@ import { mapGetters } from 'vuex';
 
 export default {
   name: 'N2wMovieCard',
-  props: {},
-  components: {},
-  data() {
-    return {};
-  },
   computed: {
     ...mapGetters({
       loggedUser: 'loggedUser/loggedUser',

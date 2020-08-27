@@ -9,7 +9,7 @@
       app
     ></n2w-sidebar>
 
-    <v-app-bar color="secondary" app>
+    <v-app-bar data-testid="navbar" color="secondary" app>
       <span class="hidden-md-and-up">
         <v-app-bar-nav-icon @click.close="sidebarOpen = !sidebarOpen"></v-app-bar-nav-icon>
       </span>
@@ -83,11 +83,11 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import N2wSearchBar from './N2wSearchBar.vue';
-import N2wSidebar from './N2wSidebar.vue';
+import N2wSideBar from './N2wSideBar.vue';
 import { mapGetters } from 'vuex';
 
 @Component({
-  components: { N2wSearchBar, N2wSidebar },
+  components: { N2wSearchBar, N2wSideBar },
   computed: {
     ...mapGetters({ loggedUser: 'loggedUser/loggedUser' }),
   },

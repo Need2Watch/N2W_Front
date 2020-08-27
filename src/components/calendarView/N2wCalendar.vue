@@ -1,5 +1,6 @@
 <template>
   <v-calendar
+    data-testid="calendar"
     class="secondary"
     ref="calendar"
     :events="events"

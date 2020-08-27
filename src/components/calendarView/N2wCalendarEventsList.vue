@@ -1,5 +1,5 @@
 <template>
-  <v-list class="pa-6">
+  <v-list data-testid="events-list" class="pa-6">
     <v-list-item-group>
       <v-list-item v-for="(item, index) in this.scheduledEvents" :key="index">
         <v-list-item-content>

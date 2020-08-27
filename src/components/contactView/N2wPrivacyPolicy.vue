@@ -1,5 +1,5 @@
 <template>
-  <v-dialog width="800" scrollable v-model="dialog">
+  <v-dialog data-testid="privacy-dialog" width="800" scrollable v-model="dialog">
     <template v-slot:activator="{ on }">
       <a v-on="on">privacy policy</a>
     </template>
