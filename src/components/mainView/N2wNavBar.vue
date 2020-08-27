@@ -96,7 +96,7 @@ import { mapGetters } from 'vuex';
 })
 export default class N2wNavBar extends Vue {
   @Prop({ default: false })
-  sidebar: boolean = false;
+  sidebar: boolean;
 
   activeBtn = '';
   sideBarOpen = false;

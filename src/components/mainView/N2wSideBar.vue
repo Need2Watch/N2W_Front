@@ -32,10 +32,10 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component
 export default class N2wSideBar extends Vue {
   @Prop({ default: false })
-  value: boolean = false;
+  value: boolean;
 
   @Prop()
-  sideBarItems: Array<Object> = [];
+  sideBarItems: Array<Object>;
 
   logOut() {
     let user = {
