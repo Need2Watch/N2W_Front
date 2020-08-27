@@ -1,16 +1,15 @@
 <template>
   <v-navigation-drawer
-    data-testid="sidebar"
     v-bind="$attrs"
-    v-bind:value="this.newValue"
+    v-bind:value="this.value"
     v-on:input="$emit('input', $event)"
   >
     <v-list-item class="pa-0">
       <v-list-item-content class="pa-0">
         <v-btn
           class="my-0"
-          v-for="item in this.sidebarItems"
-          :key="item.title"
+          v-for="(item,index) in sideBarItems"
+          :key="index"
           :to="item.path"
           tile
           color="transparent"
@@ -35,7 +34,7 @@ export default class N2wSideBar extends Vue {
   value: boolean = false;
 
   @Prop()
-  sidebarItems: Array<Object> = this.$props.sidebarItems;
+  sideBarItems: Array<Object> = [];
 
   logOut() {
     let user = {

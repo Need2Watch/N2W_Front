@@ -7,7 +7,7 @@ describe('N2wSideBar.vue', () => {
   let localVue;
   let vuetify;
   let wrapper: any;
-  let sidebarItems: Array<Object> = [];
+  let sideBarItems: Array<Object> = [];
   beforeEach(() => {
     localVue = createLocalVue();
     localVue.use(Vuex);
@@ -17,7 +17,7 @@ describe('N2wSideBar.vue', () => {
       vuetify,
       store,
       propsData: {
-        items: sidebarItems,
+        items: sideBarItems,
       },
     });
   });

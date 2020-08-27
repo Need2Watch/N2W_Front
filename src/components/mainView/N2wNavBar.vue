@@ -1,17 +1,16 @@
 <template>
   <div>
-    <n2w-sidebar
-      color="secondary"
+    <n2w-side-bar
       v-if="sidebar"
-      v-bind:sidebarItems="sidebarItems"
-      v-model="sidebarOpen"
-      disable-resize-watcher
+      color="secondary"
+      :sideBarItems="sideBarItems"
       app
-    ></n2w-sidebar>
-
+      disable-resize-watcher
+      v-model="sideBarOpen"
+    />
     <v-app-bar data-testid="navbar" color="secondary" app>
       <span class="hidden-md-and-up">
-        <v-app-bar-nav-icon @click.close="sidebarOpen = !sidebarOpen"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon @click.close="sideBarOpen = changeSideBar"></v-app-bar-nav-icon>
       </span>
       <router-link to="/" class="hidden-md-and-down pa-4">
         <v-img alt="n2w_logo" width="80px" src="../../assets/img/logo.png"></v-img>
@@ -90,43 +89,42 @@ import { mapGetters } from 'vuex';
   components: { N2wSearchBar, N2wSideBar },
   computed: {
     ...mapGetters({ loggedUser: 'loggedUser/loggedUser' }),
+    changeSideBar() {
+      return !this.$data.sideBarOpen;
+    },
   },
 })
 export default class N2wNavBar extends Vue {
   @Prop({ default: false })
   sidebar: boolean = false;
 
-  data() {
-    return {
-      activeBtn: '',
-      sidebarOpen: false,
-      navBarItems: [
-        { title: 'Movies', path: '/movies', icon: 'mdi-movie' },
-        {
-          title: 'TV Series',
-          path: '/tvSeries',
-          icon: 'mdi-television-classic',
-        },
-        { title: 'Contact Us', path: '/contactUs', icon: 'mdi-email-outline' },
-      ],
-      menuItems: [
-        { title: 'View Profile', path: '/profile' },
-        { title: 'Edit Profile', path: '/editProfile' },
-      ],
-      sidebarItems: [
-        { title: 'My Profile', path: '/profile', icon: 'mdi-account' },
-        { title: 'Calendar', path: '/calendar', icon: 'mdi-calendar' },
-        { title: 'Movies', path: '/movies', icon: 'mdi-movie' },
-        {
-          title: 'TV Series',
-          path: '/tvSeries',
-          icon: 'mdi-television-classic',
-        },
-        { title: 'Collection', path: '/collection', icon: 'mdi-database' },
-      ],
-      items: [{ title: 'Edit Profile', path: '/editProfile' }],
-    };
-  }
+  activeBtn = '';
+  sideBarOpen = false;
+  navBarItems = [
+    { title: 'Movies', path: '/movies', icon: 'mdi-movie' },
+    {
+      title: 'TV Series',
+      path: '/tvSeries',
+      icon: 'mdi-television-classic',
+    },
+    { title: 'Contact Us', path: '/contactUs', icon: 'mdi-email-outline' },
+  ];
+  menuItems = [
+    { title: 'View Profile', path: '/profile' },
+    { title: 'Edit Profile', path: '/editProfile' },
+  ];
+  sideBarItems = [
+    { title: 'My Profile', path: '/profile', icon: 'mdi-account' },
+    { title: 'Calendar', path: '/calendar', icon: 'mdi-calendar' },
+    { title: 'Movies', path: '/movies', icon: 'mdi-movie' },
+    {
+      title: 'TV Series',
+      path: '/tvSeries',
+      icon: 'mdi-television-classic',
+    },
+    { title: 'Collection', path: '/collection', icon: 'mdi-database' },
+  ];
+  items = [{ title: 'Edit Profile', path: '/editProfile' }];
   logOut() {
     let user = {
       firstName: '',

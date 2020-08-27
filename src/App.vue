@@ -1,6 +1,6 @@
 <template>
   <v-app id="app">
-    <n2w-nav-bar sidebar />
+    <n2w-nav-bar sidebar="true" />
     <v-main>
       <router-view />
     </v-main>
