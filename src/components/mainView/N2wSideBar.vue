@@ -1,5 +1,6 @@
 <template>
   <v-navigation-drawer
+    data-testid="sidebar"
     v-bind="$attrs"
     v-bind:value="this.value"
     v-on:input="$emit('input', $event)"
