@@ -96,6 +96,7 @@ export default {
   methods: {
     onClickSeasonList(season) {
       this.selectedSeason = season;
+      this.selectedEpisode = 0;
     },
     onClickEpisodeList(episode) {
       this.selectedEpisode = episode;
