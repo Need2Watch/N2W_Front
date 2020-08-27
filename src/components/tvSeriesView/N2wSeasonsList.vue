@@ -1,5 +1,5 @@
 <template>
-  <v-container class="secondary" fill-height>
+  <v-container data-testid="seasons-list" class="secondary" fill-height>
     <v-row class="fill-height">
       <v-col>
         <p class="text-h5 text-center">Seasons</p>
