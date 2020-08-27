@@ -12,9 +12,6 @@ describe('N2wSeasonsList.vue', () => {
     wrapper = mount(N2wSeasonsList, {
       localVue,
       vuetify,
-      propsData: {
-        bar: 'baz'
-      }
     });
   });
   it('should render the list of seasons of a given tv serie', () => {
