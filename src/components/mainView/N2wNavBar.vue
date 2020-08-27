@@ -1,29 +1,9 @@
 <template>
   <div>
-    <v-navigation-drawer data-testid="sidebar" v-model="sidebarOpen" disable-resize-watcher app>
-      <v-list-item class="pa-0">
-        <v-list-item-content class="pa-0">
-          <v-btn
-            class="my-0"
-            v-for="item in this.sideBarItems"
-            :key="item.title"
-            :to="item.path"
-            tile
-            color="transparent"
-            depressed
-            height="50px"
-          >
-            <v-icon left>{{ item.icon }}</v-icon>
-            <span>{{ item.title}}</span>
-          </v-btn>
-        </v-list-item-content>
-      </v-list-item>
-      <v-btn fixed bottom rounded width="80%" class="ml-6 red white--text" @click="logOut">Logout</v-btn>
-    </v-navigation-drawer>
-
+    <n2w-side-bar />
     <v-app-bar data-testid="navbar" color="secondary" app>
       <span class="hidden-md-and-up">
-        <v-app-bar-nav-icon @click.close="sidebarOpen = true"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon @click.close="sidebarOpen = !sidebarOpen"></v-app-bar-nav-icon>
       </span>
       <router-link to="/" class="hidden-md-and-down pa-4">
         <v-img alt="n2w_logo" width="80px" src="../../assets/img/logo.png"></v-img>
@@ -93,7 +73,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import N2wSearchBar from './N2wSearchBar.vue';
 import N2wSideBar from './N2wSideBar.vue';
 import { mapGetters } from 'vuex';
@@ -105,6 +85,9 @@ import { mapGetters } from 'vuex';
   },
 })
 export default class N2wNavBar extends Vue {
+  @Prop({ default: false })
+  sidebar: boolean = true;
+
   activeBtn = '';
   sidebarOpen = true;
   navBarItems = [

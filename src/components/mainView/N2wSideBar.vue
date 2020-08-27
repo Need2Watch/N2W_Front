@@ -1,16 +1,11 @@
 <template>
-  <v-navigation-drawer
-    data-testid="sidebar"
-    v-bind="$attrs"
-    v-bind:value="value"
-    v-on:input="$emit('input', $event)"
-  >
+  <v-navigation-drawer app>
     <v-list-item class="pa-0">
       <v-list-item-content class="pa-0">
         <v-btn
           class="my-0"
-          v-for="item in this.sideBarItems"
-          :key="item.title"
+          v-for="(item,index) in sideBarItems"
+          :key="index"
           :to="item.path"
           tile
           color="transparent"
@@ -34,8 +29,17 @@ export default class N2wSideBar extends Vue {
   @Prop({ default: false })
   value: boolean = false;
 
-  @Prop()
-  sideBarItems: Array<Object> = [];
+  sideBarItems = [
+    { title: 'My Profile', path: '/profile', icon: 'mdi-account' },
+    { title: 'Calendar', path: '/calendar', icon: 'mdi-calendar' },
+    { title: 'Movies', path: '/movies', icon: 'mdi-movie' },
+    {
+      title: 'TV Series',
+      path: '/tvSeries',
+      icon: 'mdi-television-classic',
+    },
+    { title: 'Collection', path: '/collection', icon: 'mdi-database' },
+  ];
 
   logOut() {
     let user = {
