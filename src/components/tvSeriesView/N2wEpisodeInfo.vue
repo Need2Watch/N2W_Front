@@ -1,5 +1,5 @@
 <template>
-  <v-container class="secondary" fill-height>
+  <v-container data-testid="episode-info" class="secondary" fill-height>
     <v-row class="fill-height">
       <v-col>
         <v-card-title>{{this.title}}</v-card-title>

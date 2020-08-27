@@ -1,5 +1,5 @@
 <template>
-  <v-container class="secondary" fill-height fluid>
+  <v-container data-testid="episodes-list" class="secondary" fill-height fluid>
     <v-row align="center">
       <v-col>
         <p class="font-weight-black">Episodes</p>
