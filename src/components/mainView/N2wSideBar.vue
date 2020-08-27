@@ -1,5 +1,9 @@
 <template>
-  <v-navigation-drawer app>
+  <v-navigation-drawer
+    v-bind="$attrs"
+    v-bind:value="this.value"
+    v-on:input="$emit('input', $event)"
+  >
     <v-list-item class="pa-0">
       <v-list-item-content class="pa-0">
         <v-btn
@@ -27,19 +31,10 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component
 export default class N2wSideBar extends Vue {
   @Prop({ default: false })
-  value: boolean = false;
+  value: boolean;
 
-  sideBarItems = [
-    { title: 'My Profile', path: '/profile', icon: 'mdi-account' },
-    { title: 'Calendar', path: '/calendar', icon: 'mdi-calendar' },
-    { title: 'Movies', path: '/movies', icon: 'mdi-movie' },
-    {
-      title: 'TV Series',
-      path: '/tvSeries',
-      icon: 'mdi-television-classic',
-    },
-    { title: 'Collection', path: '/collection', icon: 'mdi-database' },
-  ];
+  @Prop()
+  sideBarItems: Array<Object>;
 
   logOut() {
     let user = {
