@@ -16,6 +16,14 @@ export const episodes = [
   { title: 'The Long Game', seen: false },
 ];
 
-export const Default = () => (
-  <N2wEpisodesList episodes={episodes}></N2wEpisodesList>
-);
+const N2wEpisodesListTemplate = `<N2wEpisodesList :episodes=episodes></N2wEpisodesList>`;
+
+// default task state
+export const Default = () => ({
+  components: { N2wEpisodesList },
+  template: N2wEpisodesListTemplate,
+  props: {
+    episodes: Array,
+  },
+  methods: {},
+});
