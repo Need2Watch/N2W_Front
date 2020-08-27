@@ -5,21 +5,21 @@
         <n2w-movie-card />
       </v-col>
       <v-col class="pb-0 pt-1 pr-0" md="3" cols="4">
-        <n2w-seasons-list :seasons="6" @clickedSeason="onClickSeasonList" />
+        <n2w-seasons-list :seasons="serie.length" @clickedSeason="onClickSeasonList" />
       </v-col>
       <v-col class="pb-0 pa-1" md="6" cols="8">
         <n2w-episode-list
-          :episodes="serie[this.selectedSeason]"
+          :episodes="serie[this.selectedSeason - 1]"
           @clickedEpisode="onClickEpisodeList"
         />
       </v-col>
       <v-col class="pb-0 pt-1 pl-0" md="3" cols="12">
         <n2w-episode-info
-          :title="serie[this.selectedSeason][this.selectedEpisode].title"
+          :title="serie[this.selectedSeason - 1][this.selectedEpisode].title"
           :season="this.selectedSeason"
           :episode="this.selectedEpisode"
           :description="
-            serie[this.selectedSeason][this.selectedEpisode].description
+            serie[this.selectedSeason - 1][this.selectedEpisode].description
           "
         />
       </v-col>
