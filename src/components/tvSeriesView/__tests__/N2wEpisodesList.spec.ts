@@ -37,6 +37,10 @@ describe('N2wEpisodesList.vue', () => {
   it('should render the list of episodes of a given season', () => {
     expect(wrapper.find('[data-testid="episodes-list"]').exists()).toBe(true);
   });
+  it('should render the "Mark season as seen" button', () => {
+    expect(wrapper.findAllComponents({ name: 'v-btn' })).toHaveLength(5);
+    expect(wrapper.text()).toContain('Mark season as seen');
+  });
   it("should render all the episodes' titles", () => {
     expect(wrapper.text()).toContain('Rose');
     expect(wrapper.text()).toContain('The End of the world');
@@ -44,7 +48,7 @@ describe('N2wEpisodesList.vue', () => {
     expect(wrapper.text()).toContain('The Long Game');
   });
   it("should render all the episodes' seen icon", () => {
-    expect(wrapper.findComponent({ name: 'v-icon' }).exists()).toBe(true);
+    expect(wrapper.findAllComponents({ name: 'v-icon' })).toHaveLength(5);
   });
   it('should emit "clickedEpisode" event when clicked', () => {
     wrapper.vm.updateSelectedEpisode(5);
