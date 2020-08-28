@@ -19,26 +19,18 @@
         </v-card-subtitle>
         <v-card-text class="headline mb-10">{{this.movie.overview}}</v-card-text>
         <v-card-actions v-if="this.loggedUser.userId" class="movieCardActions">
-          <v-btn
-            v-on:click="followMovie"
-            v-if="!this.movie.following"
-            class="primary secondary--text"
-          >FOLLOW</v-btn>
-          <v-btn v-on:click="unfollowMovie" v-else class="primary secondary--text">FOLLOWING</v-btn>
-          <v-btn v-on:click="watchMovie" v-if="!this.movie.watched" color="n2wblue">
-            <v-icon>mdi-eye</v-icon>
-          </v-btn>
-          <v-btn v-on:click="unwatchMovie" v-else color="n2wblue">
-            <v-icon>mdi-eye-off</v-icon>
-          </v-btn>
+          <n2w-follow-button />
+          <n2w-watch-button />
         </v-card-actions>
       </v-col>
     </v-row>
   </v-card>
 </template>
 <script>
-import axios from 'axios';
 import { mapGetters } from 'vuex';
+
+import N2wFollowButton from '../buttons/N2wFollowButton.vue';
+import N2wWatchButton from '../buttons/N2wWatchButton.vue';
 
 export default {
   name: 'N2wMovieCard',
@@ -57,51 +49,9 @@ export default {
     },
   },
 
-  methods: {
-    followMovie() {
-      const previousThis = this;
-      axios
-        .post('http://127.0.0.1:5000/movies/follow', {
-          user_id: previousThis.loggedUser.userId,
-          movie_id: previousThis.movie.movie_id,
-        })
-        .then(function () {
-          previousThis.$store.dispatch('currentMovie/followMovie');
-        });
-    },
-    watchMovie() {
-      const previousThis = this;
-      axios
-        .post('http://127.0.0.1:5000/movies/watch', {
-          user_id: previousThis.loggedUser.userId,
-          movie_id: previousThis.movie.movie_id,
-        })
-        .then(function () {
-          previousThis.$store.dispatch('currentMovie/watchMovie');
-        });
-    },
-    unfollowMovie() {
-      const previousThis = this;
-      axios
-        .post('http://127.0.0.1:5000/movies/unfollow', {
-          user_id: previousThis.loggedUser.userId,
-          movie_id: previousThis.movie.movie_id,
-        })
-        .then(function () {
-          previousThis.$store.dispatch('currentMovie/followMovie');
-        });
-    },
-    unwatchMovie() {
-      const previousThis = this;
-      axios
-        .post('http://127.0.0.1:5000/movies/unwatch', {
-          user_id: previousThis.loggedUser.userId,
-          movie_id: previousThis.movie.movie_id,
-        })
-        .then(function () {
-          previousThis.$store.dispatch('currentMovie/watchMovie');
-        });
-    },
+  components: {
+    N2wFollowButton,
+    N2wWatchButton,
   },
 };
 </script>

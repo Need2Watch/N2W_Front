@@ -1,15 +1,15 @@
 <template>
-  <v-container class="secondary" fill-height>
+  <v-container data-testid="seasons-list" class="secondary" fill-height>
     <v-row class="fill-height">
       <v-col>
         <p class="text-h5 text-center">Seasons</p>
         <v-list color="transparent">
           <v-list-item
-            v-for="season in Number(this.seasons)"
+            v-for="season in this.seasons"
             :key="season"
-            @click="updateSelectedSeason"
+            @click="updateSelectedSeason(season)"
           >
-            <v-list-item-content>Season {{ season }}</v-list-item-content>
+            <v-list-item-content class="d-flex justify-center">Season {{ season }}</v-list-item-content>
           </v-list-item>
         </v-list>
       </v-col>
@@ -27,8 +27,8 @@ export default {
     },
   },
   methods: {
-    updateSelectedSeason() {
-      console.log('holitaa');
+    updateSelectedSeason(season) {
+      this.$emit('clickedSeason', season);
     },
   },
 };

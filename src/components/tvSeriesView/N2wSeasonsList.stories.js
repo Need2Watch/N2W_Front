@@ -6,7 +6,7 @@ export default {
   excludeStories: /.*Data$/,
 };
 
-const N2wSeasonsListTemplate = `<N2wSeasonsList seasons=14></N2wSeasonsList>`;
+const N2wSeasonsListTemplate = `<N2wSeasonsList :seasons=14></N2wSeasonsList>`;
 
 // default task state
 export const Default = () => ({
