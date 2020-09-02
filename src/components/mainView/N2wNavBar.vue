@@ -118,9 +118,4 @@ export default class N2wNavBar extends Vue {
   padding-top: 3px !important;
   border-bottom: solid 3px #fbc500 !important;
 }
-
-.v-menu__content {
-  right: 0px !important;
-  left: auto !important;
-}
 </style>

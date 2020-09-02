@@ -52,3 +52,9 @@ export default class N2wUserMenu extends Vue {
   }
 }
 </script>
+<style scoped>
+.v-menu__content {
+  right: 0px !important;
+  left: auto !important;
+}
+</style>
