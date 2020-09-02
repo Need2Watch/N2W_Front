@@ -114,15 +114,25 @@ export default class N2wNavBar extends Vue {
     { title: 'Edit Profile', path: '/editProfile' },
   ];
   sideBarItems = [
-    { title: 'My Profile', path: '/profile', icon: 'mdi-account' },
-    { title: 'Calendar', path: '/calendar', icon: 'mdi-calendar' },
-    { title: 'Movies', path: '/movies', icon: 'mdi-movie' },
     {
+      id: 'profile',
+      title: 'My Profile',
+      path: '/profile',
+      icon: 'mdi-account',
+    },
+    {
+      id: 'calendar',
+      title: 'Calendar',
+      path: '/calendar',
+      icon: 'mdi-calendar',
+    },
+    { id: 'movies', title: 'Movies', path: '/movies', icon: 'mdi-movie' },
+    {
+      id: 'series',
       title: 'TV Series',
       path: '/tvSeries',
       icon: 'mdi-television-classic',
     },
-    { title: 'Collection', path: '/collection', icon: 'mdi-database' },
   ];
   items = [{ title: 'Edit Profile', path: '/editProfile' }];
   logOut() {
