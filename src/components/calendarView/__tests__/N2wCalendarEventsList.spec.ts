@@ -4,10 +4,19 @@ import Vuex from 'vuex';
 import Router from 'vue-router';
 import store from '@/store/index';
 import N2wCalendarEventsList from '@/components/calendarView/N2wCalendarEventsList.vue';
+
+export interface Event {
+  name: string;
+  start: string;
+  end: string;
+  color: string;
+}
+
 describe('N2wCalendarEventsList.vue', () => {
   let localVue;
   let vuetify;
   let wrapper: any;
+
   beforeEach(() => {
     localVue = createLocalVue();
     localVue.use(Vuex);
