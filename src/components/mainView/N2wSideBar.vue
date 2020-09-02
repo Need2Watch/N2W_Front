@@ -37,8 +37,27 @@ export default class N2wSideBar extends Vue {
   @Prop({ default: false })
   value: boolean;
 
-  @Prop()
-  sideBarItems: Array<Object>;
+  sideBarItems = [
+    {
+      id: 'profile',
+      title: 'My Profile',
+      path: '/profile',
+      icon: 'mdi-account',
+    },
+    {
+      id: 'calendar',
+      title: 'Calendar',
+      path: '/calendar',
+      icon: 'mdi-calendar',
+    },
+    { id: 'movies', title: 'Movies', path: '/movies', icon: 'mdi-movie' },
+    {
+      id: 'tv-series',
+      title: 'TV Series',
+      path: '/tvSeries',
+      icon: 'mdi-television-classic',
+    },
+  ];
 
   logOut() {
     let user = {
