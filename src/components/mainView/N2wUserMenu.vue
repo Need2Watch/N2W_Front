@@ -9,7 +9,7 @@
         <v-icon>mdi-chevron-down</v-icon>
       </v-btn>
     </template>
-    <v-list class="pa-0">
+    <v-list id="menu-item-list" class="pa-0">
       <v-list-item
         v-for="item in menuItems"
         :key="item.title"

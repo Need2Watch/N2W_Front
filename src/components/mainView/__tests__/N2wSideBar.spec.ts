@@ -71,7 +71,7 @@ describe('N2wSideBar.vue', () => {
     const profileButton = itemList.find('#profile');
     expect(profileButton.props('to')).toBe('/profile');
 
-    const tvSeriesButton = itemList.find('#series');
+    const tvSeriesButton = itemList.find('#tv-series');
     expect(tvSeriesButton.props('to')).toBe('/tvSeries');
   });
 });
