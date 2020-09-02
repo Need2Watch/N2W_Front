@@ -12,12 +12,9 @@
         </v-img>
       </v-col>
       <v-col md="9" sm="8" cols="12">
-        <v-card-title class="headline" v-text="this.movie.title"></v-card-title>
-
-        <v-card-subtitle>
-          <span :key="index" v-for="(item, index) in this.movie.genres">{{item.name}}|</span>
-        </v-card-subtitle>
-        <v-card-text class="headline mb-10">{{this.movie.overview}}</v-card-text>
+        <v-card-title class="text-h4" v-text="this.movie.title"></v-card-title>
+        <v-card-subtitle v-text="this.movieGenres"></v-card-subtitle>
+        <v-card-text class="text-h5">{{this.movie.overview}}</v-card-text>
         <v-card-actions v-if="this.loggedUser.userId" class="movieCardActions">
           <n2w-follow-button />
           <n2w-watch-button />
@@ -46,6 +43,12 @@ export default {
     ratingIsOdd() {
       if (this.movie.rating % 2 != 0) return true;
       return false;
+    },
+    movieGenres() {
+      let currentMovie = this.$store.getters['currentMovie/currentMovie'];
+      let movieGenres = currentMovie.genres;
+      let genresNames = movieGenres.map((genre) => genre.name);
+      return genresNames.join(', ');
     },
   },
 
