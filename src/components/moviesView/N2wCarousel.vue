@@ -1,32 +1,45 @@
 <template>
-  <v-row data-testid="carousel" align="center">
-    <v-col class="pa-0 text-center">
-      <v-icon size="60" @click="moveCarousel(-1)" :disabled="atHeadOfList">mdi-chevron-left</v-icon>
-    </v-col>
-    <v-col lg="10" md="9" cols="8">
-      <v-row class="overflow-hidden">
-        <v-col class="d-flex pa-0">
-          <v-row
-            class="pa-0 my-5 mx-10 mx-lg-11"
-            :key="item.title"
-            v-for="item in items"
-            :style="cardStyle"
-          >
-            <n2w-cinema-card
-              v-bind:id="item.movie_id"
-              v-bind:name="item.title"
-              v-bind:rating="item.rating"
-              v-bind:image="item.poster_url"
-              v-bind:overview="item.overview"
-            ></n2w-cinema-card>
-          </v-row>
-        </v-col>
-      </v-row>
-    </v-col>
-    <v-col class="pa-0">
-      <v-icon size="60" @click="moveCarousel(1)" :disabled="atEndOfList">mdi-chevron-right</v-icon>
-    </v-col>
-  </v-row>
+  <div id="main-container" align="center" data-testid="carousel">
+    <v-btn
+      color="transparent"
+      depressed
+      absolute
+      left
+      height="50%"
+      id="left-btn"
+      @click="moveCarousel(-1)"
+      :disabled="atHeadOfList"
+    >
+      <v-icon size="50">mdi-chevron-left</v-icon>
+    </v-btn>
+    <v-row>
+      <v-col id="carousel" class="d-flex">
+        <n2w-cinema-card
+          class="cinema-card"
+          :key="item.title"
+          v-for="item in items"
+          :style="cardStyle"
+          v-bind:id="item.movie_id"
+          v-bind:name="item.title"
+          v-bind:rating="item.rating"
+          v-bind:image="item.poster_url"
+          v-bind:overview="item.overview"
+        ></n2w-cinema-card>
+      </v-col>
+    </v-row>
+    <v-btn
+      color="transparent"
+      depressed
+      absolute
+      right
+      height="50%"
+      id="right-btn"
+      @click="moveCarousel(1)"
+      :disabled="atEndOfList"
+    >
+      <v-icon size="50">mdi-chevron-right</v-icon>
+    </v-btn>
+  </div>
 </template>
 <script>
 import N2wCinemaCard from './N2wCinemaCard.vue';
@@ -77,3 +90,23 @@ export default {
   },
 };
 </script>
+<style scoped>
+#main-container {
+  position: relative;
+}
+
+#left-btn,
+#right-btn {
+  top: calc(50% - 25%);
+  z-index: 500;
+}
+
+#carousel {
+  overflow: hidden !important;
+}
+
+.cinema-card.hover {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+</style>

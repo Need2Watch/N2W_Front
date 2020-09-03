@@ -85,10 +85,6 @@ export default {
   height: 273px;
 }
 
-.card-cinema-card:hover {
-  box-shadow: 0 0 15px 0 black, 0 0 2px 0 rgba(40, 44, 53, 0.06);
-}
-
 .card-cinema-card:hover .card-img {
   transition: opacity 0.3s;
   opacity: 0.3;
