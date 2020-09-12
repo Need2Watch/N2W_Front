@@ -12,12 +12,10 @@
     >
       <v-icon size="50">mdi-chevron-left</v-icon>
     </v-btn>
-    <v-row>
-      <v-col class="carousel d-flex no-gutters">
-        <v-col md="3" sm="6" cols="12" class="d-flex carousel-container" :style="sectionStyle">
+    <v-row no-gutters>
+      <v-col class="d-flex no-gutters" cols="12" :style="sectionStyle">
+        <v-col v-for="item in items" :key="item.title" md="3" sm="6" cols="12">
           <n2w-cinema-card
-            v-for="item in items"
-            :key="item.title"
             class="cinema-card"
             v-bind:id="item.movie_id"
             v-bind:name="item.title"
@@ -108,11 +106,6 @@ export default {
   right: 0;
 }
 
-.carousel-container {
-  position: relative;
-  z-index: 3;
-}
-
 .cinema-card {
   min-width: 100%;
   height: auto;
@@ -122,6 +115,6 @@ export default {
 .cinema-card:hover {
   transform: scale(1.1);
   transform-origin: center;
-  z-index: 20;
+  z-index: 520;
 }
 </style>
