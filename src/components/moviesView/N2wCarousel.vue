@@ -102,8 +102,8 @@ export default {
     handleResize() {
       let carouselWidth = document.getElementById('carousel-container')
         .offsetWidth;
-
       this.paginationFactor = carouselWidth;
+      this.currentOffset = -this.currentCarouselSection * this.paginationFactor;
     },
   },
 };
