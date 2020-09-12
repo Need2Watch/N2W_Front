@@ -12,8 +12,8 @@
     >
       <v-icon size="50">mdi-chevron-left</v-icon>
     </v-btn>
-    <v-row no-gutters :style="sectionStyle">
-      <v-col class="d-flex" md="3" sm="6" cols="12">
+    <v-row align="center" id="carousel-container" no-gutters :style="sectionStyle">
+      <v-col class="d-flex">
         <n2w-cinema-card
           v-for="item in items"
           :key="item.title"
@@ -57,10 +57,17 @@ export default {
 
   data() {
     return {
+      currentCarouselSection: 0,
       currentOffset: 0,
-      windowSize: 4,
-      paginationFactor: 1264,
+      paginationFactor: 0,
     };
+  },
+  created() {
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize);
   },
   computed: {
     sectionStyle() {
@@ -72,8 +79,7 @@ export default {
     },
     atEndOfList() {
       return (
-        this.currentOffset * 4 <=
-        this.paginationFactor * -1 * (this.items.length - this.windowSize)
+        this.currentCarouselSection === Math.ceil(this.items.length / 4) - 1
       );
     },
     atHeadOfList() {
@@ -82,11 +88,22 @@ export default {
   },
   methods: {
     moveCarousel(direction) {
-      if (direction === 1 && !this.atEndOfList) {
+      this.paginationFactor = document.getElementById(
+        'carousel-container',
+      ).offsetWidth;
+      if (direction === 1) {
         this.currentOffset -= this.paginationFactor;
+        this.currentCarouselSection++;
       } else if (direction === -1 && !this.atHeadOfList) {
         this.currentOffset += this.paginationFactor;
+        this.currentCarouselSection--;
       }
+    },
+    handleResize() {
+      let carouselWidth = document.getElementById('carousel-container')
+        .offsetWidth;
+
+      this.paginationFactor = carouselWidth;
     },
   },
 };
@@ -107,7 +124,7 @@ export default {
 }
 
 .cinema-card {
-  min-width: 100%;
+  min-width: 25%;
   height: auto;
   transition: 0.3s ease all;
 }
