@@ -1,12 +1,15 @@
 <template>
   <div>
+    <v-card-title>Following Movies</v-card-title>
     <n2w-carousel
       v-if="this.loggedUser.userId && this.followingMovies"
       v-bind:items="this.followingMovies"
     ></n2w-carousel>
 
+    <v-card-title>Popular Movies</v-card-title>
     <n2w-carousel v-bind:items="this.popularMovies"></n2w-carousel>
 
+    <v-card-title>TOP Rated Movies</v-card-title>
     <n2w-carousel v-bind:items="this.topRatedMovies"></n2w-carousel>
   </div>
 </template>

@@ -1,10 +1,10 @@
 <template>
-  <div id="main-container" align="center" data-testid="carousel">
+  <div id="main-container" data-testid="carousel">
     <v-btn
-      color="transparent"
+      color="rgb(0,0,0,0.4)"
       depressed
       absolute
-      left
+      tile
       height="50%"
       id="left-btn"
       @click="moveCarousel(-1)"
@@ -13,25 +13,26 @@
       <v-icon size="50">mdi-chevron-left</v-icon>
     </v-btn>
     <v-row>
-      <v-col id="carousel" class="d-flex">
-        <n2w-cinema-card
-          class="cinema-card"
-          :key="item.title"
-          v-for="item in items"
-          :style="cardStyle"
-          v-bind:id="item.movie_id"
-          v-bind:name="item.title"
-          v-bind:rating="item.rating"
-          v-bind:image="item.poster_url"
-          v-bind:overview="item.overview"
-        ></n2w-cinema-card>
+      <v-col class="carousel d-flex no-gutters">
+        <v-col md="3" sm="6" cols="12" class="d-flex carousel-container" :style="sectionStyle">
+          <n2w-cinema-card
+            v-for="item in items"
+            :key="item.title"
+            class="cinema-card"
+            v-bind:id="item.movie_id"
+            v-bind:name="item.title"
+            v-bind:rating="item.rating"
+            v-bind:image="item.poster_url"
+            v-bind:overview="item.overview"
+          ></n2w-cinema-card>
+        </v-col>
       </v-col>
     </v-row>
     <v-btn
-      color="transparent"
+      color="rgb(0,0,0,0.4)"
       depressed
       absolute
-      right
+      tile
       height="50%"
       id="right-btn"
       @click="moveCarousel(1)"
@@ -55,23 +56,25 @@ export default {
       required: true,
     },
   },
+
   data() {
     return {
       currentOffset: 0,
-      windowSize: 5,
-      paginationFactor: 262,
+      windowSize: 4,
+      paginationFactor: 1264,
     };
   },
   computed: {
-    cardStyle() {
+    sectionStyle() {
       return {
         transform: 'translateX(' + this.currentOffset + 'px)',
-        transition: 'transform 150ms ease-out',
+        transition: 'transform 300ms ease-out',
+        position: 'relative',
       };
     },
     atEndOfList() {
       return (
-        this.currentOffset <=
+        this.currentOffset * 4 <=
         this.paginationFactor * -1 * (this.items.length - this.windowSize)
       );
     },
@@ -97,16 +100,28 @@ export default {
 
 #left-btn,
 #right-btn {
-  top: calc(50% - 25%);
+  top: 25%;
   z-index: 500;
 }
 
-#carousel {
-  overflow: hidden !important;
+#right-btn {
+  right: 0;
 }
 
-.cinema-card.hover {
-  transform: scale(1.2);
+.carousel-container {
+  position: relative;
+  z-index: 3;
+}
+
+.cinema-card {
+  min-width: 100%;
+  height: auto;
+  transition: 0.3s ease all;
+}
+
+.cinema-card:hover {
+  transform: scale(1.1);
   transform-origin: center;
+  z-index: 20;
 }
 </style>
