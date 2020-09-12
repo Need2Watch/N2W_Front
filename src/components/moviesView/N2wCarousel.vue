@@ -12,18 +12,18 @@
     >
       <v-icon size="50">mdi-chevron-left</v-icon>
     </v-btn>
-    <v-row no-gutters>
-      <v-col class="d-flex no-gutters" cols="12" :style="sectionStyle">
-        <v-col v-for="item in items" :key="item.title" md="3" sm="6" cols="12">
-          <n2w-cinema-card
-            class="cinema-card"
-            v-bind:id="item.movie_id"
-            v-bind:name="item.title"
-            v-bind:rating="item.rating"
-            v-bind:image="item.poster_url"
-            v-bind:overview="item.overview"
-          ></n2w-cinema-card>
-        </v-col>
+    <v-row no-gutters :style="sectionStyle">
+      <v-col class="d-flex" md="3" sm="6" cols="12">
+        <n2w-cinema-card
+          v-for="item in items"
+          :key="item.title"
+          class="cinema-card"
+          v-bind:id="item.movie_id"
+          v-bind:name="item.title"
+          v-bind:rating="item.rating"
+          v-bind:image="item.poster_url"
+          v-bind:overview="item.overview"
+        ></n2w-cinema-card>
       </v-col>
     </v-row>
     <v-btn
