@@ -13,7 +13,7 @@
       <v-icon size="50">mdi-chevron-left</v-icon>
     </v-btn>
     <v-row align="center" id="carousel-container" no-gutters :style="sectionStyle">
-      <v-col class="d-flex">
+      <v-col class="carousel d-flex">
         <n2w-cinema-card
           v-for="item in items"
           :key="item.title"
@@ -130,7 +130,7 @@ export default {
 }
 
 .cinema-card:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   transform-origin: center;
   z-index: 520;
 }

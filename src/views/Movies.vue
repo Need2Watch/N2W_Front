@@ -1,17 +1,28 @@
 <template>
-  <div>
-    <v-card-title>Following Movies</v-card-title>
-    <n2w-carousel
-      v-if="this.loggedUser.userId && this.followingMovies"
-      v-bind:items="this.followingMovies"
-    ></n2w-carousel>
+  <v-row no-gutters>
+    <v-col>
+      <v-col class="d-flex">
+        <div class="text-h5">Following Movies</div>
+      </v-col>
+      <n2w-carousel
+        v-if="this.loggedUser.userId && this.followingMovies"
+        v-bind:items="this.followingMovies"
+      ></n2w-carousel>
 
-    <v-card-title>Popular Movies</v-card-title>
-    <n2w-carousel v-bind:items="this.popularMovies"></n2w-carousel>
+      <v-col class="d-flex secondary pa-5">
+        <v-icon>mdi-trending-up</v-icon>
+        <div class="text-h5 ml-2">Popular Movies</div>
+      </v-col>
+      <n2w-carousel v-bind:items="this.popularMovies"></n2w-carousel>
 
-    <v-card-title>TOP Rated Movies</v-card-title>
-    <n2w-carousel v-bind:items="this.topRatedMovies"></n2w-carousel>
-  </div>
+      <v-col class="d-flex primary secondary--text pa-5">
+        <v-icon color="secondary">mdi-star</v-icon>
+        <div class="text-h5 ml-2">TOP RATED Movies</div>
+      </v-col>
+      <n2w-carousel v-bind:items="this.topRatedMovies"></n2w-carousel>
+      <v-col class="primary" />
+    </v-col>
+  </v-row>
 </template>
 <script>
 import N2wCarousel from '../components/moviesView/N2wCarousel.vue';
