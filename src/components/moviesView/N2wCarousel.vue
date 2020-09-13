@@ -17,6 +17,7 @@
         <n2w-cinema-card
           v-for="item in items"
           :key="item.title"
+          :style="cardStyle"
           class="cinema-card"
           v-bind:id="item.movie_id"
           v-bind:name="item.title"
@@ -70,6 +71,9 @@ export default {
     window.removeEventListener('resize', this.handleResize);
   },
   computed: {
+    cardStyle() {
+      return 'min-width: ' + 100 / Math.ceil(this.paginationFactor / 200) + '%';
+    },
     sectionStyle() {
       return {
         transform: 'translateX(' + this.currentOffset + 'px)',
@@ -124,7 +128,6 @@ export default {
 }
 
 .cinema-card {
-  min-width: 25%;
   height: auto;
   transition: 0.3s ease all;
 }

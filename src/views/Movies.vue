@@ -1,8 +1,9 @@
 <template>
   <v-row no-gutters>
     <v-col>
-      <v-col class="d-flex">
-        <div class="text-h5">Following Movies</div>
+      <v-col class="primary d-flex pa-5">
+        <v-icon color="secondary">mdi-heart</v-icon>
+        <div class="text-h5 ml-2 secondary--text">Following Movies</div>
       </v-col>
       <n2w-carousel
         v-if="this.loggedUser.userId && this.followingMovies"
