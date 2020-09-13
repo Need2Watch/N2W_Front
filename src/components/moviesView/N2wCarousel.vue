@@ -58,10 +58,16 @@ export default {
 
   data() {
     return {
-      currentCarouselSection: 0,
       currentOffset: 0,
+      cardsSeen: 0,
       paginationFactor: 0,
+      minWidthOfNewCard: 250,
     };
+  },
+  mounted() {
+    this.paginationFactor = document.getElementById(
+      'carousel-container',
+    ).offsetWidth;
   },
   created() {
     window.addEventListener('resize', this.handleResize);
@@ -71,9 +77,6 @@ export default {
     window.removeEventListener('resize', this.handleResize);
   },
   computed: {
-    cardStyle() {
-      return 'min-width: ' + 100 / Math.ceil(this.paginationFactor / 250) + '%';
-    },
     sectionStyle() {
       return {
         transform: 'translateX(' + this.currentOffset + 'px)',
@@ -81,9 +84,18 @@ export default {
         position: 'relative',
       };
     },
+    numberOfCards() {
+      return Math.ceil(this.paginationFactor / this.minWidthOfNewCard);
+    },
+    cardStyle() {
+      return 'min-width: ' + 100 / this.numberOfCards + '%';
+    },
     atEndOfList() {
       return (
-        this.currentCarouselSection === Math.ceil(this.items.length / 4) - 1
+        this.currentOffset <=
+        -Math.ceil(this.items.length / this.numberOfCards) *
+          this.paginationFactor +
+          this.paginationFactor
       );
     },
     atHeadOfList() {
@@ -97,17 +109,19 @@ export default {
       ).offsetWidth;
       if (direction === 1) {
         this.currentOffset -= this.paginationFactor;
-        this.currentCarouselSection++;
+        this.cardsSeen += this.numberOfCards;
       } else if (direction === -1 && !this.atHeadOfList) {
         this.currentOffset += this.paginationFactor;
-        this.currentCarouselSection--;
+        this.cardsSeen -= this.numberOfCards;
       }
     },
     handleResize() {
-      let carouselWidth = document.getElementById('carousel-container')
-        .offsetWidth;
-      this.paginationFactor = carouselWidth;
-      this.currentOffset = -this.currentCarouselSection * this.paginationFactor;
+      let newSection = 0;
+      this.paginationFactor = document.getElementById(
+        'carousel-container',
+      ).offsetWidth;
+      newSection = Math.floor(this.cardsSeen / this.numberOfCards);
+      this.currentOffset = newSection * -this.paginationFactor;
     },
   },
 };
