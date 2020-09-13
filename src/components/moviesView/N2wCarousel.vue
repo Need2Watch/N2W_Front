@@ -72,7 +72,7 @@ export default {
   },
   computed: {
     cardStyle() {
-      return 'min-width: ' + 100 / Math.ceil(this.paginationFactor / 200) + '%';
+      return 'min-width: ' + 100 / Math.ceil(this.paginationFactor / 250) + '%';
     },
     sectionStyle() {
       return {
