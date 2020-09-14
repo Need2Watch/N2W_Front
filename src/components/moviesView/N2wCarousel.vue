@@ -1,32 +1,45 @@
 <template>
-  <v-row data-testid="carousel" align="center">
-    <v-col class="pa-0 text-center">
-      <v-icon size="60" @click="moveCarousel(-1)" :disabled="atHeadOfList">mdi-chevron-left</v-icon>
-    </v-col>
-    <v-col lg="10" md="9" cols="8">
-      <v-row class="overflow-hidden">
-        <v-col class="d-flex pa-0">
-          <v-row
-            class="pa-0 my-5 mx-10 mx-lg-11"
-            :key="item.title"
-            v-for="item in items"
-            :style="cardStyle"
-          >
-            <n2w-cinema-card
-              v-bind:id="item.movie_id"
-              v-bind:name="item.title"
-              v-bind:rating="item.rating"
-              v-bind:image="item.poster_url"
-              v-bind:overview="item.overview"
-            ></n2w-cinema-card>
-          </v-row>
-        </v-col>
-      </v-row>
-    </v-col>
-    <v-col class="pa-0">
-      <v-icon size="60" @click="moveCarousel(1)" :disabled="atEndOfList">mdi-chevron-right</v-icon>
-    </v-col>
-  </v-row>
+  <div id="main-container" data-testid="carousel">
+    <v-btn
+      color="rgb(0,0,0,0.4)"
+      depressed
+      absolute
+      tile
+      height="50%"
+      id="left-btn"
+      @click="moveCarousel(-1)"
+      :disabled="atHeadOfList"
+    >
+      <v-icon size="50">mdi-chevron-left</v-icon>
+    </v-btn>
+    <v-row align="center" id="carousel-container" no-gutters :style="sectionStyle">
+      <v-col class="carousel d-flex">
+        <n2w-cinema-card
+          v-for="item in items"
+          :key="item.title"
+          :style="cardStyle"
+          class="cinema-card"
+          v-bind:id="item.movie_id"
+          v-bind:name="item.title"
+          v-bind:rating="item.rating"
+          v-bind:image="item.poster_url"
+          v-bind:overview="item.overview"
+        ></n2w-cinema-card>
+      </v-col>
+    </v-row>
+    <v-btn
+      color="rgb(0,0,0,0.4)"
+      depressed
+      absolute
+      tile
+      height="50%"
+      id="right-btn"
+      @click="moveCarousel(1)"
+      :disabled="atEndOfList"
+    >
+      <v-icon size="50">mdi-chevron-right</v-icon>
+    </v-btn>
+  </div>
 </template>
 <script>
 import N2wCinemaCard from './N2wCinemaCard.vue';
@@ -42,24 +55,47 @@ export default {
       required: true,
     },
   },
+
   data() {
     return {
       currentOffset: 0,
-      windowSize: 5,
-      paginationFactor: 262,
+      cardsSeen: 0,
+      paginationFactor: 0,
+      minWidthOfNewCard: 250,
     };
   },
+  mounted() {
+    this.paginationFactor = document.getElementById(
+      'carousel-container',
+    ).offsetWidth;
+  },
+  created() {
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize);
+  },
   computed: {
-    cardStyle() {
+    sectionStyle() {
       return {
         transform: 'translateX(' + this.currentOffset + 'px)',
-        transition: 'transform 150ms ease-out',
+        transition: 'transform 300ms ease-out',
+        position: 'relative',
       };
+    },
+    numberOfCards() {
+      return Math.ceil(this.paginationFactor / this.minWidthOfNewCard);
+    },
+    cardStyle() {
+      return 'min-width: ' + 100 / this.numberOfCards + '%';
     },
     atEndOfList() {
       return (
         this.currentOffset <=
-        this.paginationFactor * -1 * (this.items.length - this.windowSize)
+        -Math.ceil(this.items.length / this.numberOfCards) *
+          this.paginationFactor +
+          this.paginationFactor
       );
     },
     atHeadOfList() {
@@ -68,12 +104,40 @@ export default {
   },
   methods: {
     moveCarousel(direction) {
-      if (direction === 1 && !this.atEndOfList) {
+      this.paginationFactor = document.getElementById(
+        'carousel-container',
+      ).offsetWidth;
+      if (direction === 1) {
         this.currentOffset -= this.paginationFactor;
+        this.cardsSeen += this.numberOfCards;
       } else if (direction === -1 && !this.atHeadOfList) {
         this.currentOffset += this.paginationFactor;
+        this.cardsSeen -= this.numberOfCards;
       }
+    },
+    handleResize() {
+      let newSection = 0;
+      this.paginationFactor = document.getElementById(
+        'carousel-container',
+      ).offsetWidth;
+      newSection = Math.floor(this.cardsSeen / this.numberOfCards);
+      this.currentOffset = newSection * -this.paginationFactor;
     },
   },
 };
 </script>
+<style scoped>
+#main-container {
+  position: relative;
+}
+
+#left-btn,
+#right-btn {
+  top: 25%;
+  z-index: 500;
+}
+
+#right-btn {
+  right: 0;
+}
+</style>
