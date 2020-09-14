@@ -1,6 +1,6 @@
 <template>
-  <v-card data-testid="card" tile class="card-cinema-card" @click="goToMovie">
-    <v-img class="card-img" v-bind:src="this.filmPoster" />
+  <v-card height="100%" data-testid="card" tile class="card-cinema-card" @click="goToMovie">
+    <v-img height="100%" class="card-img" v-bind:src="this.filmPoster" />
 
     <v-container class="card-footer pa-0">
       <v-card-title class="card-footer-text justify-center">{{this.name}}</v-card-title>
@@ -80,9 +80,11 @@ export default {
 };
 </script>
 <style scoped>
-.card-cinema-card {
-  width: 182px;
-  height: 273px;
+.card-cinema-card:hover {
+  transition: 0.3s ease all;
+  transform: scale(1.05);
+  transform-origin: center;
+  z-index: 10;
 }
 
 .card-cinema-card:hover .card-img {

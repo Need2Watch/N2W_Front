@@ -140,15 +140,4 @@ export default {
 #right-btn {
   right: 0;
 }
-
-.cinema-card {
-  height: auto;
-  transition: 0.3s ease all;
-}
-
-.cinema-card:hover {
-  transform: scale(1.05);
-  transform-origin: center;
-  z-index: 520;
-}
 </style>
