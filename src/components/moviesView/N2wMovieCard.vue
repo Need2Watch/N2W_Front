@@ -41,6 +41,8 @@ import N2wFollowButton from '../buttons/N2wFollowButton.vue';
 import N2wWatchButton from '../buttons/N2wWatchButton.vue';
 import N2wMovieOverview from './N2wMovieOverview';
 import N2wMovieReviews from './N2wMovieReviews';
+import N2wMovieDetails from './N2wMovieDetails';
+import N2wMovieImages from './N2wMovieImages';
 
 export default {
   name: 'N2wMovieCard',
@@ -57,9 +59,9 @@ export default {
     items() {
       return [
         { tab: 'Overview', component: 'N2wMovieOverview' },
-        { tab: 'Trailers & More', component: 'N2wMovieOverview' },
+        { tab: 'Images & More', component: 'N2wMovieImages' },
         { tab: 'Reviews', component: 'N2wMovieReviews' },
-        { tab: 'Details', component: 'N2wMovieReviews' },
+        { tab: 'Details', component: 'N2wMovieDetails' },
       ];
     },
     starCount() {
@@ -86,6 +88,8 @@ export default {
     N2wWatchButton,
     N2wMovieOverview,
     N2wMovieReviews,
+    N2wMovieDetails,
+    N2wMovieImages,
   },
 };
 </script>

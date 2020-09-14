@@ -1,21 +1,19 @@
 <template>
-  <v-container>
-    <v-list color="transparent" three-line>
-      <div v-for="(item, index) in items" :key="index">
-        <v-divider v-if="item.divider" :key="index" :inset="item.inset"></v-divider>
-        <v-list-item v-else :key="item.title">
-          <v-list-item-avatar>
-            <v-img :src="item.avatar"></v-img>
-          </v-list-item-avatar>
+  <v-list max-height="450" class="reviewsList" color="transparent" three-line>
+    <div v-for="(item, index) in items" :key="index">
+      <v-divider v-if="item.divider" :key="index" :inset="item.inset"></v-divider>
+      <v-list-item v-else :key="item.title">
+        <v-list-item-avatar>
+          <v-img :src="item.avatar"></v-img>
+        </v-list-item-avatar>
 
-          <v-list-item-content>
-            <v-list-item-title v-html="item.title"></v-list-item-title>
-            <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-      </div>
-    </v-list>
-  </v-container>
+        <v-list-item-content>
+          <v-list-item-title v-html="item.title"></v-list-item-title>
+          <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+    </div>
+  </v-list>
 </template>
 <script>
 import { mapGetters } from 'vuex';
@@ -75,3 +73,18 @@ export default {
   },
 };
 </script>
+<style scoped>
+.reviewsList {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.reviewsList::-webkit-scrollbar {
+  width: 5px;
+}
+
+.reviewsList::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #fbc500;
+}
+</style>
