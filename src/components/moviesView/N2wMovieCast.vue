@@ -2,7 +2,7 @@
   <v-container>
     <v-list color="transparent" class="castList" max-height="525">
       <v-row class="mx-2">
-        <v-col cols="3" v-for="(member, index) in cast" :key="index">
+        <v-col md="3" sm="4" cols="6" v-for="(member, index) in cast" :key="index">
           <v-card color="n2wgray" class="castCard" :href="member.page" target="_blank" hover>
             <v-img :src="member.image" />
             <v-card-title class="text-body-2" v-text="member.name"></v-card-title>

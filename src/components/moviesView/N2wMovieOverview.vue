@@ -2,16 +2,16 @@
   <v-container>
     <div v-text="this.movie.overview"></div>
     <v-row class="d-flex">
-      <v-col cols="2" class="primary--text text-subtitle">Starring</v-col>
-      <v-col cols="10">Elijah Wood, Sean Astin, Viggo Mortensen</v-col>
+      <v-col md="2" cols="4" class="primary--text text-subtitle">Starring</v-col>
+      <v-col md="10" cols="8">Elijah Wood, Sean Astin, Viggo Mortensen</v-col>
     </v-row>
     <v-row class="d-flex">
-      <v-col cols="2" class="primary--text text-subtitle">Directed by</v-col>
-      <v-col cols="10">Peter Jackson</v-col>
+      <v-col md="2" cols="4" class="primary--text text-subtitle">Directed by</v-col>
+      <v-col md="10" cols="8">Peter Jackson</v-col>
     </v-row>
     <v-row class="d-flex">
-      <v-col cols="2" class="primary--text text-subtitle">Genres</v-col>
-      <v-col cols="10" v-text="this.movieGenres"></v-col>
+      <v-col md="2" cols="4" class="primary--text text-subtitle">Genres</v-col>
+      <v-col md="10" cols="8" v-text="this.movieGenres"></v-col>
     </v-row>
   </v-container>
 </template>
