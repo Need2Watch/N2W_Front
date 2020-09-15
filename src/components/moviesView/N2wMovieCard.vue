@@ -1,48 +1,56 @@
 <template>
-  <v-card data-testid="card" color="secondary" v-bind="$attrs" outlined class="mx-auto">
+  <v-container class="secondary" data-testid="card" fluid fill-height>
     <v-row>
-      <v-col md="3" sm="4" cols="12" class="pt-0 pb-0">
-        <v-img :src="movie.poster_url">
-          <v-row align="start">
-            <v-col cols="1" class="ml-4">
-              <v-icon v-for="n in starCount" :key="n" color="primary">mdi-star</v-icon>
-              <v-icon v-if="ratingIsOdd" color="primary">mdi-star-half</v-icon>
-            </v-col>
-          </v-row>
-        </v-img>
+      <v-spacer />
+      <v-col class="hidden-sm-and-down" md="4">
+        <v-img class="text-center" :src="movie.poster_url" />
       </v-col>
-      <v-col md="9" sm="8" cols="12">
-        <v-card-title class="text-h4" v-text="this.movie.title"></v-card-title>
-        <v-card-subtitle v-text="this.movieGenres"></v-card-subtitle>
-        <v-card-text class="text-h5">{{this.movie.overview}}</v-card-text>
-        <v-card-actions v-if="this.loggedUser.userId" class="movieCardActions">
-          <n2w-follow-button />
-          <n2w-watch-button />
-        </v-card-actions>
+      <v-spacer />
+      <v-col md="7" sm="12">
+        <n2w-movie-info v-if="tab == 0" />
+        <v-tabs class="tabs" background-color="transparent" fixed-tabs v-model="tab">
+          <v-tab v-for="item in items" :key="item.tab">{{ item.tab }}</v-tab>
+        </v-tabs>
+
+        <v-tabs-items class="transparent" v-model="tab">
+          <v-tab-item v-for="item in items" :key="item.tab">
+            <v-card class="transparent" flat>
+              <component :is="item.component" />
+            </v-card>
+          </v-tab-item>
+        </v-tabs-items>
       </v-col>
     </v-row>
-  </v-card>
+  </v-container>
 </template>
 <script>
 import { mapGetters } from 'vuex';
 
-import N2wFollowButton from '../buttons/N2wFollowButton.vue';
-import N2wWatchButton from '../buttons/N2wWatchButton.vue';
+import N2wMovieOverview from './N2wMovieOverview';
+import N2wMovieReviews from './N2wMovieReviews';
+import N2wMovieCast from './N2wMovieCast';
+import N2wMovieMedia from './N2wMovieMedia';
+import N2wMovieInfo from './N2wMovieInfo';
 
 export default {
   name: 'N2wMovieCard',
+  data() {
+    return {
+      tab: 0,
+    };
+  },
   computed: {
     ...mapGetters({
       loggedUser: 'loggedUser/loggedUser',
       movie: 'currentMovie/currentMovie',
     }),
-    starCount() {
-      let starCountArray = parseInt(this.movie.rating / 2);
-      return starCountArray;
-    },
-    ratingIsOdd() {
-      if (this.movie.rating % 2 != 0) return true;
-      return false;
+    items() {
+      return [
+        { tab: 'Overview', component: 'N2wMovieOverview' },
+        { tab: 'Media', component: 'N2wMovieMedia' },
+        { tab: 'Reviews', component: 'N2wMovieReviews' },
+        { tab: 'Cast', component: 'N2wMovieCast' },
+      ];
     },
     movieGenres() {
       let currentMovie = this.$store.getters['currentMovie/currentMovie'];
@@ -53,15 +61,11 @@ export default {
   },
 
   components: {
-    N2wFollowButton,
-    N2wWatchButton,
+    N2wMovieOverview,
+    N2wMovieReviews,
+    N2wMovieCast,
+    N2wMovieMedia,
+    N2wMovieInfo,
   },
 };
 </script>
-<style scoped>
-.movieCardActions {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-</style>

@@ -2,7 +2,7 @@
   <v-container class="pa-0" fill-height fluid>
     <v-row>
       <v-col class="pb-0 pt-0" cols="12">
-        <n2w-movie-card />
+        <n2w-tv-series-card />
       </v-col>
       <v-col class="pb-0 pt-1 pr-0" md="3" cols="4">
         <n2w-seasons-list :seasons="serie.length" @clickedSeason="onClickSeasonList" />
@@ -30,7 +30,7 @@
 import N2wEpisodeList from '../components/tvSeriesView/N2wEpisodesList.vue';
 import N2wEpisodeInfo from '../components/tvSeriesView/N2wEpisodeInfo.vue';
 import N2wSeasonsList from '../components/tvSeriesView/N2wSeasonsList.vue';
-import N2wMovieCard from '../components/moviesView/N2wMovieCard.vue';
+import N2wTvSeriesCard from '../components/tvSeriesView/N2wTvSeriesCard.vue';
 
 export default {
   name: 'TvSeries',
@@ -106,7 +106,7 @@ export default {
     N2wSeasonsList,
     N2wEpisodeList,
     N2wEpisodeInfo,
-    N2wMovieCard,
+    N2wTvSeriesCard,
   },
 };
 </script>

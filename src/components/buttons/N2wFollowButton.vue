@@ -1,10 +1,11 @@
 <template>
   <v-btn
+    v-bind="$attrs"
     v-on:click="followMovie"
     v-if="!this.movie.following"
     class="primary secondary--text"
   >FOLLOW</v-btn>
-  <v-btn v-on:click="unfollowMovie" v-else class="primary secondary--text">FOLLOWING</v-btn>
+  <v-btn v-bind="$attrs" v-on:click="unfollowMovie" v-else class="primary secondary--text">FOLLOWING</v-btn>
 </template>
 <script>
 import axios from 'axios';

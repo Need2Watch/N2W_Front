@@ -1,7 +1,5 @@
 <template>
-  <v-card color="secondary" class="pt-10" height="100%">
-    <n2w-movie-card></n2w-movie-card>
-  </v-card>
+  <n2w-movie-card></n2w-movie-card>
 </template>
 <script lang="ts">
 import axios from 'axios';
