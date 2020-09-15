@@ -11,7 +11,7 @@
 import { mapGetters } from 'vuex';
 
 export default {
-  name: 'N2wMovieImages',
+  name: 'N2wMovieMedia',
   data() {
     return {
       images: [
@@ -25,17 +25,19 @@ export default {
         },
         {
           url:
-            'https://www.denofgeek.com/wp-content/uploads/2020/02/lotrbattledoom_0.jpg',
-        },
-        {
-          url: 'https://i.ytimg.com/vi/rCZ3SN65kIs/maxresdefault.jpg',
+            'https://image.tmdb.org/t/p/original/skVTWsoQvFGLUnOo1Wv3coAsARw.jpg',
         },
         {
           url:
-            'https://www.denofgeek.com/wp-content/uploads/2020/02/lotrbattledoom_0.jpg',
+            'https://image.tmdb.org/t/p/original/29t27rSQel2Ao8I7OwUkUF66RVB.jpg',
         },
         {
-          url: 'https://i.ytimg.com/vi/rCZ3SN65kIs/maxresdefault.jpg',
+          url:
+            'https://image.tmdb.org/t/p/original/ua5EHfleb44L5hfHPs2BPqRAove.jpg',
+        },
+        {
+          url:
+            'https://image.tmdb.org/t/p/original/dUVbWINfRMGojGZRcO6GF1Z2nV8.jpg',
         },
       ],
     };

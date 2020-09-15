@@ -1,17 +1,24 @@
 <template>
   <v-list max-height="450" class="reviewsList" color="transparent" three-line>
     <div v-for="(item, index) in items" :key="index">
-      <v-divider v-if="item.divider" :key="index" :inset="item.inset"></v-divider>
-      <v-list-item v-else :key="item.title">
+      <v-list-item :key="item.title">
         <v-list-item-avatar>
           <v-img :src="item.avatar"></v-img>
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title v-html="item.title"></v-list-item-title>
-          <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
+          <v-list-item-title class="text-h5 font-weight-black">
+            A review by {{item.username}}
+            <v-chip class="mx-2" color="n2wgray">
+              {{item.rating}}
+              <v-icon small right>mdi-star</v-icon>
+            </v-chip>
+          </v-list-item-title>
+          <v-list-item-subtitle>Written by {{item.username}} on {{item.date}}</v-list-item-subtitle>
+          <v-list-item-content v-text="item.review" />
         </v-list-item-content>
       </v-list-item>
+      <v-divider />
     </div>
   </v-list>
 </template>
@@ -25,37 +32,43 @@ export default {
       items: [
         {
           avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-          title: 'Brunch this weekend?',
-          subtitle:
-            "<span class='text--primary'>Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
+          username: 'NeoBrowser',
+          review:
+            'Brooking no argument, history should quickly regard Peter Jackson’s The Fellowship Of The Ring as the first instalment of the best fantasy epic in motion picture history. This statement is worthy of investigation for several reasons.',
+          date: 'July 20, 2013',
+          rating: '10.0',
         },
-        { divider: true, inset: true },
         {
           avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-          title: 'Summer BBQ <span class="grey--text text--lighten-1">4</span>',
-          subtitle:
-            "<span class='text--primary'>to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.",
+          username: 'gdeveloper',
+          review:
+            'An epic movie if I ever saw one. Captivating and just plain fun to watch. This movie is, indeed, art.',
+          date: 'November 20, 2019',
+          rating: '10.0',
         },
-        { divider: true, inset: true },
         {
           avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
-          title: 'Oui oui',
-          subtitle:
-            "<span class='text--primary'>Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?",
+          username: 'Wuchak',
+          review:
+            'This three-hour fantasy features a diverse cast of colorful characters, quaint beings and settings, moments of genuine wonder, dark evil creatures, high adventure, thrilling brutal action, a superb score, magnificent locations (forests, mountains, rivers, etc.), and wondrous CGI sets. The film LOOKS and SOUNDS so great that it’d be sinful to give it a lower rating.',
+          date: 'March 20, 2018',
+          rating: '7.0',
         },
-        { divider: true, inset: true },
         {
           avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
-          title: 'Birthday gift',
-          subtitle:
-            "<span class='text--primary'>Trevor Hansen</span> &mdash; Have any ideas about what we should get Heidi for her birthday?",
+          username: 'LadyGreenEyes',
+          review:
+            'Overall, I give this four stars. Not five, because some of the changes really bug me, as a long-time Tolkien fan, but a solid four.The casting, to start, was brilliant. Sean Astin was the absolute perfect choice for Sam, and did a remarkable job bringing that character to life for us. He really WAS Sam, in this role, in a very deep way. I always liked his acting, but here, he showed how talented he actually is. Just amazing. Elijah Wood gives a great performance of Frodo, and those expressive eyes of his really add a lot of depth to the emotions the',
+          date: 'December 16, 2018',
+          rating: '8.0',
         },
-        { divider: true, inset: true },
         {
           avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
-          title: 'Recipe to try',
-          subtitle:
-            "<span class='text--primary'>Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.",
+          username: 'reneedown',
+          review:
+            'The film LOOKS and SOUNDS so great that it’d be sinful to give it a lower rating. Brooking no argument, history should quickly regard Peter Jackson’s The Fellowship Of The Ring as the first instalment of the best fantasy epic in motion picture history. This statement is worthy of investigation for several reasons.',
+          date: 'August 20, 2020',
+          rating: '10.0',
         },
       ],
     };

@@ -3,11 +3,11 @@
     <div v-text="this.movie.overview"></div>
     <v-row class="d-flex">
       <v-col cols="2" class="primary--text text-subtitle">Starring</v-col>
-      <v-col cols="10">Jim Carrey, Kate Winslet, Mark Ruffalo</v-col>
+      <v-col cols="10">Elijah Wood, Sean Astin, Viggo Mortensen</v-col>
     </v-row>
     <v-row class="d-flex">
       <v-col cols="2" class="primary--text text-subtitle">Directed by</v-col>
-      <v-col cols="10">Michel Gondry</v-col>
+      <v-col cols="10">Peter Jackson</v-col>
     </v-row>
     <v-row class="d-flex">
       <v-col cols="2" class="primary--text text-subtitle">Genres</v-col>

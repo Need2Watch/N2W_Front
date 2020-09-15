@@ -1,21 +1,23 @@
 <template>
   <v-container class="secondary" data-testid="card" fluid fill-height>
     <v-row>
-      <v-col cols="5">
-        <v-img :src="movie.poster_url" />
+      <v-spacer />
+      <v-col cols="4">
+        <v-img class="text-center" :src="movie.poster_url" />
       </v-col>
+      <v-spacer />
       <v-col cols="7">
-        <v-col class="d-flex align-center" cols="12">
+        <v-col v-if="tab == 0" class="d-flex align-center" cols="12">
           <v-col cols="10">
             <div class="text-h4" v-text="this.movie.title"></div>
-            <div class="text-subtitle-1 grey--text mt-2">2018 - 2 h 23 min - 16+</div>
+            <div class="text-subtitle-1 grey--text mt-2">2001 - 2 h 58 min - 13+</div>
           </v-col>
           <v-col class="d-flex align-center" cols="2">
             <div class="text-h4" v-text="this.movie.rating" />
             <v-icon size="35" color="primary">mdi-star</v-icon>
           </v-col>
         </v-col>
-        <v-tabs background-color="transparent" fixed-tabs v-model="tab">
+        <v-tabs class="tabs" background-color="transparent" fixed-tabs v-model="tab">
           <v-tab v-for="item in items" :key="item.tab">{{ item.tab }}</v-tab>
         </v-tabs>
 
@@ -41,8 +43,8 @@ import N2wFollowButton from '../buttons/N2wFollowButton.vue';
 import N2wWatchButton from '../buttons/N2wWatchButton.vue';
 import N2wMovieOverview from './N2wMovieOverview';
 import N2wMovieReviews from './N2wMovieReviews';
-import N2wMovieDetails from './N2wMovieDetails';
-import N2wMovieImages from './N2wMovieImages';
+import N2wMovieCast from './N2wMovieCast';
+import N2wMovieMedia from './N2wMovieMedia';
 
 export default {
   name: 'N2wMovieCard',
@@ -59,9 +61,9 @@ export default {
     items() {
       return [
         { tab: 'Overview', component: 'N2wMovieOverview' },
-        { tab: 'Images & More', component: 'N2wMovieImages' },
+        { tab: 'Media', component: 'N2wMovieMedia' },
         { tab: 'Reviews', component: 'N2wMovieReviews' },
-        { tab: 'Details', component: 'N2wMovieDetails' },
+        { tab: 'Cast', component: 'N2wMovieCast' },
       ];
     },
     starCount() {
@@ -88,8 +90,8 @@ export default {
     N2wWatchButton,
     N2wMovieOverview,
     N2wMovieReviews,
-    N2wMovieDetails,
-    N2wMovieImages,
+    N2wMovieCast,
+    N2wMovieMedia,
   },
 };
 </script>
