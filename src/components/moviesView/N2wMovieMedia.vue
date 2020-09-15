@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-list color="transparent" class="imageList" max-height="540">
+    <v-list color="transparent" class="imageList" max-height="525">
       <v-row class="mx-2" align="center" justify="center">
         <v-col class="d-flex" cols="6" v-for="(image,index) in images" :key="index">
           <v-img :src="image.url" />

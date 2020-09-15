@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-list max-height="540" class="reviewsList" color="transparent" three-line>
+    <v-list max-height="525" class="reviewsList" color="transparent" three-line>
       <div v-for="(item, index) in items" :key="index">
         <v-list-item :key="item.title">
           <v-list-item-avatar>
