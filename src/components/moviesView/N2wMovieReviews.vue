@@ -1,26 +1,28 @@
 <template>
-  <v-list max-height="450" class="reviewsList" color="transparent" three-line>
-    <div v-for="(item, index) in items" :key="index">
-      <v-list-item :key="item.title">
-        <v-list-item-avatar>
-          <v-img :src="item.avatar"></v-img>
-        </v-list-item-avatar>
+  <v-container>
+    <v-list max-height="540" class="reviewsList" color="transparent" three-line>
+      <div v-for="(item, index) in items" :key="index">
+        <v-list-item :key="item.title">
+          <v-list-item-avatar>
+            <v-img :src="item.avatar"></v-img>
+          </v-list-item-avatar>
 
-        <v-list-item-content>
-          <v-list-item-title class="text-h5 font-weight-black">
-            A review by {{item.username}}
-            <v-chip class="mx-2" color="n2wgray">
-              {{item.rating}}
-              <v-icon small right>mdi-star</v-icon>
-            </v-chip>
-          </v-list-item-title>
-          <v-list-item-subtitle>Written by {{item.username}} on {{item.date}}</v-list-item-subtitle>
-          <v-list-item-content v-text="item.review" />
-        </v-list-item-content>
-      </v-list-item>
-      <v-divider />
-    </div>
-  </v-list>
+          <v-list-item-content>
+            <v-list-item-title class="text-h5 font-weight-black">
+              A review by {{item.username}}
+              <v-chip class="mx-2" color="n2wgray">
+                {{item.rating}}
+                <v-icon small right>mdi-star</v-icon>
+              </v-chip>
+            </v-list-item-title>
+            <v-list-item-subtitle>Written by {{item.username}} on {{item.date}}</v-list-item-subtitle>
+            <v-list-item-content v-text="item.review" />
+          </v-list-item-content>
+        </v-list-item>
+        <v-divider />
+      </div>
+    </v-list>
+  </v-container>
 </template>
 <script>
 import { mapGetters } from 'vuex';

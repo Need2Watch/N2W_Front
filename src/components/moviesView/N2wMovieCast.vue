@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-list color="transparent" class="castList" max-height="450">
+    <v-list color="transparent" class="castList" max-height="540">
       <v-row class="mx-2">
         <v-col cols="3" v-for="(member, index) in cast" :key="index">
           <v-card color="n2wgray" class="castCard" :href="member.page" target="_blank" hover>

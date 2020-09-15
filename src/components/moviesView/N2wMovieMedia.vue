@@ -1,11 +1,13 @@
 <template>
-  <v-list color="transparent" class="imageList" max-height="450">
-    <v-row class="pa-6" align="center" justify="center">
-      <v-col class="d-flex" cols="6" v-for="(image,index) in images" :key="index">
-        <v-img width="50%" :src="image.url" />
-      </v-col>
-    </v-row>
-  </v-list>
+  <v-container>
+    <v-list color="transparent" class="imageList" max-height="540">
+      <v-row class="mx-2" align="center" justify="center">
+        <v-col class="d-flex" cols="6" v-for="(image,index) in images" :key="index">
+          <v-img :src="image.url" />
+        </v-col>
+      </v-row>
+    </v-list>
+  </v-container>
 </template>
 <script>
 import { mapGetters } from 'vuex';
