@@ -88,7 +88,7 @@ export default {
       return Math.ceil(this.paginationFactor / this.minWidthOfNewCard);
     },
     cardStyle() {
-      return 'min-width: ' + 100 / this.numberOfCards + '%';
+      return 'min-width: ' + 100 / this.numberOfCards + '%' + '; max-width: ' + this.paginationFactor/this.numberOfCards + 'px';
     },
     atEndOfList() {
       return (
