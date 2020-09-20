@@ -2,7 +2,7 @@
   <div class="home fill-height">
     <v-container fill-height fluid>
       <v-row justify="center" align="center">
-        <v-col class="d-flex flex-column align-center" md="8" cols="12">
+        <v-col class="d-flex flex-column align-center" lg="12" md="8" cols="12">
           <v-img max-width="70%" src="../assets/img/logo-extended.png"></v-img>
           <div class="text-h5 font-weight-black">Control your movie night schedule</div>
         </v-col>
@@ -16,10 +16,12 @@
             target="_blank"
           >JOIN NEED2WATCH FOR FREE</v-btn>
         </v-col>
+        <v-spacer />
         <v-col align-self="center" md="6" cols="12">
           <v-card>
             <v-carousel
               height="350px"
+              width="600px"
               hide-delimiters
               cycle
               hide-delimiter-background
@@ -34,6 +36,7 @@
             </v-carousel>
           </v-card>
         </v-col>
+        <v-spacer />
       </v-row>
     </v-container>
     <v-footer app color="primary" class="secondary--text">

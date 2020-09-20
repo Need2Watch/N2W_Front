@@ -207,12 +207,22 @@ export default {
             country: this.country,
             city: this.city,
           })
-          .then(function (response) {
-            let user = response.data;
-            previousThis.$store.dispatch('loggedUser/loadUser', user);
-            previousThis.$router.push('/');
+          .then(() => {
+            axios
+              .post('http://127.0.0.1:5000/users/login', {
+                email: this.email,
+                password: this.password,
+              })
+              .then((response) => {
+                let user = response.data;
+                previousThis.$store.dispatch('loggedUser/loadUser', user);
+                previousThis.$router.push('/');
+              })
+              .catch((error) => {
+                console.log(error);
+              });
           })
-          .catch(function (error) {
+          .catch((error) => {
             console.log(error);
           });
       }
