@@ -2,7 +2,7 @@ import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils';
 import Vuetify from 'vuetify';
 import Vuex from 'vuex';
 import store from '@/store/index';
-import N2wSideBar from '../N2wSideBar.vue';
+import N2wSideBar from '../N2wNavBar/N2wSideBar.vue';
 
 export interface sideBarItem {
   id: string;

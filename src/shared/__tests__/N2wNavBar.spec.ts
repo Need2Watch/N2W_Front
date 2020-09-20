@@ -2,9 +2,9 @@ import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils';
 import Vuetify from 'vuetify';
 import Vuex from 'vuex';
 import store from '@/store/index';
-import N2wNavBar from '../N2wNavBar.vue';
-import N2wSearchBar from '../N2wSearchBar.vue';
-import N2wUserMenu from '../N2wUserMenu.vue';
+import N2wNavBar from '../N2wNavBar/N2wNavBar.vue';
+import N2wSearchBar from '../N2wNavBar/N2wSearchBar.vue';
+import N2wUserMenu from '../N2wNavBar/N2wUserMenu.vue';
 
 export interface navBarItem {
   id: string;

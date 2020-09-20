@@ -8,7 +8,18 @@ describe('N2wCarousel.vue', () => {
   let localVue;
   let vuetify;
   let wrapper: any;
-  let carouselItems: Array<Movie> = [];
+  let carouselItems: Array<Movie> = [
+    {
+      following: false,
+      genres: [],
+      movie_id: 0,
+      overview: 'test',
+      poster_url: 'test',
+      rating: 0,
+      title: 'test',
+      watched: false,
+    },
+  ];
   beforeEach(() => {
     localVue = createLocalVue();
     localVue.use(Vuex);
@@ -23,18 +34,6 @@ describe('N2wCarousel.vue', () => {
     });
   });
   it('should render the Carousel', () => {
-    const carouselItems = [
-      {
-        following: false,
-        genres: [],
-        movie_id: 0,
-        overview: '',
-        poster_url: '',
-        rating: 0,
-        title: '',
-        watched: false,
-      },
-    ];
     expect(wrapper.find('[data-testid="carousel"]').exists()).toBe(true);
   });
 });

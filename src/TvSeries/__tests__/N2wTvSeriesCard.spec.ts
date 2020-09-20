@@ -2,7 +2,7 @@ import { mount, createLocalVue } from '@vue/test-utils';
 import Vuetify from 'vuetify';
 import Vuex from 'vuex';
 import store from '@/store/index';
-import N2wTvSeriesCard from './N2wTvSeriesCard.vue';
+import N2wTvSeriesCard from '../N2wTvSeriesCard/N2wTvSeriesCard.vue';
 describe('N2wTvSeriesCard.vue', () => {
   let localVue;
   let vuetify;

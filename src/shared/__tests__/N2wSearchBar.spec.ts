@@ -3,7 +3,7 @@ import Vuetify from 'vuetify';
 import Vuex from 'vuex';
 import Router from 'vue-router';
 import store from '@/store/index';
-import N2wSearchBar from '../N2wSearchBar.vue';
+import N2wSearchBar from '../N2wNavBar/N2wSearchBar.vue';
 describe('N2wSearchBar.vue', () => {
   let localVue;
   let vuetify;

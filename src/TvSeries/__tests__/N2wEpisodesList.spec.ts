@@ -1,6 +1,6 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import Vuetify from 'vuetify';
-import N2wEpisodesList from './N2wEpisodesList.vue';
+import N2wEpisodesList from '../N2wTvSeriesCard/N2wEpisodesList.vue';
 
 describe('N2wEpisodesList.vue', () => {
   let localVue;
