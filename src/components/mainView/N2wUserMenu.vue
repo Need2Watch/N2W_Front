@@ -1,6 +1,6 @@
 <template>
-  <v-menu data-testid="user-menu" v-if="this.loggedUser.userId" offset-y>
-    <template v-slot:activator="{ on }" v-bind:loggedUser="this.loggedUser">
+  <v-menu data-testid="user-menu" v-if="loggedUser.userId" offset-y>
+    <template v-slot:activator="{ on }" v-bind:loggedUser="loggedUser">
       <v-btn color="transparent" tile depressed height="100%" v-on="on" class="hidden-md-and-down">
         <v-avatar size="40" class="mr-3">
           <v-img :src="loggedUser.profilePicture"></v-img>

@@ -40,16 +40,16 @@ export default {
     submitForm() {
       const previousThis = this;
       axios
-        .post('http://127.0.0.1:5000/auth/login', {
+        .post('http://127.0.0.1:5000/users/login', {
           email: this.email,
           password: this.password,
         })
-        .then(function (response) {
+        .then((response) => {
           let user = response.data;
           previousThis.$store.dispatch('loggedUser/loadUser', user);
           previousThis.$router.push('/');
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(error);
         });
     },
