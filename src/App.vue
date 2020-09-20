@@ -10,7 +10,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import N2wNavBar from './components/mainView/N2wNavBar.vue';
+import N2wNavBar from './shared/N2wNavBar/N2wNavBar.vue';
 
 @Component({
   components: { N2wNavBar },

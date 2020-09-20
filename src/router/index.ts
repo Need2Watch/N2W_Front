@@ -1,6 +1,17 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
+import Home from '../Home/Home.vue';
+import Search from '../Search/Search.vue';
+import SingIn from '../LoginRegister/SignIn.vue';
+import SignUp from '../LoginRegister/SignUp.vue';
+import ContactUs from '../Contact/ContactUs.vue';
+import ContactUsSuccess from '../Contact/ContactUsSuccess.vue';
+import Calendar from '../Calendar/Calendar.vue';
+import Movies from '../Movies/Movies.vue';
+import Movie from '../Movies/Movie.vue';
+import Profile from '../Profile/Profile.vue';
+import EditProfile from '../Profile/EditProfile.vue';
+import TvSeries from '../TvSeries/TvSeries.vue';
 
 Vue.use(VueRouter);
 
@@ -16,8 +27,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/Search.vue'),
+    component: Search,
   },
   {
     path: '/signUp',
@@ -25,8 +35,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/SignUp.vue'),
+    component: SignUp,
   },
   {
     path: '/signIn',
@@ -34,8 +43,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/SignIn.vue'),
+    component: SingIn,
   },
   {
     path: '/contactUsSuccess',
@@ -43,8 +51,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/ContactUsSuccess.vue'),
+    component: ContactUsSuccess,
   },
   {
     path: '/contactUs',
@@ -52,44 +59,37 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/ContactUs.vue'),
+    component: ContactUs,
   },
   {
     path: '/calendar',
     name: 'Calendar',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/Calendar.vue'),
+    component: Calendar,
   },
   {
     path: '/movies',
     name: 'Movies',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/Movies.vue'),
+    component: Movies,
   },
   {
     path: '/movie',
     name: 'Movie',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/Movie.vue'),
+    component: Movie,
   },
   {
     path: '/profile',
     name: 'Profile',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/Profile.vue'),
+    component: Profile,
   },
   {
     path: '/editProfile',
     name: 'EditProfile',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/EditProfile.vue'),
+    component: EditProfile,
   },
   {
     path: '/tvSeries',
     name: 'TvSeries',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/TvSeries.vue'),
+    component: TvSeries,
   },
 ];
 
