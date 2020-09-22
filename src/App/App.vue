@@ -1,5 +1,5 @@
 <template>
-  <v-app id="app">
+  <v-app class="n2wgray" id="app">
     <n2w-nav-bar sidebar="true" />
     <v-main>
       <router-view />
@@ -19,11 +19,7 @@ export default class App extends Vue {}
 </script>
 <style>
 #app {
-  background: linear-gradient(
-    0deg,
-    rgba(27, 38, 54, 1) 0%,
-    rgba(32, 62, 104, 1) 100%
-  ) !important;
+  background-color: #1b2636;
 }
 
 .v-toolbar__content {

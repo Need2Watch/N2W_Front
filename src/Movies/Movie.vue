@@ -1,15 +1,15 @@
 <template>
-  <n2w-movie-card></n2w-movie-card>
+  <media-content-card></media-content-card>
 </template>
 <script lang="ts">
 import axios from 'axios';
-import N2wMovieCard from './N2wMovieCard/N2wMovieCard.vue';
+import MediaContentCard from '../shared/MediaContentCard/MediaContentCard.vue';
 import { Component, Vue } from 'vue-property-decorator';
 import { mapGetters } from 'vuex';
 
 @Component({
   components: {
-    N2wMovieCard,
+    MediaContentCard,
   },
   computed: {
     ...mapGetters({

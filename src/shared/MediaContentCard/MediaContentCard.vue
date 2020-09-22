@@ -7,7 +7,7 @@
       </v-col>
       <v-spacer />
       <v-col md="7" sm="12">
-        <n2w-movie-info v-if="tab == 0" />
+        <info v-if="tab == 0" />
         <v-tabs class="tabs" background-color="transparent" fixed-tabs v-model="tab">
           <v-tab v-for="item in items" :key="item.tab">{{ item.tab }}</v-tab>
         </v-tabs>
@@ -26,14 +26,21 @@
 <script>
 import { mapGetters } from 'vuex';
 
-import N2wMovieOverview from './N2wMovieOverview';
-import N2wMovieReviews from './N2wMovieReviews';
-import N2wMovieCast from './N2wMovieCast';
-import N2wMovieMedia from './N2wMovieMedia';
-import N2wMovieInfo from './N2wMovieInfo';
+import Overview from './Overview';
+import Reviews from './Reviews';
+import Cast from './Cast';
+import Media from './Media';
+import Info from './Info';
 
 export default {
-  name: 'N2wMovieCard',
+  name: 'Card',
+  components: {
+    Overview,
+    Reviews,
+    Cast,
+    Media,
+    Info,
+  },
   data() {
     return {
       tab: 0,
@@ -46,10 +53,10 @@ export default {
     }),
     items() {
       return [
-        { tab: 'Overview', component: 'N2wMovieOverview' },
-        { tab: 'Media', component: 'N2wMovieMedia' },
-        { tab: 'Reviews', component: 'N2wMovieReviews' },
-        { tab: 'Cast', component: 'N2wMovieCast' },
+        { tab: 'Overview', component: 'Overview' },
+        { tab: 'Media', component: 'Media' },
+        { tab: 'Reviews', component: 'Reviews' },
+        { tab: 'Cast', component: 'Cast' },
       ];
     },
     movieGenres() {
@@ -58,14 +65,6 @@ export default {
       let genresNames = movieGenres.map((genre) => genre.name);
       return genresNames.join(', ');
     },
-  },
-
-  components: {
-    N2wMovieOverview,
-    N2wMovieReviews,
-    N2wMovieCast,
-    N2wMovieMedia,
-    N2wMovieInfo,
   },
 };
 </script>

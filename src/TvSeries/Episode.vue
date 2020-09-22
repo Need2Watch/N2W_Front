@@ -1,18 +1,21 @@
 <template>
-  <v-container data-testid="episode-info" class="secondary" fill-height>
-    <v-row class="fill-height">
-      <v-col>
+  <v-card class="secondary ma-4" data-testid="episode-info">
+    <v-row no-gutters align="center">
+      <v-col cols="3">
+        <v-img height="100%" :src="this.image"></v-img>
+      </v-col>
+      <v-col cols="9">
         <v-card-title>{{this.title}}</v-card-title>
         <v-card-subtitle>Season {{this.season}}, Episode {{this.episode}}</v-card-subtitle>
         <v-card-text>{{this.description}}</v-card-text>
       </v-col>
     </v-row>
-  </v-container>
+  </v-card>
 </template>
 
 <script>
 export default {
-  name: 'N2wEpisodeInfo',
+  name: 'Episode',
   props: {
     title: {
       type: String,
@@ -27,6 +30,10 @@ export default {
       required: true,
     },
     description: {
+      type: String,
+      required: true,
+    },
+    image: {
       type: String,
       required: true,
     },
