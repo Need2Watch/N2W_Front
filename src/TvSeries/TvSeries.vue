@@ -2,16 +2,27 @@
   <div>
     <media-content-card />
     <v-container fluid class="mt-4 secondary">
-      <season-selector :seasons="serie.length" @clickedSeason="onClickSeasonList" />
+      <v-row>
+        <v-col cols="6">
+          <season-selector :seasons="serie.length" @clickedSeason="onClickSeasonList" />
+        </v-col>
+        <v-col cols="6">
+          <v-btn outlined color="n2wwhite" v-on:click="markSeasonAsSeen">
+            MARK SEASON AS SEEN
+            <v-icon class="ml-2">mdi-eye-off</v-icon>
+          </v-btn>
+        </v-col>
+      </v-row>
     </v-container>
     <episode
-      v-for="(episode, index) in serie[selectedSeason-1]"
-      :key="episode"
+      v-for="(episode,index) in serie[selectedSeason-1]"
+      :key="episode.title"
       :title="episode.title"
       :season="selectedSeason"
       :description="episode.description"
       :episode="index+1"
       :image="episode.image"
+      :seen="episode.seen"
     />
   </div>
 </template>
@@ -48,7 +59,7 @@ export default {
           },
           {
             title: 'The Unquiet Dead',
-            seen: true,
+            seen: false,
             description: 'Esta es una descripcion to rechulona',
             image:
               'https://image.tmdb.org/t/p/w227_and_h127_bestv2/l3oSyFTBXYVSRMNXBEC2u40Jw60.jpg',
@@ -141,6 +152,11 @@ export default {
   methods: {
     onClickSeasonList(season) {
       this.selectedSeason = season;
+    },
+    markSeasonAsSeen() {
+      this.serie[this.selectedSeason - 1].map(
+        (episode) => (episode.seen = true),
+      );
     },
   },
 };

@@ -2,15 +2,15 @@
   <v-row data-testid="seasons-list" justify="space-around">
     <v-menu transition="slide-y-transition" bottom>
       <template v-slot:activator="{ on, attrs }">
-        <v-btn outlined color="primary" dark v-bind="attrs" v-on="on">
+        <v-btn outlined color="primary" v-bind="attrs" v-on="on">
           Season {{selectedSeason}}
           <v-icon class="ml-4">mdi-chevron-down</v-icon>
         </v-btn>
       </template>
       <v-list color="secondary">
         <v-list-item
-          v-for="(season, i) in this.seasons"
-          :key="i"
+          v-for="season in this.seasons"
+          :key="season"
           @click="updateSelectedSeason(season)"
         >
           <v-list-item-title>Season {{ season }}</v-list-item-title>
