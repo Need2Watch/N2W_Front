@@ -5,7 +5,9 @@
         <v-img :src="movie.poster_url">
           <v-row align="start">
             <v-col cols="1" class="ml-4">
-              <v-icon v-for="n in starCount" :key="n" color="primary">mdi-star</v-icon>
+              <v-icon v-for="n in starCount" :key="n" color="primary"
+                >mdi-star</v-icon
+              >
               <v-icon v-if="ratingIsOdd" color="primary">mdi-star-half</v-icon>
             </v-col>
           </v-row>
@@ -14,10 +16,11 @@
       <v-col md="9" sm="8" cols="12">
         <v-card-title class="text-h4" v-text="this.movie.title"></v-card-title>
         <v-card-subtitle v-text="this.movieGenres"></v-card-subtitle>
-        <v-card-text class="text-h5">{{this.movie.overview}}</v-card-text>
+        <v-card-text class="text-h5">{{ this.movie.overview }}</v-card-text>
         <v-card-actions class="justify-end" v-if="this.loggedUser.userId">
-          <n2w-follow-button />
-          <n2w-watch-button />
+          <n2w-schedule-button v-if="loggedUser.userId" />
+          <n2w-follow-button v-if="loggedUser.userId" class="ml-2" />
+          <n2w-watch-button v-if="loggedUser.userId" />
         </v-card-actions>
       </v-col>
     </v-row>
@@ -26,6 +29,7 @@
 <script>
 import { mapGetters } from 'vuex';
 
+import N2wScheduleButton from '../../shared/N2wButtons/N2wScheduleButton.vue';
 import N2wFollowButton from '../../shared/N2wButtons/N2wFollowButton.vue';
 import N2wWatchButton from '../../shared/N2wButtons/N2wWatchButton.vue';
 
@@ -53,6 +57,7 @@ export default {
   },
 
   components: {
+    N2wScheduleButton,
     N2wFollowButton,
     N2wWatchButton,
   },

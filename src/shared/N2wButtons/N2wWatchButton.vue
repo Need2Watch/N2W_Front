@@ -1,5 +1,10 @@
 <template>
-  <v-btn v-bind="$attrs" v-on:click="watchMovie" v-if="!this.movie.watched" color="n2wblue">
+  <v-btn
+    v-bind="$attrs"
+    v-on:click="watchMovie"
+    v-if="!this.movie.watched"
+    color="n2wblue"
+  >
     <v-icon>mdi-eye</v-icon>
   </v-btn>
   <v-btn v-bind="$attrs" v-on:click="unwatchMovie" v-else color="n2wblue">
