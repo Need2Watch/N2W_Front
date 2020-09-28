@@ -6,32 +6,20 @@
       >
     </template>
 
-    <v-card>
-      <v-row>
-        <v-card-title primary-title
-          >How many episodes would you like to see per day?</v-card-title
-        >
-      </v-row>
-      <v-row> </v-row>
-      <v-row> </v-row>
-      <v-row> </v-row>
-      <v-row> </v-row>
-      <v-card-text>
-        <p>You would catch up 25th June 2020</p>
-      </v-card-text>
-
-      <v-card-actions>
-        <v-btn color="primary" text @click="dialog = false">Close</v-btn>
-      </v-card-actions>
-    </v-card>
+    <n2w-scheduler />
   </v-dialog>
 </template>
 
 <script>
+import N2wScheduler from '../../TvSeries/N2wScheduler';
+
 export default {
   name: 'N2wScheduleButton',
   data: () => ({
     dialog: false,
   }),
+  components: {
+    N2wScheduler,
+  },
 };
 </script>
