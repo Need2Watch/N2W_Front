@@ -8,7 +8,11 @@
       </v-col>
       <v-col md="4" cols="12">
         <v-form @submit.prevent="submitForm">
-          <v-text-field label="First Name" v-model="firstName" required></v-text-field>
+          <v-text-field
+            label="First Name"
+            v-model="firstName"
+            required
+          ></v-text-field>
           <v-text-field label="Last Name" v-model="lastName"></v-text-field>
           <v-text-field label="Username" v-model="username"></v-text-field>
           <v-text-field label="City" v-model="city"></v-text-field>
@@ -20,7 +24,9 @@
             item-text="countryName"
             label="Country"
           />
-          <v-btn class="primary secondary--text" type="submit">Save Profile</v-btn>
+          <v-btn class="primary secondary--text" type="submit"
+            >Save Profile</v-btn
+          >
         </v-form>
       </v-col>
     </v-row>
@@ -51,18 +57,27 @@ export default {
       const previousThis = this;
       axios
         .put('http://127.0.0.1:5000/users/' + this.loggedUser.userId, {
-          user_id: this.loggedUser.userId,
           username: this.username,
-          password: this.loggedUser.password,
           first_name: this.firstName,
           last_name: this.lastName,
-          email: this.loggedUser.email,
           country: this.country,
           city: this.city,
         })
-        .then(function (response) {
-          let user = response.data;
-          previousThis.$store.dispatch('loggedUser/loadUser', user);
+        .then(() => {
+          console.log(previousThis.loggedUser.userId);
+          let updatedUser = {
+            user_id: previousThis.loggedUser.userId,
+            username: previousThis.username,
+            password: previousThis.loggedUser.password,
+            email: previousThis.loggedUser.email,
+            profile_picture: previousThis.loggedUser.profilePicture,
+            first_name: previousThis.firstName,
+            last_name: previousThis.lastName,
+            country: previousThis.country,
+            city: previousThis.city,
+          };
+          console.log(updatedUser);
+          previousThis.$store.dispatch('loggedUser/loadUser', updatedUser);
           previousThis.$router.push('/profile');
         })
         .catch(function (error) {

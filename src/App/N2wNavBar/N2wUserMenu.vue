@@ -1,11 +1,18 @@
 <template>
-  <v-menu data-testid="user-menu" v-if="loggedUser.userId" offset-y>
+  <v-menu data-testid="user-menu" v-if="this.loggedUser.userId" offset-y>
     <template v-slot:activator="{ on }" v-bind:loggedUser="loggedUser">
-      <v-btn color="transparent" tile depressed height="100%" v-on="on" class="hidden-md-and-down">
+      <v-btn
+        color="transparent"
+        tile
+        depressed
+        height="100%"
+        v-on="on"
+        class="hidden-md-and-down"
+      >
         <v-avatar size="40" class="mr-3">
           <v-img :src="loggedUser.profilePicture"></v-img>
         </v-avatar>
-        <v-list-item-title>{{loggedUser.username}}</v-list-item-title>
+        <v-list-item-title>{{ loggedUser.username }}</v-list-item-title>
         <v-icon>mdi-chevron-down</v-icon>
       </v-btn>
     </template>
@@ -15,7 +22,8 @@
         :key="item.title"
         :to="item.path"
         :id="item.id"
-      >{{item.title}}</v-list-item>
+        >{{ item.title }}</v-list-item
+      >
       <v-btn tile color="red" width="100%" @click="logOut">Logout</v-btn>
     </v-list>
   </v-menu>
